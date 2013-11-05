@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="cb_bluetooth" />
+		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -31,9 +32,1270 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../../sources/ChibiOS-RT/boards/ST_STM32F4_DISCOVERY/board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/boards/ST_STM32F4_DISCOVERY/board.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/fs/fatfs/fatfs_fsimpl.cpp" />
+		<Unit filename="../../sources/ChibiOS-RT/os/fs/fatfs/fatfs_fsimpl.hpp" />
+		<Unit filename="../../sources/ChibiOS-RT/os/fs/fs.hpp" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/adc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/can.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/dac.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/ext.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/gpt.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/hal.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/i2c.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/i2s.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/icu.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/io_block.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/io_channel.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/mac.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/mii.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/mmc_spi.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/mmcsd.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/pal.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/pwm.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/rtc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/sdc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/serial.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/serial_usb.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/spi.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/tm.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/uart.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/include/usb.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7A3.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7S128.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7S256.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7S512.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7S64.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7X128.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7X256.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/AT91SAM7X512.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/aic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91lib/aic.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91sam7.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91sam7_mii.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/at91sam7_mii.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/mac_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/mac_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AT91SAM7/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/avr_pins.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/avr_timers.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/AVR/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/LPC11Uxx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11Uxx/system_LPC11Uxx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/LPC11xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC11xx/system_LPC11xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/LPC122x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/rtc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/rtc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC122x/system_LPC122x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/LPC13xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC13xx/system_LPC13xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/lpc214x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/vic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC214x/vic.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/LPC8xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/LPC8xx/system_LPC8xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/MSP430/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/console.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Posix/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560BCxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560BCxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560BCxx/spc560bc_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560BCxx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560BCxx/xpc560bc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Dxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Dxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Dxx/spc560d_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Dxx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Dxx/xpc560d.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Pxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Pxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Pxx/spc560p_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Pxx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC560Pxx/xpc560p.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC563Mxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC563Mxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC563Mxx/spc563m_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC563Mxx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC563Mxx/xpc563m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC564Axx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC564Axx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC564Axx/spc564a_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC564Axx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC564Axx/xpc564a.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC56ELxx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC56ELxx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC56ELxx/spc56el_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC56ELxx/typedefs.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC56ELxx/xpc56el.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/DSPI_v1/spc5_dspi.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/DSPI_v1/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/DSPI_v1/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/EDMA_v1/spc5_edma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/EDMA_v1/spc5_edma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/EQADC_v1/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/EQADC_v1/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/ESCI_v1/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/ESCI_v1/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexCAN_v1/can_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexCAN_v1/can_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexCAN_v1/spc5_flexcan.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexPWM_v1/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexPWM_v1/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/FlexPWM_v1/spc5_flexpwm.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/LINFlex_v1/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/LINFlex_v1/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/LINFlex_v1/spc5_linflex.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/SIUL_v1/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/SIUL_v1/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/SIU_v1/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/SIU_v1/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/spc5_emios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS200_v1/spc5_emios.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/spc5_emios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eMIOS_v1/spc5_emios.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eTimer_v1/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eTimer_v1/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/SPC5xx/eTimer_v1/spc5_etimer.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/GPIOv1/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/GPIOv1/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/GPIOv2/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/GPIOv2/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/I2Cv1/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/I2Cv1/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/I2Cv2/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/I2Cv2/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/OTGv1/stm32_otg.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/OTGv1/usb_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/OTGv1/usb_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/RTCv1/rtc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/RTCv1/rtc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/RTCv2/rtc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/RTCv2/rtc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/SPIv1/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/SPIv1/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/SPIv2/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/SPIv2/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/TIMv1/stm32_tim.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv1/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv1/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv1/uart_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv1/uart_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv2/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv2/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv2/uart_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USARTv2/uart_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USBv1/stm32_usb.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USBv1/usb_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/USBv1/usb_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/can_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/can_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/i2s_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/i2s_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/mac_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/mac_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/sdc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/sdc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32/stm32.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F0xx/stm32f0xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/hal_lld_f100.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/hal_lld_f103.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/hal_lld_f105_f107.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F1xx/stm32f10x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F30x/stm32f30x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32_registry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F37x/stm32f37x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32f2xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32F4xx/stm32f4xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/ext_lld_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/ext_lld_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/stm32_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/stm32_dma.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/stm32_isr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/stm32_rcc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM32L1xx/stm32l1xx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/hal_lld_stm8l_hd.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/hal_lld_stm8l_md.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/hal_lld_stm8l_mdp.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/shared_isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8L/stm8l15x.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/stm8s.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/STM8S/stm8s_type.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/console.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/platforms/Win32/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/can.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/dac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/ext.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/gpt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/hal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/i2s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/icu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/mac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/mmc_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/mmcsd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/pal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/pwm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/sdc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/serial.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/serial_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/tm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/src/usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/adc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/adc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/can_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/can_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/dac_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/dac_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/ext_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/ext_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/gpt_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/gpt_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/hal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/hal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/halconf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/i2c_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/i2c_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/icu_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/icu_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/mac_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/mac_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/mcuconf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/meta/driver.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/meta/driver.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/meta/driver_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/meta/driver_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/pal_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/pal_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/pwm_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/pwm_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/sdc_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/sdc_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/serial_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/serial_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/spi_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/spi_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/uart_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/uart_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/usb_lld.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/hal/templates/usb_lld.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/ch.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chbsem.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chcond.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chdebug.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chdynamic.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chevents.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chfiles.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chheap.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chinline.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chlists.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chmboxes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chmemcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chmempools.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chmsg.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chmtx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chqueues.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chregistry.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chschd.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chsem.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chstreams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chsys.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chthreads.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/include/chvt.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chcond.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chdebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chdynamic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chevents.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chheap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chlists.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chmboxes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chmemcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chmempools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chmsg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chmtx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chqueues.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chregistry.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chschd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chsem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chsys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chthreads.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/src/chvt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/templates/chconf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/templates/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/templates/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/kernel/templates/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/AT91SAM7/armparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/AT91SAM7/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/AT91SAM7/wfi.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/LPC214x/armparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/LPC214x/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/LPC214x/wfi.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/chcoreasm.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARM/crt0.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC11xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC11xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC122x/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC122x/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC13xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC13xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC8xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/LPC8xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/SAM4L/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/SAM4L/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F0xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F0xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F1xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F2xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F2xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F3xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F3xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F4xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32F4xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32L1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/STM32L1xx/vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore_v6m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore_v6m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore_v7m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chcore_v7m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/ARMCMx/crt0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/AVR/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/AVR/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/AVR/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/MSP430/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/MSP430/chcoreasm.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/MSP430/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560BCxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560BCxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560BCxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560BCxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560BCxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Bxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Bxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Bxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Bxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Bxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Dxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Dxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Dxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Dxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Dxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Pxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Pxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Pxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Pxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC560Pxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC563Mxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC563Mxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC563Mxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC563Mxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC563Mxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC564Axx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC564Axx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC564Axx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC564Axx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC564Axx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC56ELxx/bam.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC56ELxx/core.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC56ELxx/ppcparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC56ELxx/vectors.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/SPC56ELxx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/crt0.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/PPC/ivor.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/SIMIA32/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/SIMIA32/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/GCC/SIMIA32/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/LPC11xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/LPC11xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/LPC13xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/LPC13xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32F1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32F1xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32F4xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32F4xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32L1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/STM32L1xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore_v6m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore_v6m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore_v7m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcore_v7m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcoreasm_v6m.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chcoreasm_v7m.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/ARMCMx/cstartup.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/STM8/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/STM8/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/STM8/chcore_stm8.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/IAR/STM8/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RC/STM8/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RC/STM8/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RC/STM8/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/LPC11xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/LPC11xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/LPC13xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/LPC13xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32F1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32F1xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32F4xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32F4xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32L1xx/cmparams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/STM32L1xx/vectors.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore_v6m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore_v6m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore_v7m.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcore_v7m.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcoreasm_v6m.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chcoreasm_v7m.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/RVCT/ARMCMx/cstartup.s" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/arm_common_tables.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/arm_math.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cm0.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cm0plus.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cm3.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cm4.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cm4_simd.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cmFunc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/CMSIS/include/core_cmInstr.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/nvic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/common/ARMCMx/nvic.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/cosmic/STM8/chcore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/cosmic/STM8/chcore.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/ports/cosmic/STM8/chtypes.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/chprintf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/chprintf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/chrtclib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/chrtclib.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/cpp_wrappers/ch.cpp" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/cpp_wrappers/ch.hpp" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/devices_lib/accel/lis302dl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/devices_lib/accel/lis302dl.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/devices_lib/lcd/lcd3310.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/devices_lib/lcd/lcd3310.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/evtimer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/evtimer.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/fatfs_bindings/fatfs_diskio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/fatfs_bindings/fatfs_syscall.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/arch/cc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/arch/perf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/arch/sys_arch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/arch/sys_arch.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/lwipthread.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/lwip_bindings/lwipthread.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/memstreams.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/memstreams.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/shell.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/shell.h" />
+		<Unit filename="../../sources/ChibiOS-RT/os/various/syscalls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/usb_msc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/os/various/usb_msc.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/coverage/chconf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/coverage/halconf.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/coverage/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/test.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testbmk.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testbmk.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testdyn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testdyn.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testevt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testevt.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testheap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testheap.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testmbox.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testmbox.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testmsg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testmsg.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testmtx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testmtx.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testpools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testpools.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testqueues.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testqueues.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testsem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testsem.h" />
+		<Unit filename="../../sources/ChibiOS-RT/test/testthd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../sources/ChibiOS-RT/test/testthd.h" />
+		<Unit filename="Makefile" />
+		<Unit filename="bluetooth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bluetooth.h" />
+		<Unit filename="chconf.h" />
+		<Unit filename="halconf.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="mcuconf.h" />
+		<Unit filename="usbcfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usbcfg.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

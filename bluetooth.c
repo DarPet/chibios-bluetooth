@@ -11,6 +11,14 @@ DEFAULT_BT_MODE,
 &SD2
 };
 
+static SerialDriver btAtSerialDriverConfig ={
+38400,
+};
+
+static SerialDriver btCommSerialDriverConfig ={
+38400,
+};
+
 void btReset(){
     // pin must be low for at least 5ms to cause a reset
     // RESET PIN (HC-05 pin 11) is connected to Discovery board GPIOD PIN2 (PD2)
@@ -25,26 +33,73 @@ void btSetCommandMode(btCommandMode commandMode){
     switch (commandMode){
     case atMode:
 	// stop current bluetooth communication
-
+        btStop();
         // supply power to pin 34, then supply power to the bluetooth module (reset)
         palSetPad(GPIOD, 1);
         chThdSleepMilliseconds(10);
         btReset();
+        chThdSleepMilliseconds(10);
 	//now we must communicate using a 38400 baud rate
-
-
+    //initialize the serial link of the module
+        btStartInAt();
 	//when finish, we exit
-	break;
-    }
+        break;
+    case commMode:
+        // ?? we could jump from the at mode to here using an at command to be ready for connections
+
+        // stop current bluetooth communication
+        btStop();
+        // set pin 34 low, then supply power to the bluetooth module (reset)
+        palSetPad(GPIOD, 0);
+        chThdSleepMilliseconds(10);
+        btReset();
+        chThdSleepMilliseconds(10);
+	//now we must communicate using the configured baud rate
+    //initialize the serial link of the module
+        btStart();
+	//when finish, we exit
+        break;
+    default:
+        //it is not a good thing if we get here
+        break;
+    };
 
 };
 
-void btStart();
+void btStart()
+{
+    sdStart(&SD2, &btCommSerialDriverConfig);
+};
 
-void btStop();
+void btStartInAt(){
+
+    sdStart(&SD2, &btAtSerialDriverConfig);
+
+};
+
+
+void btStop()
+{
+    sdStop(myBluetoothConfig.sdp);
+};
 
 void btPut();
 
 char btGet();
 
 void btConfigInit();
+
+
+//at commands
+
+void btAtGetBaud();
+
+void btAtSetBaud();
+
+void btAtGetName();
+
+void btAtSetName();
+
+void btAtResetDefaults(){
+    sdWrite(&SD2, "AT+ORGL\r\n", 9);
+};

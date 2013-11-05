@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccMvgkYT.s 			page 1
+ARM GAS  /tmp/ccLyoKYX.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
   53              		@ args = 0, pretend = 0, frame = 0
   54              		@ frame_needed = 0, uses_anonymous_args = 0
   55              		@ link register save eliminated.
-ARM GAS  /tmp/ccMvgkYT.s 			page 2
+ARM GAS  /tmp/ccLyoKYX.s 			page 2
 
 
   56              	.LVL3:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  107 0000 3030     		adds	r0, r0, #48
  108              	.LVL10:
  109 0002 4FF0FF33 		mov	r3, #-1
-ARM GAS  /tmp/ccMvgkYT.s 			page 3
+ARM GAS  /tmp/ccLyoKYX.s 			page 3
 
 
  110              		.loc 1 59 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  161 0006 FFF7FEBF 		b	chIQGetTimeout
  162              	.LVL17:
  163              		.cfi_endproc
-ARM GAS  /tmp/ccMvgkYT.s 			page 4
+ARM GAS  /tmp/ccLyoKYX.s 			page 4
 
 
  164              	.LFE121:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  215 000a 00BFAFF3 		.section	.text.sdInit,"ax",%progbits
  215      0080
  216              		.align	2
-ARM GAS  /tmp/ccMvgkYT.s 			page 5
+ARM GAS  /tmp/ccLyoKYX.s 			page 5
 
 
  217              		.p2align 4,,15
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  269              		.loc 1 135 0
  270 000c 45F8043B 		str	r3, [r5], #4
  271              		.loc 1 136 0
-ARM GAS  /tmp/ccMvgkYT.s 			page 6
+ARM GAS  /tmp/ccLyoKYX.s 			page 6
 
 
  272 0010 6560     		str	r5, [r4, #4]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  326              		.cfi_offset 14, -4
  327              	.LBB2:
  328              		.loc 1 156 0
-ARM GAS  /tmp/ccMvgkYT.s 			page 7
+ARM GAS  /tmp/ccLyoKYX.s 			page 7
 
 
  329 0002 2023     		movs	r3, #32
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  382              		.loc 1 178 0
  383 0002 2023     		movs	r3, #32
  384              	.LVL38:
-ARM GAS  /tmp/ccMvgkYT.s 			page 8
+ARM GAS  /tmp/ccLyoKYX.s 			page 8
 
 
  385              	.LBE5:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  439              		@ frame_needed = 0, uses_anonymous_args = 0
  440              	.LVL46:
  441 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccMvgkYT.s 			page 9
+ARM GAS  /tmp/ccLyoKYX.s 			page 9
 
 
  442              	.LCFI4:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  496              		.p2align 4,,15
  497              		.global	sdRequestDataI
  498              		.thumb
-ARM GAS  /tmp/ccMvgkYT.s 			page 10
+ARM GAS  /tmp/ccLyoKYX.s 			page 10
 
 
  499              		.thumb_func
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  553 001c 00000000 		.word	readt
  554              		.text
  555              	.Letext0:
-ARM GAS  /tmp/ccMvgkYT.s 			page 11
+ARM GAS  /tmp/ccLyoKYX.s 			page 11
 
 
  556              		.file 2 "/home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-ea
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  610 0057 04       		.uleb128 0x4
  611 0058 02       		.byte	0x2
  612 0059 05       		.byte	0x5
-ARM GAS  /tmp/ccMvgkYT.s 			page 12
+ARM GAS  /tmp/ccLyoKYX.s 			page 12
 
 
  613 005a A7030000 		.4byte	.LASF5
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  667 00c6 45000000 		.4byte	0x45
  668 00ca 03       		.uleb128 0x3
  669 00cb FC020000 		.4byte	.LASF18
-ARM GAS  /tmp/ccMvgkYT.s 			page 13
+ARM GAS  /tmp/ccLyoKYX.s 			page 13
 
 
  670 00cf 04       		.byte	0x4
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  724 0141 06       		.byte	0x6
  725 0142 5A       		.byte	0x5a
  726 0143 6C020000 		.4byte	0x26c
-ARM GAS  /tmp/ccMvgkYT.s 			page 14
+ARM GAS  /tmp/ccLyoKYX.s 			page 14
 
 
  727 0147 02       		.byte	0x2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  781 01a4 76       		.byte	0x76
  782 01a5 B4000000 		.4byte	0xb4
  783 01a9 02       		.byte	0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 15
+ARM GAS  /tmp/ccLyoKYX.s 			page 15
 
 
  784 01aa 23       		.byte	0x23
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  838 0207 EB000000 		.4byte	0xeb
  839 020b 02       		.byte	0x2
  840 020c 23       		.byte	0x23
-ARM GAS  /tmp/ccMvgkYT.s 			page 16
+ARM GAS  /tmp/ccLyoKYX.s 			page 16
 
 
  841 020d 34       		.uleb128 0x34
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  895 026a 04       		.uleb128 0x4
  896 026b 00       		.byte	0
  897 026c 09       		.uleb128 0x9
-ARM GAS  /tmp/ccMvgkYT.s 			page 17
+ARM GAS  /tmp/ccLyoKYX.s 			page 17
 
 
  898 026d 04       		.byte	0x4
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  952 02d4 04       		.uleb128 0x4
  953 02d5 0C       		.uleb128 0xc
  954 02d6 723600   		.ascii	"r6\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 18
+ARM GAS  /tmp/ccLyoKYX.s 			page 18
 
 
  955 02d9 07       		.byte	0x7
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1009 0339 00       		.byte	0
  1010 033a 0B       		.uleb128 0xb
  1011 033b 89040000 		.4byte	.LASF49
-ARM GAS  /tmp/ccMvgkYT.s 			page 19
+ARM GAS  /tmp/ccLyoKYX.s 			page 19
 
 
  1012 033f 04       		.byte	0x4
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1066 03a1 04       		.byte	0x4
  1067 03a2 69030000 		.4byte	0x369
  1068 03a6 03       		.uleb128 0x3
-ARM GAS  /tmp/ccMvgkYT.s 			page 20
+ARM GAS  /tmp/ccLyoKYX.s 			page 20
 
 
  1069 03a7 73020000 		.4byte	.LASF51
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1123 040d 09       		.byte	0x9
  1124 040e 3A       		.byte	0x3a
  1125 040f 22040000 		.4byte	0x422
-ARM GAS  /tmp/ccMvgkYT.s 			page 21
+ARM GAS  /tmp/ccLyoKYX.s 			page 21
 
 
  1126 0413 06       		.uleb128 0x6
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1180 047c 80040000 		.4byte	0x480
  1181 0480 11       		.uleb128 0x11
  1182 0481 01       		.byte	0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 22
+ARM GAS  /tmp/ccLyoKYX.s 			page 22
 
 
  1183 0482 EB000000 		.4byte	0xeb
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1237 04eb 23       		.byte	0x23
  1238 04ec 14       		.uleb128 0x14
  1239 04ed 06       		.uleb128 0x6
-ARM GAS  /tmp/ccMvgkYT.s 			page 23
+ARM GAS  /tmp/ccLyoKYX.s 			page 23
 
 
  1240 04ee 4F030000 		.4byte	.LASF73
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1294 0557 11       		.uleb128 0x11
  1295 0558 01       		.byte	0x1
  1296 0559 2C000000 		.4byte	0x2c
-ARM GAS  /tmp/ccMvgkYT.s 			page 24
+ARM GAS  /tmp/ccLyoKYX.s 			page 24
 
 
  1297 055d 71050000 		.4byte	0x571
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1351 05d5 2B05     		.2byte	0x52b
  1352 05d7 BD050000 		.4byte	0x5bd
  1353 05db 02       		.byte	0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 25
+ARM GAS  /tmp/ccLyoKYX.s 			page 25
 
 
  1354 05dc 23       		.byte	0x23
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1408 063f 5E000000 		.4byte	0x5e
  1409 0643 02       		.byte	0x2
  1410 0644 23       		.byte	0x23
-ARM GAS  /tmp/ccMvgkYT.s 			page 26
+ARM GAS  /tmp/ccLyoKYX.s 			page 26
 
 
  1411 0645 0E       		.uleb128 0xe
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1465 06a9 C7050000 		.4byte	0x5c7
  1466 06ad 11       		.uleb128 0x11
  1467 06ae 01       		.byte	0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 27
+ARM GAS  /tmp/ccLyoKYX.s 			page 27
 
 
  1468 06af EB000000 		.4byte	0xeb
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1522 072d 04       		.byte	0x4
  1523 072e 0D070000 		.4byte	0x70d
  1524 0732 17       		.uleb128 0x17
-ARM GAS  /tmp/ccMvgkYT.s 			page 28
+ARM GAS  /tmp/ccLyoKYX.s 			page 28
 
 
  1525 0733 01       		.byte	0x1
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1579 0799 06       		.uleb128 0x6
  1580 079a 9E010000 		.4byte	.LASF95
  1581 079e 0C       		.byte	0xc
-ARM GAS  /tmp/ccMvgkYT.s 			page 29
+ARM GAS  /tmp/ccLyoKYX.s 			page 29
 
 
  1582 079f 83       		.byte	0x83
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1636 07fa E0       		.byte	0xe0
  1637 07fb 5E000000 		.4byte	0x5e
  1638 07ff 02       		.byte	0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 30
+ARM GAS  /tmp/ccLyoKYX.s 			page 30
 
 
  1639 0800 23       		.byte	0x23
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1693 0860 07       		.uleb128 0x7
  1694 0861 67657400 		.ascii	"get\000"
  1695 0865 0C       		.byte	0xc
-ARM GAS  /tmp/ccMvgkYT.s 			page 31
+ARM GAS  /tmp/ccLyoKYX.s 			page 31
 
 
  1696 0866 76       		.byte	0x76
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1750 08c9 04       		.byte	0x4
  1751 08ca 4C050000 		.4byte	0x54c
  1752 08ce 09       		.uleb128 0x9
-ARM GAS  /tmp/ccMvgkYT.s 			page 32
+ARM GAS  /tmp/ccLyoKYX.s 			page 32
 
 
  1753 08cf 04       		.byte	0x4
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1807 093d F3       		.byte	0xf3
  1808 093e 01       		.uleb128 0x1
  1809 093f 52       		.byte	0x52
-ARM GAS  /tmp/ccMvgkYT.s 			page 33
+ARM GAS  /tmp/ccLyoKYX.s 			page 33
 
 
  1810 0940 1F       		.uleb128 0x1f
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1864 09a2 01       		.byte	0x1
  1865 09a3 53       		.byte	0x53
  1866 09a4 02       		.byte	0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 34
+ARM GAS  /tmp/ccLyoKYX.s 			page 34
 
 
  1867 09a5 09       		.byte	0x9
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1921 09fb 01       		.byte	0x1
  1922 09fc 57       		.byte	0x57
  1923 09fd 2C000000 		.4byte	0x2c
-ARM GAS  /tmp/ccMvgkYT.s 			page 35
+ARM GAS  /tmp/ccLyoKYX.s 			page 35
 
 
  1924 0a01 50010000 		.4byte	.LLST9
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  1978 0a55 01       		.byte	0x1
  1979 0a56 AC0A0000 		.4byte	0xaac
  1980 0a5a 1C       		.uleb128 0x1c
-ARM GAS  /tmp/ccMvgkYT.s 			page 36
+ARM GAS  /tmp/ccLyoKYX.s 			page 36
 
 
  1981 0a5b 697000   		.ascii	"ip\000"
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2035 0ab1 01       		.byte	0x1
  2036 0ab2 52       		.byte	0x52
  2037 0ab3 01       		.byte	0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 37
+ARM GAS  /tmp/ccLyoKYX.s 			page 37
 
 
  2038 0ab4 EB000000 		.4byte	0xeb
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2092 0b19 460B0000 		.4byte	0xb46
  2093 0b1d 1C       		.uleb128 0x1c
  2094 0b1e 697000   		.ascii	"ip\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 38
+ARM GAS  /tmp/ccLyoKYX.s 			page 38
 
 
  2095 0b21 01       		.byte	0x1
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2149 0b84 0C010000 		.4byte	0x10c
  2150 0b88 CE020000 		.4byte	.LLST19
  2151 0b8c 1E       		.uleb128 0x1e
-ARM GAS  /tmp/ccMvgkYT.s 			page 39
+ARM GAS  /tmp/ccLyoKYX.s 			page 39
 
 
  2152 0b8d 06000000 		.4byte	.LVL20
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2206 0bed 09       		.byte	0x9
  2207 0bee FF       		.byte	0xff
  2208 0bef 1F       		.uleb128 0x1f
-ARM GAS  /tmp/ccMvgkYT.s 			page 40
+ARM GAS  /tmp/ccLyoKYX.s 			page 40
 
 
  2209 0bf0 01       		.byte	0x1
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2263 0c5c 85       		.byte	0x85
  2264 0c5d 18050000 		.4byte	0x518
  2265 0c61 B4030000 		.4byte	.LLST25
-ARM GAS  /tmp/ccMvgkYT.s 			page 41
+ARM GAS  /tmp/ccLyoKYX.s 			page 41
 
 
  2266 0c65 24       		.uleb128 0x24
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2320 0cac 30       		.sleb128 48
  2321 0cad 1F       		.uleb128 0x1f
  2322 0cae 02       		.byte	0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 42
+ARM GAS  /tmp/ccLyoKYX.s 			page 42
 
 
  2323 0caf 7D       		.byte	0x7d
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2377 0d2a 25       		.uleb128 0x25
  2378 0d2b 0E000000 		.4byte	.LVL34
  2379 0d2f FC0F0000 		.4byte	0xffc
-ARM GAS  /tmp/ccMvgkYT.s 			page 43
+ARM GAS  /tmp/ccLyoKYX.s 			page 43
 
 
  2380 0d33 1F       		.uleb128 0x1f
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2434 0da2 BB       		.byte	0xbb
  2435 0da3 82000000 		.4byte	0x82
  2436 0da7 A8040000 		.4byte	.LLST34
-ARM GAS  /tmp/ccMvgkYT.s 			page 44
+ARM GAS  /tmp/ccLyoKYX.s 			page 44
 
 
  2437 0dab 00       		.byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2491 0e17 DB040000 		.4byte	.LLST36
  2492 0e1b 1C       		.uleb128 0x1c
  2493 0e1c 6200     		.ascii	"b\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 45
+ARM GAS  /tmp/ccLyoKYX.s 			page 45
 
 
  2494 0e1e 01       		.byte	0x1
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2548 0e75 1E       		.uleb128 0x1e
  2549 0e76 3C000000 		.4byte	.LVL55
  2550 0e7a 01       		.byte	0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 46
+ARM GAS  /tmp/ccLyoKYX.s 			page 46
 
 
  2551 0e7b 7D100000 		.4byte	0x107d
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2605 0ee2 1F       		.uleb128 0x1f
  2606 0ee3 01       		.byte	0x1
  2607 0ee4 51       		.byte	0x51
-ARM GAS  /tmp/ccMvgkYT.s 			page 47
+ARM GAS  /tmp/ccLyoKYX.s 			page 47
 
 
  2608 0ee5 01       		.byte	0x1
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2662 0f4e 12       		.uleb128 0x12
  2663 0f4f 71050000 		.4byte	0x571
  2664 0f53 12       		.uleb128 0x12
-ARM GAS  /tmp/ccMvgkYT.s 			page 48
+ARM GAS  /tmp/ccLyoKYX.s 			page 48
 
 
  2665 0f54 2C000000 		.4byte	0x2c
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2719 0fc4 2C000000 		.4byte	0x2c
  2720 0fc8 12       		.uleb128 0x12
  2721 0fc9 18050000 		.4byte	0x518
-ARM GAS  /tmp/ccMvgkYT.s 			page 49
+ARM GAS  /tmp/ccLyoKYX.s 			page 49
 
 
  2722 0fcd 12       		.uleb128 0x12
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2776 103a 12       		.uleb128 0x12
  2777 103b C8080000 		.4byte	0x8c8
  2778 103f 00       		.byte	0
-ARM GAS  /tmp/ccMvgkYT.s 			page 50
+ARM GAS  /tmp/ccLyoKYX.s 			page 50
 
 
  2779 1040 2F       		.uleb128 0x2f
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2833 10a6 EB000000 		.4byte	0xeb
  2834 10aa 01       		.byte	0x1
  2835 10ab 12       		.uleb128 0x12
-ARM GAS  /tmp/ccMvgkYT.s 			page 51
+ARM GAS  /tmp/ccLyoKYX.s 			page 51
 
 
  2836 10ac C8080000 		.4byte	0x8c8
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2890 0031 0B       		.uleb128 0xb
  2891 0032 03       		.uleb128 0x3
  2892 0033 0E       		.uleb128 0xe
-ARM GAS  /tmp/ccMvgkYT.s 			page 52
+ARM GAS  /tmp/ccLyoKYX.s 			page 52
 
 
  2893 0034 00       		.byte	0
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  2947 006a 3B       		.uleb128 0x3b
  2948 006b 0B       		.uleb128 0xb
  2949 006c 01       		.uleb128 0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 53
+ARM GAS  /tmp/ccLyoKYX.s 			page 53
 
 
  2950 006d 13       		.uleb128 0x13
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3004 00a3 00       		.byte	0
  3005 00a4 00       		.byte	0
  3006 00a5 0E       		.uleb128 0xe
-ARM GAS  /tmp/ccMvgkYT.s 			page 54
+ARM GAS  /tmp/ccLyoKYX.s 			page 54
 
 
  3007 00a6 17       		.uleb128 0x17
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3061 00dc 0C       		.uleb128 0xc
  3062 00dd 01       		.uleb128 0x1
  3063 00de 13       		.uleb128 0x13
-ARM GAS  /tmp/ccMvgkYT.s 			page 55
+ARM GAS  /tmp/ccLyoKYX.s 			page 55
 
 
  3064 00df 00       		.byte	0
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3118 0115 00       		.byte	0
  3119 0116 00       		.byte	0
  3120 0117 18       		.uleb128 0x18
-ARM GAS  /tmp/ccMvgkYT.s 			page 56
+ARM GAS  /tmp/ccLyoKYX.s 			page 56
 
 
  3121 0118 28       		.uleb128 0x28
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3175 014f 03       		.uleb128 0x3
  3176 0150 08       		.uleb128 0x8
  3177 0151 3A       		.uleb128 0x3a
-ARM GAS  /tmp/ccMvgkYT.s 			page 57
+ARM GAS  /tmp/ccLyoKYX.s 			page 57
 
 
  3178 0152 0B       		.uleb128 0xb
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3232 018e 0C       		.uleb128 0xc
  3233 018f 49       		.uleb128 0x49
  3234 0190 13       		.uleb128 0x13
-ARM GAS  /tmp/ccMvgkYT.s 			page 58
+ARM GAS  /tmp/ccLyoKYX.s 			page 58
 
 
  3235 0191 11       		.uleb128 0x11
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3289 01cc 0E       		.uleb128 0xe
  3290 01cd 3A       		.uleb128 0x3a
  3291 01ce 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccMvgkYT.s 			page 59
+ARM GAS  /tmp/ccLyoKYX.s 			page 59
 
 
  3292 01cf 3B       		.uleb128 0x3b
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3346 020a 49       		.uleb128 0x49
  3347 020b 13       		.uleb128 0x13
  3348 020c 02       		.uleb128 0x2
-ARM GAS  /tmp/ccMvgkYT.s 			page 60
+ARM GAS  /tmp/ccLyoKYX.s 			page 60
 
 
  3349 020d 06       		.uleb128 0x6
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3403 0246 08       		.uleb128 0x8
  3404 0247 3A       		.uleb128 0x3a
  3405 0248 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccMvgkYT.s 			page 61
+ARM GAS  /tmp/ccLyoKYX.s 			page 61
 
 
  3406 0249 3B       		.uleb128 0x3b
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3460 027f 0B       		.uleb128 0xb
  3461 0280 3B       		.uleb128 0x3b
  3462 0281 05       		.uleb128 0x5
-ARM GAS  /tmp/ccMvgkYT.s 			page 62
+ARM GAS  /tmp/ccLyoKYX.s 			page 62
 
 
  3463 0282 27       		.uleb128 0x27
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3517 02b8 0C       		.uleb128 0xc
  3518 02b9 3C       		.uleb128 0x3c
  3519 02ba 0C       		.uleb128 0xc
-ARM GAS  /tmp/ccMvgkYT.s 			page 63
+ARM GAS  /tmp/ccLyoKYX.s 			page 63
 
 
  3520 02bb 01       		.uleb128 0x1
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3574 0043 F3       		.byte	0xf3
  3575 0044 01       		.uleb128 0x1
  3576 0045 51       		.byte	0x51
-ARM GAS  /tmp/ccMvgkYT.s 			page 64
+ARM GAS  /tmp/ccLyoKYX.s 			page 64
 
 
  3577 0046 9F       		.byte	0x9f
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3631 00c7 0100     		.2byte	0x1
  3632 00c9 51       		.byte	0x51
  3633 00ca 09000000 		.4byte	.LVL5-1
-ARM GAS  /tmp/ccMvgkYT.s 			page 65
+ARM GAS  /tmp/ccLyoKYX.s 			page 65
 
 
  3634 00ce 0A000000 		.4byte	.LFE119
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3688 0148 00000000 		.4byte	0
  3689 014c 00000000 		.4byte	0
  3690              	.LLST9:
-ARM GAS  /tmp/ccMvgkYT.s 			page 66
+ARM GAS  /tmp/ccLyoKYX.s 			page 66
 
 
  3691 0150 00000000 		.4byte	.LVL6
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3745 01d3 0400     		.2byte	0x4
  3746 01d5 F3       		.byte	0xf3
  3747 01d6 01       		.uleb128 0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 67
+ARM GAS  /tmp/ccLyoKYX.s 			page 67
 
 
  3748 01d7 51       		.byte	0x51
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3802 0255 02000000 		.4byte	.LVL16
  3803 0259 0100     		.2byte	0x1
  3804 025b 50       		.byte	0x50
-ARM GAS  /tmp/ccMvgkYT.s 			page 68
+ARM GAS  /tmp/ccLyoKYX.s 			page 68
 
 
  3805 025c 02000000 		.4byte	.LVL16
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3859 02d9 05000000 		.4byte	.LVL20-1
  3860 02dd 06000000 		.4byte	.LFE122
  3861 02e1 0400     		.2byte	0x4
-ARM GAS  /tmp/ccMvgkYT.s 			page 69
+ARM GAS  /tmp/ccLyoKYX.s 			page 69
 
 
  3862 02e3 F3       		.byte	0xf3
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3916 0360 7D       		.byte	0x7d
  3917 0361 18       		.sleb128 24
  3918 0362 00000000 		.4byte	0
-ARM GAS  /tmp/ccMvgkYT.s 			page 70
+ARM GAS  /tmp/ccLyoKYX.s 			page 70
 
 
  3919 0366 00000000 		.4byte	0
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  3973              	.LLST27:
  3974 03f2 00000000 		.4byte	.LVL31
  3975 03f6 0D000000 		.4byte	.LVL34-1
-ARM GAS  /tmp/ccMvgkYT.s 			page 71
+ARM GAS  /tmp/ccLyoKYX.s 			page 71
 
 
  3976 03fa 0100     		.2byte	0x1
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4030 0482 0D000000 		.4byte	.LVL40-1
  4031 0486 2E000000 		.4byte	.LFE129
  4032 048a 0100     		.2byte	0x1
-ARM GAS  /tmp/ccMvgkYT.s 			page 72
+ARM GAS  /tmp/ccLyoKYX.s 			page 72
 
 
  4033 048c 54       		.byte	0x54
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4087 051a 10000000 		.4byte	.LVL48
  4088 051e 1A000000 		.4byte	.LVL50
  4089 0522 0400     		.2byte	0x4
-ARM GAS  /tmp/ccMvgkYT.s 			page 73
+ARM GAS  /tmp/ccLyoKYX.s 			page 73
 
 
  4090 0524 F3       		.byte	0xf3
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4144 0024 06000000 		.4byte	.LFE124-.LFB124
  4145 0028 00000000 		.4byte	.LFB118
  4146 002c 0A000000 		.4byte	.LFE118-.LFB118
-ARM GAS  /tmp/ccMvgkYT.s 			page 74
+ARM GAS  /tmp/ccLyoKYX.s 			page 74
 
 
  4147 0030 00000000 		.4byte	.LFB123
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4201 0078 00000000 		.4byte	.LFB127
  4202 007c 40000000 		.4byte	.LFE127
  4203 0080 00000000 		.4byte	.LFB128
-ARM GAS  /tmp/ccMvgkYT.s 			page 75
+ARM GAS  /tmp/ccLyoKYX.s 			page 75
 
 
  4204 0084 1A000000 		.4byte	.LFE128
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4234              	.LASF135:
  4235 006d 49544D5F 		.ascii	"ITM_RxBuffer\000"
  4235      52784275 
-ARM GAS  /tmp/ccMvgkYT.s 			page 76
+ARM GAS  /tmp/ccLyoKYX.s 			page 76
 
 
  4235      66666572 
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4264              	.LASF35:
  4265 00f8 705F7265 		.ascii	"p_refs\000"
  4265      667300
-ARM GAS  /tmp/ccMvgkYT.s 			page 77
+ARM GAS  /tmp/ccLyoKYX.s 			page 77
 
 
  4266              	.LASF70:
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4292              	.LASF37:
  4293 018f 705F7469 		.ascii	"p_time\000"
  4293      6D6500
-ARM GAS  /tmp/ccMvgkYT.s 			page 78
+ARM GAS  /tmp/ccLyoKYX.s 			page 78
 
 
  4294              	.LASF111:
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4323      756500
  4324              	.LASF98:
  4325 0227 73706565 		.ascii	"speed\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 79
+ARM GAS  /tmp/ccLyoKYX.s 			page 79
 
 
  4325      6400
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4355 02a9 474E5520 		.ascii	"GNU C 4.7.3\000"
  4355      4320342E 
  4355      372E3300 
-ARM GAS  /tmp/ccMvgkYT.s 			page 80
+ARM GAS  /tmp/ccLyoKYX.s 			page 80
 
 
  4356              	.LASF99:
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4384      325F7400 
  4385              	.LASF4:
  4386 0365 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 81
+ARM GAS  /tmp/ccLyoKYX.s 			page 81
 
 
  4386      676E6564 
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4416 03f3 53445F55 		.ascii	"SD_UNINIT\000"
  4416      4E494E49 
  4416      5400
-ARM GAS  /tmp/ccMvgkYT.s 			page 82
+ARM GAS  /tmp/ccLyoKYX.s 			page 82
 
 
  4417              	.LASF84:
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4444      744900
  4445              	.LASF49:
  4446 0489 636F6E74 		.ascii	"context\000"
-ARM GAS  /tmp/ccMvgkYT.s 			page 83
+ARM GAS  /tmp/ccLyoKYX.s 			page 83
 
 
  4446      65787400 
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4477              	.LASF109:
  4478 0519 7364496E 		.ascii	"sdInit\000"
  4478      697400
-ARM GAS  /tmp/ccMvgkYT.s 			page 84
+ARM GAS  /tmp/ccLyoKYX.s 			page 84
 
 
  4479              	.LASF121:
@@ -5001,42 +5001,42 @@ ARM GAS  /tmp/ccMvgkYT.s 			page 1
  4488      696D656F 
  4488      757400
  4489              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccMvgkYT.s 			page 85
+ARM GAS  /tmp/ccLyoKYX.s 			page 85
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 serial.c
-     /tmp/ccMvgkYT.s:19     .text.readt:00000000 $t
-     /tmp/ccMvgkYT.s:24     .text.readt:00000000 readt
-     /tmp/ccMvgkYT.s:44     .text.read:00000000 $t
-     /tmp/ccMvgkYT.s:49     .text.read:00000000 read
-     /tmp/ccMvgkYT.s:69     .text.writet:00000000 $t
-     /tmp/ccMvgkYT.s:74     .text.writet:00000000 writet
-     /tmp/ccMvgkYT.s:93     .text.write:00000000 $t
-     /tmp/ccMvgkYT.s:98     .text.write:00000000 write
-     /tmp/ccMvgkYT.s:118    .text.gett:00000000 $t
-     /tmp/ccMvgkYT.s:123    .text.gett:00000000 gett
-     /tmp/ccMvgkYT.s:142    .text.get:00000000 $t
-     /tmp/ccMvgkYT.s:147    .text.get:00000000 get
-     /tmp/ccMvgkYT.s:167    .text.putt:00000000 $t
-     /tmp/ccMvgkYT.s:172    .text.putt:00000000 putt
-     /tmp/ccMvgkYT.s:191    .text.put:00000000 $t
-     /tmp/ccMvgkYT.s:196    .text.put:00000000 put
-     /tmp/ccMvgkYT.s:216    .text.sdInit:00000000 $t
-     /tmp/ccMvgkYT.s:222    .text.sdInit:00000000 sdInit
-     /tmp/ccMvgkYT.s:237    .text.sdObjectInit:00000000 $t
-     /tmp/ccMvgkYT.s:243    .text.sdObjectInit:00000000 sdObjectInit
-     /tmp/ccMvgkYT.s:304    .text.sdObjectInit:0000003c $d
-     /tmp/ccMvgkYT.s:309    .text.sdStart:00000000 $t
-     /tmp/ccMvgkYT.s:315    .text.sdStart:00000000 sdStart
-     /tmp/ccMvgkYT.s:363    .text.sdStop:00000000 $t
-     /tmp/ccMvgkYT.s:369    .text.sdStop:00000000 sdStop
-     /tmp/ccMvgkYT.s:428    .text.sdIncomingDataI:00000000 $t
-     /tmp/ccMvgkYT.s:434    .text.sdIncomingDataI:00000000 sdIncomingDataI
-     /tmp/ccMvgkYT.s:495    .text.sdRequestDataI:00000000 $t
-     /tmp/ccMvgkYT.s:501    .text.sdRequestDataI:00000000 sdRequestDataI
-     /tmp/ccMvgkYT.s:541    .rodata.vmt:00000000 $d
-     /tmp/ccMvgkYT.s:545    .rodata.vmt:00000000 vmt
+     /tmp/ccLyoKYX.s:19     .text.readt:00000000 $t
+     /tmp/ccLyoKYX.s:24     .text.readt:00000000 readt
+     /tmp/ccLyoKYX.s:44     .text.read:00000000 $t
+     /tmp/ccLyoKYX.s:49     .text.read:00000000 read
+     /tmp/ccLyoKYX.s:69     .text.writet:00000000 $t
+     /tmp/ccLyoKYX.s:74     .text.writet:00000000 writet
+     /tmp/ccLyoKYX.s:93     .text.write:00000000 $t
+     /tmp/ccLyoKYX.s:98     .text.write:00000000 write
+     /tmp/ccLyoKYX.s:118    .text.gett:00000000 $t
+     /tmp/ccLyoKYX.s:123    .text.gett:00000000 gett
+     /tmp/ccLyoKYX.s:142    .text.get:00000000 $t
+     /tmp/ccLyoKYX.s:147    .text.get:00000000 get
+     /tmp/ccLyoKYX.s:167    .text.putt:00000000 $t
+     /tmp/ccLyoKYX.s:172    .text.putt:00000000 putt
+     /tmp/ccLyoKYX.s:191    .text.put:00000000 $t
+     /tmp/ccLyoKYX.s:196    .text.put:00000000 put
+     /tmp/ccLyoKYX.s:216    .text.sdInit:00000000 $t
+     /tmp/ccLyoKYX.s:222    .text.sdInit:00000000 sdInit
+     /tmp/ccLyoKYX.s:237    .text.sdObjectInit:00000000 $t
+     /tmp/ccLyoKYX.s:243    .text.sdObjectInit:00000000 sdObjectInit
+     /tmp/ccLyoKYX.s:304    .text.sdObjectInit:0000003c $d
+     /tmp/ccLyoKYX.s:309    .text.sdStart:00000000 $t
+     /tmp/ccLyoKYX.s:315    .text.sdStart:00000000 sdStart
+     /tmp/ccLyoKYX.s:363    .text.sdStop:00000000 $t
+     /tmp/ccLyoKYX.s:369    .text.sdStop:00000000 sdStop
+     /tmp/ccLyoKYX.s:428    .text.sdIncomingDataI:00000000 $t
+     /tmp/ccLyoKYX.s:434    .text.sdIncomingDataI:00000000 sdIncomingDataI
+     /tmp/ccLyoKYX.s:495    .text.sdRequestDataI:00000000 $t
+     /tmp/ccLyoKYX.s:501    .text.sdRequestDataI:00000000 sdRequestDataI
+     /tmp/ccLyoKYX.s:541    .rodata.vmt:00000000 $d
+     /tmp/ccLyoKYX.s:545    .rodata.vmt:00000000 vmt
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

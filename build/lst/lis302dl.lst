@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc1U3Bmh.s 			page 1
+ARM GAS  /tmp/ccEPW36M.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
   55 0012 0221     		movs	r1, #2
   56 0014 2246     		mov	r2, r4
   57 0016 2B46     		mov	r3, r5
-ARM GAS  /tmp/cc1U3Bmh.s 			page 2
+ARM GAS  /tmp/ccEPW36M.s 			page 2
 
 
   58 0018 3046     		mov	r0, r6
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  111 000a 1F29     		cmp	r1, #31
  112              		.loc 1 78 0
  113 000c 0546     		mov	r5, r0
-ARM GAS  /tmp/cc1U3Bmh.s 			page 3
+ARM GAS  /tmp/ccEPW36M.s 			page 3
 
 
  114 000e 1646     		mov	r6, r2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  166              		.size	txbuf, 2
  167              	txbuf:
  168 0000 0000     		.space	2
-ARM GAS  /tmp/cc1U3Bmh.s 			page 4
+ARM GAS  /tmp/ccEPW36M.s 			page 4
 
 
  169 0002 0000     		.text
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  223 0053 2B030000 		.4byte	.LASF4
  224 0057 04       		.uleb128 0x4
  225 0058 02       		.byte	0x2
-ARM GAS  /tmp/cc1U3Bmh.s 			page 5
+ARM GAS  /tmp/ccEPW36M.s 			page 5
 
 
  226 0059 05       		.byte	0x5
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  280 00c5 27       		.byte	0x27
  281 00c6 45000000 		.4byte	0x45
  282 00ca 03       		.uleb128 0x3
-ARM GAS  /tmp/cc1U3Bmh.s 			page 6
+ARM GAS  /tmp/ccEPW36M.s 			page 6
 
 
  283 00cb F4000000 		.4byte	.LASF18
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  337 013a 5C       		.byte	0x5c
  338 013b D5000000 		.4byte	0xd5
  339 013f 02       		.byte	0x2
-ARM GAS  /tmp/cc1U3Bmh.s 			page 7
+ARM GAS  /tmp/ccEPW36M.s 			page 7
 
 
  340 0140 23       		.byte	0x23
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  394 019d BF000000 		.4byte	0xbf
  395 01a1 02       		.byte	0x2
  396 01a2 23       		.byte	0x23
-ARM GAS  /tmp/cc1U3Bmh.s 			page 8
+ARM GAS  /tmp/ccEPW36M.s 			page 8
 
 
  397 01a3 1E       		.uleb128 0x1e
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  451 0203 02       		.byte	0x2
  452 0204 23       		.byte	0x23
  453 0205 38       		.uleb128 0x38
-ARM GAS  /tmp/cc1U3Bmh.s 			page 9
+ARM GAS  /tmp/ccEPW36M.s 			page 9
 
 
  454 0206 06       		.uleb128 0x6
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  508 0263 31020000 		.4byte	0x231
  509 0267 08       		.uleb128 0x8
  510 0268 04       		.byte	0x4
-ARM GAS  /tmp/cc1U3Bmh.s 			page 10
+ARM GAS  /tmp/ccEPW36M.s 			page 10
 
 
  511 0269 05       		.byte	0x5
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  565 02cd 0C       		.uleb128 0xc
  566 02ce 723700   		.ascii	"r7\000"
  567 02d1 07       		.byte	0x7
-ARM GAS  /tmp/cc1U3Bmh.s 			page 11
+ARM GAS  /tmp/ccEPW36M.s 			page 11
 
 
  568 02d2 1B01     		.2byte	0x11b
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  622 0336 07       		.byte	0x7
  623 0337 2B01     		.2byte	0x12b
  624 0339 41030000 		.4byte	0x341
-ARM GAS  /tmp/cc1U3Bmh.s 			page 12
+ARM GAS  /tmp/ccEPW36M.s 			page 12
 
 
  625 033d 02       		.byte	0x2
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  679 03a0 0E       		.uleb128 0xe
  680 03a1 04       		.byte	0x4
  681 03a2 06       		.byte	0x6
-ARM GAS  /tmp/cc1U3Bmh.s 			page 13
+ARM GAS  /tmp/ccEPW36M.s 			page 13
 
 
  682 03a3 8F       		.byte	0x8f
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  736 0413 09       		.byte	0x9
  737 0414 B402     		.2byte	0x2b4
  738 0416 47030000 		.4byte	0x347
-ARM GAS  /tmp/cc1U3Bmh.s 			page 14
+ARM GAS  /tmp/ccEPW36M.s 			page 14
 
 
  739 041a 02       		.byte	0x2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  793 047e 12       		.uleb128 0x12
  794 047f B8020000 		.4byte	.LASF62
  795 0483 09       		.byte	0x9
-ARM GAS  /tmp/cc1U3Bmh.s 			page 15
+ARM GAS  /tmp/ccEPW36M.s 			page 15
 
 
  796 0484 E604     		.2byte	0x4e6
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  850 04e6 59000000 		.4byte	.LASF66
  851 04ea 09       		.byte	0x9
  852 04eb ED04     		.2byte	0x4ed
-ARM GAS  /tmp/cc1U3Bmh.s 			page 16
+ARM GAS  /tmp/ccEPW36M.s 			page 16
 
 
  853 04ed ED030000 		.4byte	0x3ed
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  907 0553 09       		.byte	0x9
  908 0554 F404     		.2byte	0x4f4
  909 0556 5E000000 		.4byte	0x5e
-ARM GAS  /tmp/cc1U3Bmh.s 			page 17
+ARM GAS  /tmp/ccEPW36M.s 			page 17
 
 
  910 055a 02       		.byte	0x2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  964 05ba 06       		.uleb128 0x6
  965 05bb 88010000 		.4byte	.LASF80
  966 05bf 0A       		.byte	0xa
-ARM GAS  /tmp/cc1U3Bmh.s 			page 18
+ARM GAS  /tmp/ccEPW36M.s 			page 18
 
 
  967 05c0 DF       		.byte	0xdf
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1021 061e 0B       		.byte	0xb
  1022 061f 95       		.byte	0x95
  1023 0620 82000000 		.4byte	0x82
-ARM GAS  /tmp/cc1U3Bmh.s 			page 19
+ARM GAS  /tmp/ccEPW36M.s 			page 19
 
 
  1024 0624 14       		.uleb128 0x14
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1078 0682 93       		.byte	0x93
  1079 0683 47030000 		.4byte	0x347
  1080 0687 02       		.byte	0x2
-ARM GAS  /tmp/cc1U3Bmh.s 			page 20
+ARM GAS  /tmp/ccEPW36M.s 			page 20
 
 
  1081 0688 23       		.byte	0x23
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1135 06e8 0B070000 		.4byte	0x70b
  1136 06ec 16       		.uleb128 0x16
  1137 06ed 59040000 		.4byte	.LASF94
-ARM GAS  /tmp/cc1U3Bmh.s 			page 21
+ARM GAS  /tmp/ccEPW36M.s 			page 21
 
 
  1138 06f1 00       		.sleb128 0
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1192 075c 12       		.uleb128 0x12
  1193 075d 17030000 		.4byte	.LASF104
  1194 0761 0D       		.byte	0xd
-ARM GAS  /tmp/cc1U3Bmh.s 			page 22
+ARM GAS  /tmp/ccEPW36M.s 			page 22
 
 
  1195 0762 5201     		.2byte	0x152
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1249 07c9 17       		.uleb128 0x17
  1250 07ca 01       		.byte	0x1
  1251 07cb D5070000 		.4byte	0x7d5
-ARM GAS  /tmp/cc1U3Bmh.s 			page 23
+ARM GAS  /tmp/ccEPW36M.s 			page 23
 
 
  1252 07cf 18       		.uleb128 0x18
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1306 0838 09       		.uleb128 0x9
  1307 0839 04       		.byte	0x4
  1308 083a 7C050000 		.4byte	0x57c
-ARM GAS  /tmp/cc1U3Bmh.s 			page 24
+ARM GAS  /tmp/ccEPW36M.s 			page 24
 
 
  1309 083e 09       		.uleb128 0x9
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1363 08b0 74       		.byte	0x74
  1364 08b1 00       		.sleb128 0
  1365 08b2 1D       		.uleb128 0x1d
-ARM GAS  /tmp/cc1U3Bmh.s 			page 25
+ARM GAS  /tmp/ccEPW36M.s 			page 25
 
 
  1366 08b3 01       		.byte	0x1
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1420 091f 2A090000 		.4byte	0x92a
  1421 0923 1D       		.uleb128 0x1d
  1422 0924 01       		.byte	0x1
-ARM GAS  /tmp/cc1U3Bmh.s 			page 26
+ARM GAS  /tmp/ccEPW36M.s 			page 26
 
 
  1423 0925 50       		.byte	0x50
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1477 097f 23       		.uleb128 0x23
  1478 0980 A9000000 		.4byte	.LASF117
  1479 0984 01       		.byte	0x1
-ARM GAS  /tmp/cc1U3Bmh.s 			page 27
+ARM GAS  /tmp/ccEPW36M.s 			page 27
 
 
  1480 0985 2A       		.byte	0x2a
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1534 09f2 00       		.byte	0
  1535 09f3 27       		.uleb128 0x27
  1536 09f4 01       		.byte	0x1
-ARM GAS  /tmp/cc1U3Bmh.s 			page 28
+ARM GAS  /tmp/ccEPW36M.s 			page 28
 
 
  1537 09f5 6F010000 		.4byte	.LASF126
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1591 0027 49       		.uleb128 0x49
  1592 0028 13       		.uleb128 0x13
  1593 0029 00       		.byte	0
-ARM GAS  /tmp/cc1U3Bmh.s 			page 29
+ARM GAS  /tmp/ccEPW36M.s 			page 29
 
 
  1594 002a 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1648 0060 0A       		.uleb128 0xa
  1649 0061 00       		.byte	0
  1650 0062 00       		.byte	0
-ARM GAS  /tmp/cc1U3Bmh.s 			page 30
+ARM GAS  /tmp/ccEPW36M.s 			page 30
 
 
  1651 0063 08       		.uleb128 0x8
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1705 0099 13       		.uleb128 0x13
  1706 009a 38       		.uleb128 0x38
  1707 009b 0A       		.uleb128 0xa
-ARM GAS  /tmp/cc1U3Bmh.s 			page 31
+ARM GAS  /tmp/ccEPW36M.s 			page 31
 
 
  1708 009c 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1762 00d2 00       		.byte	0
  1763 00d3 12       		.uleb128 0x12
  1764 00d4 0D       		.uleb128 0xd
-ARM GAS  /tmp/cc1U3Bmh.s 			page 32
+ARM GAS  /tmp/ccEPW36M.s 			page 32
 
 
  1765 00d5 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1819 010b 00       		.byte	0
  1820 010c 03       		.uleb128 0x3
  1821 010d 0E       		.uleb128 0xe
-ARM GAS  /tmp/cc1U3Bmh.s 			page 33
+ARM GAS  /tmp/ccEPW36M.s 			page 33
 
 
  1822 010e 1C       		.uleb128 0x1c
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1876 0145 3B       		.uleb128 0x3b
  1877 0146 0B       		.uleb128 0xb
  1878 0147 49       		.uleb128 0x49
-ARM GAS  /tmp/cc1U3Bmh.s 			page 34
+ARM GAS  /tmp/ccEPW36M.s 			page 34
 
 
  1879 0148 13       		.uleb128 0x13
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1933 0185 03       		.uleb128 0x3
  1934 0186 0E       		.uleb128 0xe
  1935 0187 3A       		.uleb128 0x3a
-ARM GAS  /tmp/cc1U3Bmh.s 			page 35
+ARM GAS  /tmp/ccEPW36M.s 			page 35
 
 
  1936 0188 0B       		.uleb128 0xb
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  1990 01c2 0B       		.uleb128 0xb
  1991 01c3 49       		.uleb128 0x49
  1992 01c4 13       		.uleb128 0x13
-ARM GAS  /tmp/cc1U3Bmh.s 			page 36
+ARM GAS  /tmp/ccEPW36M.s 			page 36
 
 
  1993 01c5 02       		.uleb128 0x2
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2047 01fb 3B       		.uleb128 0x3b
  2048 01fc 05       		.uleb128 0x5
  2049 01fd 27       		.uleb128 0x27
-ARM GAS  /tmp/cc1U3Bmh.s 			page 37
+ARM GAS  /tmp/ccEPW36M.s 			page 37
 
 
  2050 01fe 0C       		.uleb128 0xc
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2104 0073 0200     		.2byte	0x2
  2105 0075 7D       		.byte	0x7d
  2106 0076 10       		.sleb128 16
-ARM GAS  /tmp/cc1U3Bmh.s 			page 38
+ARM GAS  /tmp/ccEPW36M.s 			page 38
 
 
  2107 0077 00000000 		.4byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2161 0014 38000000 		.4byte	.LFE118-.LFB118
  2162 0018 00000000 		.4byte	.LFB119
  2163 001c 44000000 		.4byte	.LFE119-.LFB119
-ARM GAS  /tmp/cc1U3Bmh.s 			page 39
+ARM GAS  /tmp/ccEPW36M.s 			page 39
 
 
  2164 0020 00000000 		.4byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2198      5200
  2199              	.LASF87:
  2200 005f 50555044 		.ascii	"PUPDR\000"
-ARM GAS  /tmp/cc1U3Bmh.s 			page 40
+ARM GAS  /tmp/ccEPW36M.s 			page 40
 
 
  2200      5200
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2229              	.LASF50:
  2230 00ec 6D5F7175 		.ascii	"m_queue\000"
  2230      65756500 
-ARM GAS  /tmp/cc1U3Bmh.s 			page 41
+ARM GAS  /tmp/ccEPW36M.s 			page 41
 
 
  2231              	.LASF18:
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2261              	.LASF42:
  2262 0177 705F6D70 		.ascii	"p_mpool\000"
  2262      6F6F6C00 
-ARM GAS  /tmp/cc1U3Bmh.s 			page 42
+ARM GAS  /tmp/ccEPW36M.s 			page 42
 
 
  2263              	.LASF45:
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2289 0235 746D6F64 		.ascii	"tmode_t\000"
  2289      655F7400 
  2290              	.LASF44:
-ARM GAS  /tmp/cc1U3Bmh.s 			page 43
+ARM GAS  /tmp/ccEPW36M.s 			page 43
 
 
  2291 023d 54687265 		.ascii	"ThreadsList\000"
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2321 02c2 52455345 		.ascii	"RESERVED1\000"
  2321      52564544 
  2321      3100
-ARM GAS  /tmp/cc1U3Bmh.s 			page 44
+ARM GAS  /tmp/ccEPW36M.s 			page 44
 
 
  2322              	.LASF64:
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2350              	.LASF5:
  2351 0356 73686F72 		.ascii	"short int\000"
  2351      7420696E 
-ARM GAS  /tmp/cc1U3Bmh.s 			page 45
+ARM GAS  /tmp/ccEPW36M.s 			page 45
 
 
  2351      7400
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2381      4C455445 
  2381      00
  2382              	.LASF102:
-ARM GAS  /tmp/cc1U3Bmh.s 			page 46
+ARM GAS  /tmp/ccEPW36M.s 			page 46
 
 
  2383 03ea 636F6E66 		.ascii	"config\000"
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2411 0479 705F7265 		.ascii	"p_refs\000"
  2411      667300
  2412              	.LASF68:
-ARM GAS  /tmp/cc1U3Bmh.s 			page 47
+ARM GAS  /tmp/ccEPW36M.s 			page 47
 
 
  2413 0480 52584352 		.ascii	"RXCRCR\000"
@@ -2793,24 +2793,24 @@ ARM GAS  /tmp/cc1U3Bmh.s 			page 1
  2431      6974696E 
  2431      6700
  2432              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/cc1U3Bmh.s 			page 48
+ARM GAS  /tmp/ccEPW36M.s 			page 48
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lis302dl.c
-     /tmp/cc1U3Bmh.s:19     .text.lis302dlReadRegister:00000000 $t
-     /tmp/cc1U3Bmh.s:25     .text.lis302dlReadRegister:00000000 lis302dlReadRegister
-     /tmp/cc1U3Bmh.s:77     .text.lis302dlReadRegister:00000030 $d
-     /tmp/cc1U3Bmh.s:83     .text.lis302dlWriteRegister:00000000 $t
-     /tmp/cc1U3Bmh.s:89     .text.lis302dlWriteRegister:00000000 lis302dlWriteRegister
-     /tmp/cc1U3Bmh.s:150    .text.lis302dlWriteRegister:0000003c $d
-     /tmp/cc1U3Bmh.s:156    .bss.rxbuf:00000000 $d
-     /tmp/cc1U3Bmh.s:160    .bss.rxbuf:00000000 rxbuf
-     /tmp/cc1U3Bmh.s:163    .bss.txbuf:00000000 $d
-     /tmp/cc1U3Bmh.s:167    .bss.txbuf:00000000 txbuf
+     /tmp/ccEPW36M.s:19     .text.lis302dlReadRegister:00000000 $t
+     /tmp/ccEPW36M.s:25     .text.lis302dlReadRegister:00000000 lis302dlReadRegister
+     /tmp/ccEPW36M.s:77     .text.lis302dlReadRegister:00000030 $d
+     /tmp/ccEPW36M.s:83     .text.lis302dlWriteRegister:00000000 $t
+     /tmp/ccEPW36M.s:89     .text.lis302dlWriteRegister:00000000 lis302dlWriteRegister
+     /tmp/ccEPW36M.s:150    .text.lis302dlWriteRegister:0000003c $d
+     /tmp/ccEPW36M.s:156    .bss.rxbuf:00000000 $d
+     /tmp/ccEPW36M.s:160    .bss.rxbuf:00000000 rxbuf
+     /tmp/ccEPW36M.s:163    .bss.txbuf:00000000 $d
+     /tmp/ccEPW36M.s:167    .bss.txbuf:00000000 txbuf
                      .debug_frame:00000010 $d
-     /tmp/cc1U3Bmh.s:82     .text.lis302dlReadRegister:00000038 $t
-     /tmp/cc1U3Bmh.s:155    .text.lis302dlWriteRegister:00000044 $t
+     /tmp/ccEPW36M.s:82     .text.lis302dlReadRegister:00000038 $t
+     /tmp/ccEPW36M.s:155    .text.lis302dlWriteRegister:00000044 $t
 
 UNDEFINED SYMBOLS
 spiSelect

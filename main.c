@@ -25,6 +25,8 @@
 
 #include "usbcfg.h"
 
+#include "bluetooth.h"
+
 #define BUFFER_SIZE 32
 
 char serialBuffer[BUFFER_SIZE];
@@ -39,9 +41,6 @@ SerialUSBDriver SDU1;
 #define SHELL_WA_SIZE   THD_WA_SIZE(2048)
 #define TEST_WA_SIZE    THD_WA_SIZE(256)
 
-SerialDriver mySerialDriver = {
-9600
-};
 
 static void cmd_mem(BaseSequentialStream *chp, int argc, char *argv[]) {
   size_t n, size;
@@ -76,7 +75,7 @@ static void cmd_threads(BaseSequentialStream *chp, int argc, char *argv[]) {
     tp = chRegNextThread(tp);
   } while (tp != NULL);
 }
-
+/*
 static void cmd_btsend(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if (argc !=1){
@@ -88,8 +87,8 @@ static void cmd_btsend(BaseSequentialStream *chp, int argc, char *argv[]) {
 
 }
 
-
-
+*/
+/*
 static void cmd_btread(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if (argc !=0){
@@ -101,12 +100,14 @@ static void cmd_btread(BaseSequentialStream *chp, int argc, char *argv[]) {
 
 
 }
+*/
+
 
 static const ShellCommand commands[] = {
   {"mem", cmd_mem},
   {"threads", cmd_threads},
-  {"btsend", cmd_btsend},
-  {"btread", cmd_btread},
+//  {"btsend", cmd_btsend},
+//  {"btread", cmd_btread},
   {NULL, NULL}
 };
 
@@ -121,14 +122,17 @@ static WORKING_AREA(waBtRead, 128);
 static msg_t BtRead(void *arg) {
     chRegSetThreadName("reader");
 
-   // uint8_t roleset[]= "AT+ROLE=0\r\n";
-
-   // sdWrite(&SD2, roleset, strlen(roleset));
     while(TRUE)
     {
         chThdSleepMilliseconds(500);
        // sdRead(&SD2, (uint8_t *)serialBuffer, BUFFER_SIZE);
        // chprintf((BaseSequentialStream *)&SDU1, "Serial: %s", serialBuffer);
+       if(palReadPad(GPIOA, GPIOA_BUTTON))
+       {
+           btAtResetDefaults();
+           btSetCommandMode(commMode);
+       }
+
     }
 
 
@@ -178,7 +182,9 @@ int main(void) {
    * Activates the serial driver 2 using the driver default configuration.
    * PA2(TX) and PA3(RX) are routed to USART2.
    */
-  sdStart(&SD2, NULL);
+
+
+    btSetCommandMode(atMode);
   palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
   palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 

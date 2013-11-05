@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJXnsTe.s 			page 1
+ARM GAS  /tmp/ccFmpdne.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
   55 0018 011C     		adds	r1, r0, #0
   56 001a 18BF     		it	ne
   57 001c 0121     		movne	r1, #1
-ARM GAS  /tmp/ccJXnsTe.s 			page 2
+ARM GAS  /tmp/ccFmpdne.s 			page 2
 
 
   58 001e 0446     		mov	r4, r0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  112 006a 1021     		movs	r1, #16
  113              		.loc 1 92 0
  114 006c 0446     		mov	r4, r0
-ARM GAS  /tmp/ccJXnsTe.s 			page 3
+ARM GAS  /tmp/ccFmpdne.s 			page 3
 
 
  115              	.LVL16:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  169              		.loc 1 102 0
  170 00bc 6148     		ldr	r0, .L8
  171              	.LVL31:
-ARM GAS  /tmp/ccJXnsTe.s 			page 4
+ARM GAS  /tmp/ccFmpdne.s 			page 4
 
 
  172 00be FFF7FEFF 		bl	chHeapAlloc
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  226 010e 5142     		rsbs	r1, r2, #0
  227 0110 5141     		adcs	r1, r1, r2
  228 0112 0520     		movs	r0, #5
-ARM GAS  /tmp/ccJXnsTe.s 			page 5
+ARM GAS  /tmp/ccFmpdne.s 			page 5
 
 
  229 0114 FFF7FEFF 		bl	_test_assert
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  283              	.LVL56:
  284 0174 0028     		cmp	r0, #0
  285 0176 7FF458AF 		bne	.L1
-ARM GAS  /tmp/ccJXnsTe.s 			page 6
+ARM GAS  /tmp/ccFmpdne.s 			page 6
 
 
  286              		.loc 1 123 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  340 01d2 4141     		adcs	r1, r1, r0
  341 01d4 0920     		movs	r0, #9
  342 01d6 FFF7FEFF 		bl	_test_assert
-ARM GAS  /tmp/ccJXnsTe.s 			page 7
+ARM GAS  /tmp/ccFmpdne.s 			page 7
 
 
  343              	.LVL70:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  397 0236 5942     		rsbs	r1, r3, #0
  398              	.LVL82:
  399 0238 5941     		adcs	r1, r1, r3
-ARM GAS  /tmp/ccJXnsTe.s 			page 8
+ARM GAS  /tmp/ccFmpdne.s 			page 8
 
 
  400 023a FFF7FEFF 		bl	_test_assert
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  451 0000 00000000 		.word	testheap1
  452 0004 00000000 		.word	0
  453              		.section	.rodata.str1.4,"aMS",%progbits,1
-ARM GAS  /tmp/ccJXnsTe.s 			page 9
+ARM GAS  /tmp/ccFmpdne.s 			page 9
 
 
  454              		.align	2
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  500 0026 04       		.byte	0x4
  501 0027 05       		.byte	0x5
  502 0028 696E7400 		.ascii	"int\000"
-ARM GAS  /tmp/ccJXnsTe.s 			page 10
+ARM GAS  /tmp/ccFmpdne.s 			page 10
 
 
  503 002c 03       		.uleb128 0x3
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  557 0095 03       		.byte	0x3
  558 0096 78       		.byte	0x78
  559 0097 9B000000 		.4byte	0x9b
-ARM GAS  /tmp/ccJXnsTe.s 			page 11
+ARM GAS  /tmp/ccFmpdne.s 			page 11
 
 
  560 009b 04       		.uleb128 0x4
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  614 010d A2020000 		.4byte	.LASF24
  615 0111 05       		.byte	0x5
  616 0112 23       		.byte	0x23
-ARM GAS  /tmp/ccJXnsTe.s 			page 12
+ARM GAS  /tmp/ccFmpdne.s 			page 12
 
 
  617 0113 17010000 		.4byte	0x117
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  671 0176 14       		.uleb128 0x14
  672 0177 06       		.uleb128 0x6
  673 0178 52030000 		.4byte	.LASF31
-ARM GAS  /tmp/ccJXnsTe.s 			page 13
+ARM GAS  /tmp/ccFmpdne.s 			page 13
 
 
  674 017c 06       		.byte	0x6
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  728 01d9 06       		.uleb128 0x6
  729 01da 74030000 		.4byte	.LASF37
  730 01de 06       		.byte	0x6
-ARM GAS  /tmp/ccJXnsTe.s 			page 14
+ARM GAS  /tmp/ccFmpdne.s 			page 14
 
 
  731 01df B2       		.byte	0xb2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  785 023c 08       		.uleb128 0x8
  786 023d 08       		.byte	0x8
  787 023e 05       		.byte	0x5
-ARM GAS  /tmp/ccJXnsTe.s 			page 15
+ARM GAS  /tmp/ccFmpdne.s 			page 15
 
 
  788 023f 5A       		.byte	0x5a
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  842 02a2 AB010000 		.4byte	.LASF47
  843 02a6 07       		.byte	0x7
  844 02a7 E4       		.byte	0xe4
-ARM GAS  /tmp/ccJXnsTe.s 			page 16
+ARM GAS  /tmp/ccFmpdne.s 			page 16
 
 
  845 02a8 90000000 		.4byte	0x90
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  899 030c 14       		.uleb128 0x14
  900 030d 0C       		.uleb128 0xc
  901 030e 72313000 		.ascii	"r10\000"
-ARM GAS  /tmp/ccJXnsTe.s 			page 17
+ARM GAS  /tmp/ccFmpdne.s 			page 17
 
 
  902 0312 07       		.byte	0x7
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  956 0376 A8000000 		.4byte	.LASF52
  957 037a 08       		.byte	0x8
  958 037b 26       		.byte	0x26
-ARM GAS  /tmp/ccJXnsTe.s 			page 18
+ARM GAS  /tmp/ccFmpdne.s 			page 18
 
 
  959 037c 67020000 		.4byte	0x267
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1013 03e5 14040000 		.4byte	0x414
  1014 03e9 06       		.uleb128 0x6
  1015 03ea 4F020000 		.4byte	.LASF58
-ARM GAS  /tmp/ccJXnsTe.s 			page 19
+ARM GAS  /tmp/ccFmpdne.s 			page 19
 
 
  1016 03ee 0A       		.byte	0xa
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1070 044f 60040000 		.4byte	0x460
  1071 0453 00       		.byte	0
  1072 0454 09       		.uleb128 0x9
-ARM GAS  /tmp/ccJXnsTe.s 			page 20
+ARM GAS  /tmp/ccFmpdne.s 			page 20
 
 
  1073 0455 04       		.byte	0x4
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1127 04b9 04       		.byte	0x4
  1128 04ba BE040000 		.4byte	0x4be
  1129 04be 14       		.uleb128 0x14
-ARM GAS  /tmp/ccJXnsTe.s 			page 21
+ARM GAS  /tmp/ccFmpdne.s 			page 21
 
 
  1130 04bf C3040000 		.4byte	0x4c3
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1184 0520 0B       		.byte	0xb
  1185 0521 44       		.byte	0x44
  1186 0522 6C050000 		.4byte	0x56c
-ARM GAS  /tmp/ccJXnsTe.s 			page 22
+ARM GAS  /tmp/ccFmpdne.s 			page 22
 
 
  1187 0526 07       		.uleb128 0x7
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1241 0589 13       		.uleb128 0x13
  1242 058a 776100   		.ascii	"wa\000"
  1243 058d 0B       		.byte	0xb
-ARM GAS  /tmp/ccJXnsTe.s 			page 23
+ARM GAS  /tmp/ccFmpdne.s 			page 23
 
 
  1244 058e 4A       		.byte	0x4a
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1298 060a A4010000 		.4byte	.LLST5
  1299 060e 1D       		.uleb128 0x1d
  1300 060f 08000000 		.4byte	.LVL0
-ARM GAS  /tmp/ccJXnsTe.s 			page 24
+ARM GAS  /tmp/ccFmpdne.s 			page 24
 
 
  1301 0613 B00B0000 		.4byte	0xbb0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1355 0668 01       		.byte	0x1
  1356 0669 31       		.byte	0x31
  1357 066a 00       		.byte	0
-ARM GAS  /tmp/ccJXnsTe.s 			page 25
+ARM GAS  /tmp/ccFmpdne.s 			page 25
 
 
  1358 066b 1E       		.uleb128 0x1e
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1412 06c9 00       		.byte	0
  1413 06ca 1E       		.uleb128 0x1e
  1414 06cb 60000000 		.4byte	.LVL12
-ARM GAS  /tmp/ccJXnsTe.s 			page 26
+ARM GAS  /tmp/ccFmpdne.s 			page 26
 
 
  1415 06cf E10B0000 		.4byte	0xbe1
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1469 072f 75       		.byte	0x75
  1470 0730 00       		.sleb128 0
  1471 0731 00       		.byte	0
-ARM GAS  /tmp/ccJXnsTe.s 			page 27
+ARM GAS  /tmp/ccFmpdne.s 			page 27
 
 
  1472 0732 1E       		.uleb128 0x1e
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1526 0798 01       		.byte	0x1
  1527 0799 51       		.byte	0x51
  1528 079a 01       		.byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 28
+ARM GAS  /tmp/ccFmpdne.s 			page 28
 
 
  1529 079b 40       		.byte	0x40
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1583 07fb 1E       		.uleb128 0x1e
  1584 07fc D2000000 		.4byte	.LVL35
  1585 0800 1B0C0000 		.4byte	0xc1b
-ARM GAS  /tmp/ccJXnsTe.s 			page 29
+ARM GAS  /tmp/ccFmpdne.s 			page 29
 
 
  1586 0804 0F080000 		.4byte	0x80f
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1640 0864 77080000 		.4byte	0x877
  1641 0868 1F       		.uleb128 0x1f
  1642 0869 01       		.byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 30
+ARM GAS  /tmp/ccFmpdne.s 			page 30
 
 
  1643 086a 51       		.byte	0x51
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1697 08ca 51       		.byte	0x51
  1698 08cb 01       		.byte	0x1
  1699 08cc 40       		.byte	0x40
-ARM GAS  /tmp/ccJXnsTe.s 			page 31
+ARM GAS  /tmp/ccFmpdne.s 			page 31
 
 
  1700 08cd 1F       		.uleb128 0x1f
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1754 092d 38090000 		.4byte	0x938
  1755 0931 1F       		.uleb128 0x1f
  1756 0932 01       		.byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 32
+ARM GAS  /tmp/ccFmpdne.s 			page 32
 
 
  1757 0933 50       		.byte	0x50
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1811 0990 50       		.byte	0x50
  1812 0991 05       		.byte	0x5
  1813 0992 03       		.byte	0x3
-ARM GAS  /tmp/ccJXnsTe.s 			page 33
+ARM GAS  /tmp/ccFmpdne.s 			page 33
 
 
  1814 0993 00000000 		.4byte	.LANCHOR0
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1868 09f6 38       		.byte	0x38
  1869 09f7 00       		.byte	0
  1870 09f8 1E       		.uleb128 0x1e
-ARM GAS  /tmp/ccJXnsTe.s 			page 34
+ARM GAS  /tmp/ccFmpdne.s 			page 34
 
 
  1871 09f9 BC010000 		.4byte	.LVL66
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1925 0a5f 01       		.byte	0x1
  1926 0a60 39       		.byte	0x39
  1927 0a61 00       		.byte	0
-ARM GAS  /tmp/ccJXnsTe.s 			page 35
+ARM GAS  /tmp/ccFmpdne.s 			page 35
 
 
  1928 0a62 1E       		.uleb128 0x1e
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  1982 0ac5 00       		.byte	0
  1983 0ac6 1E       		.uleb128 0x1e
  1984 0ac7 14020000 		.4byte	.LVL77
-ARM GAS  /tmp/ccJXnsTe.s 			page 36
+ARM GAS  /tmp/ccFmpdne.s 			page 36
 
 
  1985 0acb 1B0C0000 		.4byte	0xc1b
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2039 0b2b 7D       		.byte	0x7d
  2040 0b2c 00       		.sleb128 0
  2041 0b2d 01       		.byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 37
+ARM GAS  /tmp/ccFmpdne.s 			page 37
 
 
  2042 0b2e 4E0B0000 		.4byte	0xb4e
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2096 0b95 7E0B0000 		.4byte	0xb7e
  2097 0b99 25       		.uleb128 0x25
  2098 0b9a 6D000000 		.4byte	.LASF83
-ARM GAS  /tmp/ccJXnsTe.s 			page 38
+ARM GAS  /tmp/ccFmpdne.s 			page 38
 
 
  2099 0b9e 01       		.byte	0x1
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2153 0c07 A2000000 		.4byte	0xa2
  2154 0c0b 01       		.byte	0x1
  2155 0c0c 1B0C0000 		.4byte	0xc1b
-ARM GAS  /tmp/ccJXnsTe.s 			page 39
+ARM GAS  /tmp/ccFmpdne.s 			page 39
 
 
  2156 0c10 0F       		.uleb128 0xf
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2210 0015 00       		.byte	0
  2211 0016 0B       		.uleb128 0xb
  2212 0017 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccJXnsTe.s 			page 40
+ARM GAS  /tmp/ccFmpdne.s 			page 40
 
 
  2213 0018 3E       		.uleb128 0x3e
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2267 004e 49       		.uleb128 0x49
  2268 004f 13       		.uleb128 0x13
  2269 0050 38       		.uleb128 0x38
-ARM GAS  /tmp/ccJXnsTe.s 			page 41
+ARM GAS  /tmp/ccFmpdne.s 			page 41
 
 
  2270 0051 0A       		.uleb128 0xa
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2324 0087 3A       		.uleb128 0x3a
  2325 0088 0B       		.uleb128 0xb
  2326 0089 3B       		.uleb128 0x3b
-ARM GAS  /tmp/ccJXnsTe.s 			page 42
+ARM GAS  /tmp/ccFmpdne.s 			page 42
 
 
  2327 008a 05       		.uleb128 0x5
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2381 00c0 01       		.uleb128 0x1
  2382 00c1 13       		.uleb128 0x13
  2383 00c2 00       		.byte	0
-ARM GAS  /tmp/ccJXnsTe.s 			page 43
+ARM GAS  /tmp/ccFmpdne.s 			page 43
 
 
  2384 00c3 00       		.byte	0
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2438 00f9 00       		.byte	0
  2439 00fa 00       		.byte	0
  2440 00fb 16       		.uleb128 0x16
-ARM GAS  /tmp/ccJXnsTe.s 			page 44
+ARM GAS  /tmp/ccFmpdne.s 			page 44
 
 
  2441 00fc 13       		.uleb128 0x13
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2495 0132 1B       		.uleb128 0x1b
  2496 0133 2E       		.uleb128 0x2e
  2497 0134 01       		.byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 45
+ARM GAS  /tmp/ccFmpdne.s 			page 45
 
 
  2498 0135 03       		.uleb128 0x3
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2552 0170 00       		.byte	0
  2553 0171 1F       		.uleb128 0x1f
  2554 0172 8A8201   		.uleb128 0x410a
-ARM GAS  /tmp/ccJXnsTe.s 			page 46
+ARM GAS  /tmp/ccFmpdne.s 			page 46
 
 
  2555 0175 00       		.byte	0
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2609 01b2 0E       		.uleb128 0xe
  2610 01b3 3A       		.uleb128 0x3a
  2611 01b4 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccJXnsTe.s 			page 47
+ARM GAS  /tmp/ccFmpdne.s 			page 47
 
 
  2612 01b5 3B       		.uleb128 0x3b
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2666 01eb 0C       		.uleb128 0xc
  2667 01ec 49       		.uleb128 0x49
  2668 01ed 13       		.uleb128 0x13
-ARM GAS  /tmp/ccJXnsTe.s 			page 48
+ARM GAS  /tmp/ccFmpdne.s 			page 48
 
 
  2669 01ee 3C       		.uleb128 0x3c
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2723 0224 0B       		.uleb128 0xb
  2724 0225 27       		.uleb128 0x27
  2725 0226 0C       		.uleb128 0xc
-ARM GAS  /tmp/ccJXnsTe.s 			page 49
+ARM GAS  /tmp/ccFmpdne.s 			page 49
 
 
  2726 0227 3C       		.uleb128 0x3c
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2780 0079 B4000000 		.4byte	.LVL28
  2781 007d F6000000 		.4byte	.LVL39
  2782 0081 0100     		.2byte	0x1
-ARM GAS  /tmp/ccJXnsTe.s 			page 50
+ARM GAS  /tmp/ccFmpdne.s 			page 50
 
 
  2783 0083 54       		.byte	0x54
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2837 0118 0100     		.2byte	0x1
  2838 011a 50       		.byte	0x50
  2839 011b 00010000 		.4byte	.LVL43
-ARM GAS  /tmp/ccJXnsTe.s 			page 51
+ARM GAS  /tmp/ccFmpdne.s 			page 51
 
 
  2840 011f 86010000 		.4byte	.LVL58
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2894 01ae 91       		.byte	0x91
  2895 01af 6C       		.sleb128 -20
  2896 01b0 2E020000 		.4byte	.LVL80
-ARM GAS  /tmp/ccJXnsTe.s 			page 52
+ARM GAS  /tmp/ccFmpdne.s 			page 52
 
 
  2897 01b4 40020000 		.4byte	.LVL84
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2939 002a 6C6F6E67 		.ascii	"long long unsigned int\000"
  2939      206C6F6E 
  2939      6720756E 
-ARM GAS  /tmp/ccJXnsTe.s 			page 53
+ARM GAS  /tmp/ccFmpdne.s 			page 53
 
 
  2939      7369676E 
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2969      7400
  2970              	.LASF8:
  2971 00c5 6C6F6E67 		.ascii	"long int\000"
-ARM GAS  /tmp/ccJXnsTe.s 			page 54
+ARM GAS  /tmp/ccFmpdne.s 			page 54
 
 
  2971      20696E74 
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  2998              	.LASF16:
  2999 014f 746D6F64 		.ascii	"tmode_t\000"
  2999      655F7400 
-ARM GAS  /tmp/ccJXnsTe.s 			page 55
+ARM GAS  /tmp/ccFmpdne.s 			page 55
 
 
  3000              	.LASF45:
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  3027              	.LASF18:
  3028 0208 74726566 		.ascii	"trefs_t\000"
  3028      735F7400 
-ARM GAS  /tmp/ccJXnsTe.s 			page 56
+ARM GAS  /tmp/ccFmpdne.s 			page 56
 
 
  3029              	.LASF26:
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  3060 029a 705F666C 		.ascii	"p_flags\000"
  3060      61677300 
  3061              	.LASF24:
-ARM GAS  /tmp/ccJXnsTe.s 			page 57
+ARM GAS  /tmp/ccFmpdne.s 			page 57
 
 
  3062 02a2 54687265 		.ascii	"Thread\000"
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  3092 0325 74657374 		.ascii	"test_buffers\000"
  3092      5F627566 
  3092      66657273 
-ARM GAS  /tmp/ccJXnsTe.s 			page 58
+ARM GAS  /tmp/ccFmpdne.s 			page 58
 
 
  3092      00
@@ -3458,27 +3458,27 @@ ARM GAS  /tmp/ccJXnsTe.s 			page 1
  3112      72795F68 
  3112      65617000 
  3113              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccJXnsTe.s 			page 59
+ARM GAS  /tmp/ccFmpdne.s 			page 59
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 testheap.c
-     /tmp/ccJXnsTe.s:19     .text.heap1_execute:00000000 $t
-     /tmp/ccJXnsTe.s:24     .text.heap1_execute:00000000 heap1_execute
-     /tmp/ccJXnsTe.s:411    .text.heap1_execute:00000244 $d
-     /tmp/ccJXnsTe.s:416    .text.heap1_setup:00000000 $t
-     /tmp/ccJXnsTe.s:421    .text.heap1_setup:00000000 heap1_setup
-     /tmp/ccJXnsTe.s:439    .text.heap1_setup:0000000c $d
-     /tmp/ccJXnsTe.s:450    .rodata.patternheap:00000000 patternheap
-     /tmp/ccJXnsTe.s:461    .rodata.testheap1:00000000 testheap1
-     /tmp/ccJXnsTe.s:447    .rodata.patternheap:00000000 $d
-     /tmp/ccJXnsTe.s:454    .rodata.str1.4:00000000 $d
-     /tmp/ccJXnsTe.s:458    .rodata.testheap1:00000000 $d
-     /tmp/ccJXnsTe.s:467    .bss.test_heap:00000000 $d
-     /tmp/ccJXnsTe.s:471    .bss.test_heap:00000000 test_heap
+     /tmp/ccFmpdne.s:19     .text.heap1_execute:00000000 $t
+     /tmp/ccFmpdne.s:24     .text.heap1_execute:00000000 heap1_execute
+     /tmp/ccFmpdne.s:411    .text.heap1_execute:00000244 $d
+     /tmp/ccFmpdne.s:416    .text.heap1_setup:00000000 $t
+     /tmp/ccFmpdne.s:421    .text.heap1_setup:00000000 heap1_setup
+     /tmp/ccFmpdne.s:439    .text.heap1_setup:0000000c $d
+     /tmp/ccFmpdne.s:450    .rodata.patternheap:00000000 patternheap
+     /tmp/ccFmpdne.s:461    .rodata.testheap1:00000000 testheap1
+     /tmp/ccFmpdne.s:447    .rodata.patternheap:00000000 $d
+     /tmp/ccFmpdne.s:454    .rodata.str1.4:00000000 $d
+     /tmp/ccFmpdne.s:458    .rodata.testheap1:00000000 $d
+     /tmp/ccFmpdne.s:467    .bss.test_heap:00000000 $d
+     /tmp/ccFmpdne.s:471    .bss.test_heap:00000000 test_heap
                      .debug_frame:00000010 $d
-     /tmp/ccJXnsTe.s:415    .text.heap1_execute:00000248 $t
-     /tmp/ccJXnsTe.s:446    .text.heap1_setup:00000014 $t
+     /tmp/ccFmpdne.s:415    .text.heap1_execute:00000248 $t
+     /tmp/ccFmpdne.s:446    .text.heap1_setup:00000014 $t
 
 UNDEFINED SYMBOLS
 chCoreStatus

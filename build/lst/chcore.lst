@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc8AqRFX.s 			page 1
+ARM GAS  /tmp/ccDGh8jp.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
   53 0010 01       		.byte	0x1
   54 0011 1B000000 		.4byte	.LASF13
   55 0015 00000000 		.4byte	.Ldebug_ranges0+0
-ARM GAS  /tmp/cc8AqRFX.s 			page 2
+ARM GAS  /tmp/ccDGh8jp.s 			page 2
 
 
   56 0019 00000000 		.4byte	0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
  110 007c A1000000 		.4byte	.LASF11
  111 0080 04       		.uleb128 0x4
  112 0081 01       		.byte	0x1
-ARM GAS  /tmp/cc8AqRFX.s 			page 3
+ARM GAS  /tmp/ccDGh8jp.s 			page 3
 
 
  113 0082 D4000000 		.4byte	.LASF14
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
  167 0029 04       		.uleb128 0x4
  168 002a 2E       		.uleb128 0x2e
  169 002b 00       		.byte	0
-ARM GAS  /tmp/cc8AqRFX.s 			page 4
+ARM GAS  /tmp/ccDGh8jp.s 			page 4
 
 
  170 002c 3F       		.uleb128 0x3f
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
  215      20696E74 
  215      00
  216              	.LASF13:
-ARM GAS  /tmp/cc8AqRFX.s 			page 5
+ARM GAS  /tmp/ccDGh8jp.s 			page 5
 
 
  217 001b 2F686F6D 		.ascii	"/home/dpeter/devel/sources/ChibiOS-RT/os/ports/GCC/"
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
  239              	.LASF3:
  240 00de 73686F72 		.ascii	"short int\000"
  240      7420696E 
-ARM GAS  /tmp/cc8AqRFX.s 			page 6
+ARM GAS  /tmp/ccDGh8jp.s 			page 6
 
 
  240      7400
@@ -307,13 +307,13 @@ ARM GAS  /tmp/cc8AqRFX.s 			page 1
  242      74797065 
  242      00
  243              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/cc8AqRFX.s 			page 7
+ARM GAS  /tmp/ccDGh8jp.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 chcore.c
-     /tmp/cc8AqRFX.s:19     .text.port_halt:00000000 $t
-     /tmp/cc8AqRFX.s:25     .text.port_halt:00000000 port_halt
+     /tmp/ccDGh8jp.s:19     .text.port_halt:00000000 $t
+     /tmp/ccDGh8jp.s:25     .text.port_halt:00000000 port_halt
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS

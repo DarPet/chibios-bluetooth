@@ -90,7 +90,7 @@ build/obj/main.o: main.c \
  /home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include/machine/_default_types.h \
  /home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include/sys/lock.h \
  /home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include/sys/string.h \
- usbcfg.h
+ usbcfg.h bluetooth.h
 
 /home/dpeter/devel/sources/ChibiOS-RT/os/kernel/include/ch.h:
 
@@ -279,3 +279,5 @@ mcuconf.h:
 /home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include/sys/string.h:
 
 usbcfg.h:
+
+bluetooth.h:

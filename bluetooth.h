@@ -52,9 +52,11 @@ typedef enum btCommandMode{
 
 void btReset();
 
-void btSetCommandModeMode(btCommandMode commandMode);
+void btSetCommandMode(btCommandMode commandMode);
 
 void btStart();
+
+void btStartInAt();
 
 void btStop();
 
@@ -63,6 +65,20 @@ void btPut();
 char btGet();
 
 void btConfigInit();
+
+
+//at commands
+
+void btAtGetBaud();
+
+void btAtSetBaud();
+
+void btAtGetName();
+
+void btAtSetName();
+
+void btAtResetDefaults();
+
 
 
 
