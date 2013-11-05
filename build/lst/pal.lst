@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccFX80nD.s 			page 1
+ARM GAS  /tmp/ccTprgjn.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
   55              	.LFB119:
   56              		.loc 1 96 0
   57              		.cfi_startproc
-ARM GAS  /tmp/ccFX80nD.s 			page 2
+ARM GAS  /tmp/ccTprgjn.s 			page 2
 
 
   58              		@ args = 0, pretend = 0, frame = 0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  112              		.size	palSetBusMode, .-palSetBusMode
  113 000c AFF30080 		.text
  114              	.Letext0:
-ARM GAS  /tmp/ccFX80nD.s 			page 3
+ARM GAS  /tmp/ccTprgjn.s 			page 3
 
 
  115              		.file 2 "/home/dpeter/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI/bin/../lib/gcc/arm-none-ea
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  169 0067 05       		.byte	0x5
  170 0068 98010000 		.4byte	.LASF7
  171 006c 04       		.uleb128 0x4
-ARM GAS  /tmp/ccFX80nD.s 			page 4
+ARM GAS  /tmp/ccTprgjn.s 			page 4
 
 
  172 006d 8F010000 		.4byte	.LASF8
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  226 00d3 48000000 		.4byte	0x48
  227 00d7 02       		.byte	0x2
  228 00d8 23       		.byte	0x23
-ARM GAS  /tmp/ccFX80nD.s 			page 5
+ARM GAS  /tmp/ccTprgjn.s 			page 5
 
 
  229 00d9 02       		.uleb128 0x2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  283 0135 0C       		.uleb128 0xc
  284 0136 07       		.uleb128 0x7
  285 0137 49445200 		.ascii	"IDR\000"
-ARM GAS  /tmp/ccFX80nD.s 			page 6
+ARM GAS  /tmp/ccTprgjn.s 			page 6
 
 
  286 013b 03       		.byte	0x3
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  340 019b 04       		.uleb128 0x4
  341 019c 4F000000 		.4byte	.LASF26
  342 01a0 03       		.byte	0x3
-ARM GAS  /tmp/ccFX80nD.s 			page 7
+ARM GAS  /tmp/ccTprgjn.s 			page 7
 
 
  343 01a1 E8       		.byte	0xe8
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  397 0207 46       		.byte	0x46
  398 0208 01       		.byte	0x1
  399 0209 9B010000 		.4byte	0x19b
-ARM GAS  /tmp/ccFX80nD.s 			page 8
+ARM GAS  /tmp/ccTprgjn.s 			page 8
 
 
  400 020d 00000000 		.4byte	.LFB118
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  454 027f B4020000 		.4byte	0x2b4
  455 0283 0D       		.uleb128 0xd
  456 0284 62757300 		.ascii	"bus\000"
-ARM GAS  /tmp/ccFX80nD.s 			page 9
+ARM GAS  /tmp/ccTprgjn.s 			page 9
 
 
  457 0288 01       		.byte	0x1
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  511 0007 03       		.uleb128 0x3
  512 0008 0E       		.uleb128 0xe
  513 0009 55       		.uleb128 0x55
-ARM GAS  /tmp/ccFX80nD.s 			page 10
+ARM GAS  /tmp/ccTprgjn.s 			page 10
 
 
  514 000a 06       		.uleb128 0x6
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  568 0040 0B       		.uleb128 0xb
  569 0041 0B       		.uleb128 0xb
  570 0042 3A       		.uleb128 0x3a
-ARM GAS  /tmp/ccFX80nD.s 			page 11
+ARM GAS  /tmp/ccTprgjn.s 			page 11
 
 
  571 0043 0B       		.uleb128 0xb
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  625 0079 08       		.uleb128 0x8
  626 007a 3A       		.uleb128 0x3a
  627 007b 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccFX80nD.s 			page 12
+ARM GAS  /tmp/ccTprgjn.s 			page 12
 
 
  628 007c 3B       		.uleb128 0x3b
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  682 00b3 06       		.uleb128 0x6
  683 00b4 00       		.byte	0
  684 00b5 00       		.byte	0
-ARM GAS  /tmp/ccFX80nD.s 			page 13
+ARM GAS  /tmp/ccTprgjn.s 			page 13
 
 
  685 00b6 0E       		.uleb128 0xe
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  739 00ed 01       		.uleb128 0x1
  740 00ee 12       		.uleb128 0x12
  741 00ef 01       		.uleb128 0x1
-ARM GAS  /tmp/ccFX80nD.s 			page 14
+ARM GAS  /tmp/ccTprgjn.s 			page 14
 
 
  742 00f0 40       		.uleb128 0x40
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  796 012d 3F       		.uleb128 0x3f
  797 012e 0C       		.uleb128 0xc
  798 012f 3C       		.uleb128 0x3c
-ARM GAS  /tmp/ccFX80nD.s 			page 15
+ARM GAS  /tmp/ccTprgjn.s 			page 15
 
 
  799 0130 0C       		.uleb128 0xc
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  853 0038 08       		.sleb128 8
  854 0039 00000000 		.4byte	0
  855 003d 00000000 		.4byte	0
-ARM GAS  /tmp/ccFX80nD.s 			page 16
+ARM GAS  /tmp/ccTprgjn.s 			page 16
 
 
  856              	.LLST2:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  910 0010 00000000 		.4byte	.LFB118
  911 0014 10000000 		.4byte	.LFE118-.LFB118
  912 0018 00000000 		.4byte	.LFB119
-ARM GAS  /tmp/ccFX80nD.s 			page 17
+ARM GAS  /tmp/ccTprgjn.s 			page 17
 
 
  913 001c 1E000000 		.4byte	.LFE119-.LFB119
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  948      696400
  949              	.LASF26:
  950 004f 696F706F 		.ascii	"ioportmask_t\000"
-ARM GAS  /tmp/ccFX80nD.s 			page 18
+ARM GAS  /tmp/ccTprgjn.s 			page 18
 
 
  950      72746D61 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  974      20696E74 
  974      00
  975              	.LASF25:
-ARM GAS  /tmp/ccFX80nD.s 			page 19
+ARM GAS  /tmp/ccTprgjn.s 			page 19
 
 
  976 00eb 4750494F 		.ascii	"GPIO_TypeDef\000"
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  1005 018f 75696E74 		.ascii	"uint32_t\000"
  1005      33325F74 
  1005      00
-ARM GAS  /tmp/ccFX80nD.s 			page 20
+ARM GAS  /tmp/ccTprgjn.s 			page 20
 
 
  1006              	.LASF7:
@@ -1162,17 +1162,17 @@ ARM GAS  /tmp/ccFX80nD.s 			page 1
  1015 01ca 494F4275 		.ascii	"IOBus\000"
  1015      7300
  1016              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccFX80nD.s 			page 21
+ARM GAS  /tmp/ccTprgjn.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 pal.c
-     /tmp/ccFX80nD.s:19     .text.palReadBus:00000000 $t
-     /tmp/ccFX80nD.s:25     .text.palReadBus:00000000 palReadBus
-     /tmp/ccFX80nD.s:48     .text.palWriteBus:00000000 $t
-     /tmp/ccFX80nD.s:54     .text.palWriteBus:00000000 palWriteBus
-     /tmp/ccFX80nD.s:86     .text.palSetBusMode:00000000 $t
-     /tmp/ccFX80nD.s:92     .text.palSetBusMode:00000000 palSetBusMode
+     /tmp/ccTprgjn.s:19     .text.palReadBus:00000000 $t
+     /tmp/ccTprgjn.s:25     .text.palReadBus:00000000 palReadBus
+     /tmp/ccTprgjn.s:48     .text.palWriteBus:00000000 $t
+     /tmp/ccTprgjn.s:54     .text.palWriteBus:00000000 palWriteBus
+     /tmp/ccTprgjn.s:86     .text.palSetBusMode:00000000 $t
+     /tmp/ccTprgjn.s:92     .text.palSetBusMode:00000000 palSetBusMode
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

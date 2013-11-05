@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUrie32.s 			page 1
+ARM GAS  /tmp/ccWClKhP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
   55              		.loc 1 55 0
   56 0018 392B     		cmp	r3, #57
   57              		.loc 1 56 0
-ARM GAS  /tmp/ccUrie32.s 			page 2
+ARM GAS  /tmp/ccWClKhP.s 			page 2
 
 
   58 001a C8BF     		it	gt
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  111              		.cfi_startproc
  112              		@ args = 4, pretend = 12, frame = 24
  113              		@ frame_needed = 0, uses_anonymous_args = 1
-ARM GAS  /tmp/ccUrie32.s 			page 3
+ARM GAS  /tmp/ccWClKhP.s 			page 3
 
 
  114              	.LVL15:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  168 0034 2546     		mov	r5, r4
  169              	.LVL19:
  170              		.loc 1 129 0
-ARM GAS  /tmp/ccUrie32.s 			page 4
+ARM GAS  /tmp/ccWClKhP.s 			page 4
 
 
  171 0036 3046     		mov	r0, r6
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  225              	.LVL30:
  226 0078 2378     		ldrb	r3, [r4, #0]	@ zero_extendqisi2
  227 007a 02EB4505 		add	r5, r2, r5, lsl #1
-ARM GAS  /tmp/ccUrie32.s 			page 5
+ARM GAS  /tmp/ccWClKhP.s 			page 5
 
 
  228              	.LVL31:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  282 00ce C600     		.2byte	(.L30-.L35)/2
  283 00d0 D700     		.2byte	(.L28-.L35)/2
  284 00d2 D700     		.2byte	(.L28-.L35)/2
-ARM GAS  /tmp/ccUrie32.s 			page 6
+ARM GAS  /tmp/ccWClKhP.s 			page 6
 
 
  285 00d4 D700     		.2byte	(.L28-.L35)/2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  339              		.loc 1 158 0
  340 012e 14F8013B 		ldrb	r3, [r4], #1	@ zero_extendqisi2
  341              	.LVL42:
-ARM GAS  /tmp/ccUrie32.s 			page 7
+ARM GAS  /tmp/ccWClKhP.s 			page 7
 
 
  342              		.loc 1 159 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  396              		.loc 1 190 0
  397 0178 002A     		cmp	r2, #0
  398 017a 00F09F80 		beq	.L61
-ARM GAS  /tmp/ccUrie32.s 			page 8
+ARM GAS  /tmp/ccWClKhP.s 			page 8
 
 
  399              	.LVL52:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  453              		.loc 1 253 0
  454 01c0 CA45     		cmp	sl, r9
  455 01c2 F7D1     		bne	.L51
-ARM GAS  /tmp/ccUrie32.s 			page 9
+ARM GAS  /tmp/ccWClKhP.s 			page 9
 
 
  456              	.L52:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  510 0206 2D29     		cmp	r1, #45
  511 0208 49D0     		beq	.L89
  512              	.LVL77:
-ARM GAS  /tmp/ccUrie32.s 			page 10
+ARM GAS  /tmp/ccWClKhP.s 			page 10
 
 
  513              	.L70:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  567              	.L44:
  568              		.loc 1 232 0
  569 023c 181D     		adds	r0, r3, #4
-ARM GAS  /tmp/ccUrie32.s 			page 11
+ARM GAS  /tmp/ccWClKhP.s 			page 11
 
 
  570              	.LVL87:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  624              	.L16:
  625 0272 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
  626              		.loc 1 142 0
-ARM GAS  /tmp/ccUrie32.s 			page 12
+ARM GAS  /tmp/ccWClKhP.s 			page 12
 
 
  627 0274 3027     		movs	r7, #48
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  681 02ae 0BF1FF3B 		add	fp, fp, #-1
  682              	.LVL111:
  683 02b2 AAE7     		b	.L70
-ARM GAS  /tmp/ccUrie32.s 			page 13
+ARM GAS  /tmp/ccWClKhP.s 			page 13
 
 
  684              	.LVL112:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  736 0034 03       		.uleb128 0x3
  737 0035 85010000 		.4byte	.LASF19
  738 0039 04       		.byte	0x4
-ARM GAS  /tmp/ccUrie32.s 			page 14
+ARM GAS  /tmp/ccWClKhP.s 			page 14
 
 
  739 003a 06       		.byte	0x6
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  793 00a0 04       		.byte	0x4
  794 00a1 4F       		.byte	0x4f
  795 00a2 A6000000 		.4byte	0xa6
-ARM GAS  /tmp/ccUrie32.s 			page 15
+ARM GAS  /tmp/ccWClKhP.s 			page 15
 
 
  796 00a6 07       		.uleb128 0x7
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  850 010f 04       		.byte	0x4
  851 0110 7B000000 		.4byte	0x7b
  852 0114 03       		.uleb128 0x3
-ARM GAS  /tmp/ccUrie32.s 			page 16
+ARM GAS  /tmp/ccWClKhP.s 			page 16
 
 
  853 0115 F1010000 		.4byte	.LASF20
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  907 017e 08       		.uleb128 0x8
  908 017f 04       		.byte	0x4
  909 0180 59010000 		.4byte	0x159
-ARM GAS  /tmp/ccUrie32.s 			page 17
+ARM GAS  /tmp/ccWClKhP.s 			page 17
 
 
  910 0184 0A       		.uleb128 0xa
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  964 01f3 01       		.byte	0x1
  965 01f4 4D020000 		.4byte	0x24d
  966 01f8 01       		.byte	0x1
-ARM GAS  /tmp/ccUrie32.s 			page 18
+ARM GAS  /tmp/ccWClKhP.s 			page 18
 
 
  967 01f9 4D020000 		.4byte	0x24d
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1021 026e 20000000 		.4byte	.LLST1
  1022 0272 14       		.uleb128 0x14
  1023 0273 06020000 		.4byte	0x206
-ARM GAS  /tmp/ccUrie32.s 			page 19
+ARM GAS  /tmp/ccWClKhP.s 			page 19
 
 
  1024 0277 3E000000 		.4byte	.LLST2
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1078 02f6 A1040000 		.4byte	0x4a1
  1079 02fa 18       		.uleb128 0x18
  1080 02fb 63687000 		.ascii	"chp\000"
-ARM GAS  /tmp/ccUrie32.s 			page 20
+ARM GAS  /tmp/ccWClKhP.s 			page 20
 
 
  1081 02ff 01       		.byte	0x1
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1135 0374 FE040000 		.4byte	.LLST16
  1136 0378 1C       		.uleb128 0x1c
  1137 0379 DE000000 		.4byte	.LASF30
-ARM GAS  /tmp/ccUrie32.s 			page 21
+ARM GAS  /tmp/ccWClKhP.s 			page 21
 
 
  1138 037d 01       		.byte	0x1
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1192 0402 21       		.uleb128 0x21
  1193 0403 01       		.byte	0x1
  1194 0404 50       		.byte	0x50
-ARM GAS  /tmp/ccUrie32.s 			page 22
+ARM GAS  /tmp/ccWClKhP.s 			page 22
 
 
  1195 0405 02       		.byte	0x2
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1249 0471 21       		.uleb128 0x21
  1250 0472 01       		.byte	0x1
  1251 0473 51       		.byte	0x51
-ARM GAS  /tmp/ccUrie32.s 			page 23
+ARM GAS  /tmp/ccWClKhP.s 			page 23
 
 
  1252 0474 02       		.byte	0x2
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1306 0006 0B       		.uleb128 0xb
  1307 0007 03       		.uleb128 0x3
  1308 0008 0E       		.uleb128 0xe
-ARM GAS  /tmp/ccUrie32.s 			page 24
+ARM GAS  /tmp/ccWClKhP.s 			page 24
 
 
  1309 0009 1B       		.uleb128 0x1b
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1363 003f 0F       		.uleb128 0xf
  1364 0040 00       		.byte	0
  1365 0041 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccUrie32.s 			page 25
+ARM GAS  /tmp/ccWClKhP.s 			page 25
 
 
  1366 0042 0B       		.uleb128 0xb
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1420 0078 00       		.byte	0
  1421 0079 49       		.uleb128 0x49
  1422 007a 13       		.uleb128 0x13
-ARM GAS  /tmp/ccUrie32.s 			page 26
+ARM GAS  /tmp/ccWClKhP.s 			page 26
 
 
  1423 007b 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1477 00b1 27       		.uleb128 0x27
  1478 00b2 0C       		.uleb128 0xc
  1479 00b3 49       		.uleb128 0x49
-ARM GAS  /tmp/ccUrie32.s 			page 27
+ARM GAS  /tmp/ccWClKhP.s 			page 27
 
 
  1480 00b4 13       		.uleb128 0x13
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1534 00ea 01       		.uleb128 0x1
  1535 00eb 40       		.uleb128 0x40
  1536 00ec 06       		.uleb128 0x6
-ARM GAS  /tmp/ccUrie32.s 			page 28
+ARM GAS  /tmp/ccWClKhP.s 			page 28
 
 
  1537 00ed 9742     		.uleb128 0x2117
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1591 0125 01       		.uleb128 0x1
  1592 0126 13       		.uleb128 0x13
  1593 0127 00       		.byte	0
-ARM GAS  /tmp/ccUrie32.s 			page 29
+ARM GAS  /tmp/ccWClKhP.s 			page 29
 
 
  1594 0128 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1648 015e 03       		.uleb128 0x3
  1649 015f 0E       		.uleb128 0xe
  1650 0160 3A       		.uleb128 0x3a
-ARM GAS  /tmp/ccUrie32.s 			page 30
+ARM GAS  /tmp/ccWClKhP.s 			page 30
 
 
  1651 0161 0B       		.uleb128 0xb
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1705 0197 20       		.uleb128 0x20
  1706 0198 898201   		.uleb128 0x4109
  1707 019b 01       		.byte	0x1
-ARM GAS  /tmp/ccUrie32.s 			page 31
+ARM GAS  /tmp/ccWClKhP.s 			page 31
 
 
  1708 019c 11       		.uleb128 0x11
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1762 000a 7D       		.byte	0x7d
  1763 000b 00       		.sleb128 0
  1764 000c 02000000 		.4byte	.LCFI0
-ARM GAS  /tmp/ccUrie32.s 			page 32
+ARM GAS  /tmp/ccWClKhP.s 			page 32
 
 
  1765 0010 4A000000 		.4byte	.LFE10
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1819 0096 30000000 		.4byte	.LVL9
  1820 009a 34000000 		.4byte	.LVL10
  1821 009e 0600     		.2byte	0x6
-ARM GAS  /tmp/ccUrie32.s 			page 33
+ARM GAS  /tmp/ccWClKhP.s 			page 33
 
 
  1822 00a0 7C       		.byte	0x7c
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1876 0123 0100     		.2byte	0x1
  1877 0125 51       		.byte	0x51
  1878 0126 0C000000 		.4byte	.LVL2
-ARM GAS  /tmp/ccUrie32.s 			page 34
+ARM GAS  /tmp/ccWClKhP.s 			page 34
 
 
  1879 012a 24000000 		.4byte	.LVL6
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1933 01b6 36000000 		.4byte	.LVL19
  1934 01ba 0100     		.2byte	0x1
  1935 01bc 55       		.byte	0x55
-ARM GAS  /tmp/ccUrie32.s 			page 35
+ARM GAS  /tmp/ccWClKhP.s 			page 35
 
 
  1936 01bd 36000000 		.4byte	.LVL19
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  1990 024f EA010000 		.4byte	.LVL71
  1991 0253 0100     		.2byte	0x1
  1992 0255 58       		.byte	0x58
-ARM GAS  /tmp/ccUrie32.s 			page 36
+ARM GAS  /tmp/ccWClKhP.s 			page 36
 
 
  1993 0256 EA010000 		.4byte	.LVL71
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2047 02e5 BA010000 		.4byte	.LVL63
  2048 02e9 C0010000 		.4byte	.LVL64
  2049 02ed 0300     		.2byte	0x3
-ARM GAS  /tmp/ccUrie32.s 			page 37
+ARM GAS  /tmp/ccWClKhP.s 			page 37
 
 
  2050 02ef 7A       		.byte	0x7a
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2104 037a 22010000 		.4byte	.LVL37
  2105 037e 0100     		.2byte	0x1
  2106 0380 53       		.byte	0x53
-ARM GAS  /tmp/ccUrie32.s 			page 38
+ARM GAS  /tmp/ccWClKhP.s 			page 38
 
 
  2107 0381 22010000 		.4byte	.LVL37
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2161 0409 36020000 		.4byte	.LVL86
  2162 040d 0100     		.2byte	0x1
  2163 040f 53       		.byte	0x53
-ARM GAS  /tmp/ccUrie32.s 			page 39
+ARM GAS  /tmp/ccWClKhP.s 			page 39
 
 
  2164 0410 44020000 		.4byte	.LVL89
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2218 0498 0100     		.2byte	0x1
  2219 049a 57       		.byte	0x57
  2220 049b 72020000 		.4byte	.LVL98
-ARM GAS  /tmp/ccUrie32.s 			page 40
+ARM GAS  /tmp/ccWClKhP.s 			page 40
 
 
  2221 049f 7A020000 		.4byte	.LVL100
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2275 0522 24       		.byte	0x24
  2276 0523 9F       		.byte	0x9f
  2277 0524 2E010000 		.4byte	.LVL41
-ARM GAS  /tmp/ccUrie32.s 			page 41
+ARM GAS  /tmp/ccWClKhP.s 			page 41
 
 
  2278 0528 7E010000 		.4byte	.LVL52
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2332 05b7 B4010000 		.4byte	.LVL62
  2333 05bb 0100     		.2byte	0x1
  2334 05bd 55       		.byte	0x55
-ARM GAS  /tmp/ccUrie32.s 			page 42
+ARM GAS  /tmp/ccWClKhP.s 			page 42
 
 
  2335 05be C4010000 		.4byte	.LVL65
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2389 064c 0100     		.2byte	0x1
  2390 064e 51       		.byte	0x51
  2391 064f 44020000 		.4byte	.LVL89
-ARM GAS  /tmp/ccUrie32.s 			page 43
+ARM GAS  /tmp/ccWClKhP.s 			page 43
 
 
  2392 0653 50020000 		.4byte	.LVL93
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2446 06e0 2B020000 		.4byte	.LVL84-1
  2447 06e4 0100     		.2byte	0x1
  2448 06e6 51       		.byte	0x51
-ARM GAS  /tmp/ccUrie32.s 			page 44
+ARM GAS  /tmp/ccWClKhP.s 			page 44
 
 
  2449 06e7 40020000 		.4byte	.LVL88
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2503 077a 50       		.byte	0x50
  2504 077b 00000000 		.4byte	0
  2505 077f 00000000 		.4byte	0
-ARM GAS  /tmp/ccUrie32.s 			page 45
+ARM GAS  /tmp/ccWClKhP.s 			page 45
 
 
  2506              		.section	.debug_aranges,"",%progbits
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2545              	.LASF1:
  2546 004c 76615F6C 		.ascii	"va_list\000"
  2546      69737400 
-ARM GAS  /tmp/ccUrie32.s 			page 46
+ARM GAS  /tmp/ccWClKhP.s 			page 46
 
 
  2547              	.LASF23:
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2571 0108 756E7369 		.ascii	"unsigned int\000"
  2571      676E6564 
  2571      20696E74 
-ARM GAS  /tmp/ccUrie32.s 			page 47
+ARM GAS  /tmp/ccWClKhP.s 			page 47
 
 
  2571      00
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2599      7420696E 
  2599      7400
  2600              	.LASF39:
-ARM GAS  /tmp/ccUrie32.s 			page 48
+ARM GAS  /tmp/ccWClKhP.s 			page 48
 
 
  2601 01c1 756E7369 		.ascii	"unsigned_common\000"
@@ -2846,20 +2846,20 @@ ARM GAS  /tmp/ccUrie32.s 			page 1
  2611      616C5374 
  2611      7265616D 
  2612              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccUrie32.s 			page 49
+ARM GAS  /tmp/ccWClKhP.s 			page 49
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 chprintf.c
-     /tmp/ccUrie32.s:19     .text.long_to_string_with_divisor.constprop.0:00000000 $t
-     /tmp/ccUrie32.s:24     .text.long_to_string_with_divisor.constprop.0:00000000 long_to_string_with_divisor.constprop.0
-     /tmp/ccUrie32.s:102    .text.chprintf:00000000 $t
-     /tmp/ccUrie32.s:108    .text.chprintf:00000000 chprintf
-     /tmp/ccUrie32.s:271    .text.chprintf:000000b8 $d
-     /tmp/ccUrie32.s:327    .text.chprintf:00000122 $t
-     /tmp/ccUrie32.s:700    .text.chprintf:000002c4 $d
-     /tmp/ccUrie32.s:705    .rodata.str1.4:00000000 $d
+     /tmp/ccWClKhP.s:19     .text.long_to_string_with_divisor.constprop.0:00000000 $t
+     /tmp/ccWClKhP.s:24     .text.long_to_string_with_divisor.constprop.0:00000000 long_to_string_with_divisor.constprop.0
+     /tmp/ccWClKhP.s:102    .text.chprintf:00000000 $t
+     /tmp/ccWClKhP.s:108    .text.chprintf:00000000 chprintf
+     /tmp/ccWClKhP.s:271    .text.chprintf:000000b8 $d
+     /tmp/ccWClKhP.s:327    .text.chprintf:00000122 $t
+     /tmp/ccWClKhP.s:700    .text.chprintf:000002c4 $d
+     /tmp/ccWClKhP.s:705    .rodata.str1.4:00000000 $d
                      .debug_frame:00000010 $d
-     /tmp/ccUrie32.s:704    .text.chprintf:000002c8 $t
+     /tmp/ccWClKhP.s:704    .text.chprintf:000002c8 $t
 
 NO UNDEFINED SYMBOLS

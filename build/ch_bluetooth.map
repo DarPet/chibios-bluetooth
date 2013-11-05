@@ -2239,7 +2239,7 @@ destructors     0x08000188        0x0
                 0x20000800                __process_stack_end__ = .
                 0x20000800                __main_thread_stack_end__ = .
 
-.data           0x20000800      0x114 load address 0x08004868
+.data           0x20000800       0x3c load address 0x08004868
                 0x20000800                . = ALIGN (0x4)
                 0x20000800                PROVIDE (_data, .)
  *(.data)
@@ -2252,80 +2252,80 @@ destructors     0x08000188        0x0
  .data.local_commands
                 0x2000080c       0x18 build/obj/shell.o
  .data.btCommSerialDriverConfig
-                0x20000824       0x78 build/obj/bluetooth.o
+                0x20000824        0xc build/obj/bluetooth.o
  .data.btAtSerialDriverConfig
-                0x2000089c       0x78 build/obj/bluetooth.o
-                0x20000914                . = ALIGN (0x4)
+                0x20000830        0xc build/obj/bluetooth.o
+                0x2000083c                . = ALIGN (0x4)
  *(.ramtext)
-                0x20000914                . = ALIGN (0x4)
-                0x20000914                PROVIDE (_edata, .)
+                0x2000083c                . = ALIGN (0x4)
+                0x2000083c                PROVIDE (_edata, .)
 
-.igot.plt       0x20000914        0x0 load address 0x0800497c
+.igot.plt       0x2000083c        0x0 load address 0x080048a4
  .igot.plt      0x00000000        0x0 build/obj/crt0.o
 
-.bss            0x20000918      0x8c0 load address 0x08004980
-                0x20000918                . = ALIGN (0x4)
-                0x20000918                PROVIDE (_bss_start, .)
+.bss            0x20000840      0x8c0 load address 0x080048a8
+                0x20000840                . = ALIGN (0x4)
+                0x20000840                PROVIDE (_bss_start, .)
  *(.bss)
-                0x20000918                . = ALIGN (0x4)
+                0x20000840                . = ALIGN (0x4)
  *(.bss.*)
  .bss.mainthread.4776
-                0x20000918       0x48 build/obj/chsys.o
+                0x20000840       0x48 build/obj/chsys.o
  .bss._idle_thread_wa
-                0x20000960       0xc0 build/obj/chsys.o
-                0x20000960                _idle_thread_wa
- .bss.vtlist    0x20000a20       0x10 build/obj/chvt.o
-                0x20000a20                vtlist
- .bss.rlist     0x20000a30       0x1c build/obj/chschd.o
-                0x20000a30                rlist
- .bss.endmem    0x20000a4c        0x4 build/obj/chmemcore.o
- .bss.nextmem   0x20000a50        0x4 build/obj/chmemcore.o
- *fill*         0x20000a54        0x4 
+                0x20000888       0xc0 build/obj/chsys.o
+                0x20000888                _idle_thread_wa
+ .bss.vtlist    0x20000948       0x10 build/obj/chvt.o
+                0x20000948                vtlist
+ .bss.rlist     0x20000958       0x1c build/obj/chschd.o
+                0x20000958                rlist
+ .bss.endmem    0x20000974        0x4 build/obj/chmemcore.o
+ .bss.nextmem   0x20000978        0x4 build/obj/chmemcore.o
+ *fill*         0x2000097c        0x4 
  .bss.default_heap
-                0x20000a58       0x20 build/obj/chheap.o
+                0x20000980       0x20 build/obj/chheap.o
  .bss.dma_isr_redir
-                0x20000a78       0x80 build/obj/stm32_dma.o
+                0x200009a0       0x80 build/obj/stm32_dma.o
  .bss.dma_streams_mask
-                0x20000af8        0x4 build/obj/stm32_dma.o
- *fill*         0x20000afc        0x4 
- .bss.USBD1     0x20000b00      0x198 build/obj/usb_lld.o
-                0x20000b00                USBD1
+                0x20000a20        0x4 build/obj/stm32_dma.o
+ *fill*         0x20000a24        0x4 
+ .bss.USBD1     0x20000a28      0x198 build/obj/usb_lld.o
+                0x20000a28                USBD1
  .bss.ep0_state
-                0x20000c98       0x10 build/obj/usb_lld.o
+                0x20000bc0       0x10 build/obj/usb_lld.o
  .bss.ep0setup_buffer
-                0x20000ca8        0x8 build/obj/usb_lld.o
- .bss.dummytx   0x20000cb0        0x2 build/obj/spi_lld.o
- *fill*         0x20000cb2        0x2 
- .bss.SPID1     0x20000cb4       0x30 build/obj/spi_lld.o
-                0x20000cb4                SPID1
- .bss.SPID2     0x20000ce4       0x30 build/obj/spi_lld.o
-                0x20000ce4                SPID2
- .bss.PWMD4     0x20000d14       0x14 build/obj/pwm_lld.o
-                0x20000d14                PWMD4
- .bss.SD1       0x20000d28       0x78 build/obj/serial_lld.o
-                0x20000d28                SD1
- .bss.SD2       0x20000da0       0x78 build/obj/serial_lld.o
-                0x20000da0                SD2
+                0x20000bd0        0x8 build/obj/usb_lld.o
+ .bss.dummytx   0x20000bd8        0x2 build/obj/spi_lld.o
+ *fill*         0x20000bda        0x2 
+ .bss.SPID1     0x20000bdc       0x30 build/obj/spi_lld.o
+                0x20000bdc                SPID1
+ .bss.SPID2     0x20000c0c       0x30 build/obj/spi_lld.o
+                0x20000c0c                SPID2
+ .bss.PWMD4     0x20000c3c       0x14 build/obj/pwm_lld.o
+                0x20000c3c                PWMD4
+ .bss.SD1       0x20000c50       0x78 build/obj/serial_lld.o
+                0x20000c50                SD1
+ .bss.SD2       0x20000cc8       0x78 build/obj/serial_lld.o
+                0x20000cc8                SD2
  .bss.shell_terminated
-                0x20000e18        0x4 build/obj/shell.o
-                0x20000e18                shell_terminated
- .bss.SDU1      0x20000e1c      0x258 build/obj/main.o
-                0x20000e1c                SDU1
- *fill*         0x20001074        0x4 
- .bss.waBtRead  0x20001078      0x130 build/obj/main.o
+                0x20000d40        0x4 build/obj/shell.o
+                0x20000d40                shell_terminated
+ .bss.SDU1      0x20000d44      0x258 build/obj/main.o
+                0x20000d44                SDU1
+ *fill*         0x20000f9c        0x4 
+ .bss.waBtRead  0x20000fa0      0x130 build/obj/main.o
  .bss.ep1instate
-                0x200011a8       0x10 build/obj/usbcfg.o
+                0x200010d0       0x10 build/obj/usbcfg.o
  .bss.ep2instate
-                0x200011b8       0x10 build/obj/usbcfg.o
+                0x200010e0       0x10 build/obj/usbcfg.o
  .bss.ep1outstate
-                0x200011c8       0x10 build/obj/usbcfg.o
-                0x200011d8                . = ALIGN (0x4)
+                0x200010f0       0x10 build/obj/usbcfg.o
+                0x20001100                . = ALIGN (0x4)
  *(COMMON)
-                0x200011d8                . = ALIGN (0x4)
-                0x200011d8                PROVIDE (_bss_end, .)
-                0x200011d8                PROVIDE (end, .)
-                0x200011d8                _end = .
-                0x200011d8                __heap_base__ = _end
+                0x20001100                . = ALIGN (0x4)
+                0x20001100                PROVIDE (_bss_end, .)
+                0x20001100                PROVIDE (end, .)
+                0x20001100                _end = .
+                0x20001100                __heap_base__ = _end
                 0x2001c000                __heap_end__ = __ram_end__
 OUTPUT(build/ch_bluetooth.elf elf32-littlearm)
 

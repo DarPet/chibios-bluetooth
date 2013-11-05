@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccgqsdpa.s 			page 1
+ARM GAS  /tmp/ccrpYEB4.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
   53              		@ link register save eliminated.
   54              	.LVL1:
   55              		.loc 1 76 0
-ARM GAS  /tmp/ccgqsdpa.s 			page 2
+ARM GAS  /tmp/ccrpYEB4.s 			page 2
 
 
   56 0000 0023     		movs	r3, #0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  110              		.loc 1 108 0
  111 000c FFF7FEFF 		bl	spi_lld_start
  112              	.LVL7:
-ARM GAS  /tmp/ccgqsdpa.s 			page 3
+ARM GAS  /tmp/ccrpYEB4.s 			page 3
 
 
  113              		.loc 1 109 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  167              		.loc 1 130 0
  168 000e 0123     		movs	r3, #1
  169 0010 2370     		strb	r3, [r4, #0]
-ARM GAS  /tmp/ccgqsdpa.s 			page 4
+ARM GAS  /tmp/ccrpYEB4.s 			page 4
 
 
  170              	.LBB7:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  223              	.LVL21:
  224              		.thumb
  225 0012 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccgqsdpa.s 			page 5
+ARM GAS  /tmp/ccrpYEB4.s 			page 5
 
 
  226              	.LBE9:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  276      AFF30080 
  277              		.align	2
  278              		.p2align 4,,15
-ARM GAS  /tmp/ccgqsdpa.s 			page 6
+ARM GAS  /tmp/ccrpYEB4.s 			page 6
 
 
  279              		.global	spiStartIgnore
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  332              	spiStartExchange:
  333              	.LFB125:
  334              		.loc 1 210 0
-ARM GAS  /tmp/ccgqsdpa.s 			page 7
+ARM GAS  /tmp/ccrpYEB4.s 			page 7
 
 
  335              		.cfi_startproc
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  389              	.LFB126:
  390              		.loc 1 236 0
  391              		.cfi_startproc
-ARM GAS  /tmp/ccgqsdpa.s 			page 8
+ARM GAS  /tmp/ccrpYEB4.s 			page 8
 
 
  392              		@ args = 0, pretend = 0, frame = 0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  445              		.cfi_startproc
  446              		@ args = 0, pretend = 0, frame = 0
  447              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccgqsdpa.s 			page 9
+ARM GAS  /tmp/ccrpYEB4.s 			page 9
 
 
  448              	.LVL50:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  501              		@ frame_needed = 0, uses_anonymous_args = 0
  502              	.LVL57:
  503 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/ccgqsdpa.s 			page 10
+ARM GAS  /tmp/ccrpYEB4.s 			page 10
 
 
  504              	.LCFI8:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  558              		.thumb
  559              		.thumb_func
  560              		.type	spiExchange, %function
-ARM GAS  /tmp/ccgqsdpa.s 			page 11
+ARM GAS  /tmp/ccrpYEB4.s 			page 11
 
 
  561              	spiExchange:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  615              	.L15:
  616 002c 00000000 		.word	rlist
  617              	.LBE26:
-ARM GAS  /tmp/ccgqsdpa.s 			page 12
+ARM GAS  /tmp/ccrpYEB4.s 			page 12
 
 
  618              		.cfi_endproc
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  672              	@ 358 "/home/dpeter/devel/sources/ChibiOS-RT/os/hal/src/spi.c" 1
  673 0020 83F31188 		msr     BASEPRI, r3
  674              	@ 0 "" 2
-ARM GAS  /tmp/ccgqsdpa.s 			page 13
+ARM GAS  /tmp/ccrpYEB4.s 			page 13
 
 
  675              	.LVL81:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  729 0016 0220     		movs	r0, #2
  730 0018 A360     		str	r3, [r4, #8]
  731 001a FFF7FEFF 		bl	chSchGoSleepS
-ARM GAS  /tmp/ccgqsdpa.s 			page 14
+ARM GAS  /tmp/ccrpYEB4.s 			page 14
 
 
  732              	.LVL87:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  784              	.LFB133:
  785              		.loc 1 424 0
  786              		.cfi_startproc
-ARM GAS  /tmp/ccgqsdpa.s 			page 15
+ARM GAS  /tmp/ccrpYEB4.s 			page 15
 
 
  787              		@ args = 0, pretend = 0, frame = 0
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  839 0039 07       		.byte	0x7
  840 003a F8010000 		.4byte	.LASF0
  841 003e 04       		.uleb128 0x4
-ARM GAS  /tmp/ccgqsdpa.s 			page 16
+ARM GAS  /tmp/ccrpYEB4.s 			page 16
 
 
  842 003f 01       		.byte	0x1
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  896 00a5 B0030000 		.4byte	.LASF14
  897 00a9 03       		.uleb128 0x3
  898 00aa 6C020000 		.4byte	.LASF15
-ARM GAS  /tmp/ccgqsdpa.s 			page 17
+ARM GAS  /tmp/ccrpYEB4.s 			page 17
 
 
  899 00ae 04       		.byte	0x4
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  953 0123 02       		.byte	0x2
  954 0124 23       		.byte	0x23
  955 0125 00       		.uleb128 0
-ARM GAS  /tmp/ccgqsdpa.s 			page 18
+ARM GAS  /tmp/ccrpYEB4.s 			page 18
 
 
  956 0126 06       		.uleb128 0x6
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1010 0186 23       		.byte	0x23
  1011 0187 1C       		.uleb128 0x1c
  1012 0188 06       		.uleb128 0x6
-ARM GAS  /tmp/ccgqsdpa.s 			page 19
+ARM GAS  /tmp/ccrpYEB4.s 			page 19
 
 
  1013 0189 58040000 		.4byte	.LASF32
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1067 01e9 2C       		.uleb128 0x2c
  1068 01ea 06       		.uleb128 0x6
  1069 01eb EB050000 		.4byte	.LASF38
-ARM GAS  /tmp/ccgqsdpa.s 			page 20
+ARM GAS  /tmp/ccrpYEB4.s 			page 20
 
 
  1070 01ef 06       		.byte	0x6
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1124 024c 05       		.byte	0x5
  1125 024d 5D       		.byte	0x5d
  1126 024e 56020000 		.4byte	0x256
-ARM GAS  /tmp/ccgqsdpa.s 			page 21
+ARM GAS  /tmp/ccrpYEB4.s 			page 21
 
 
  1127 0252 02       		.byte	0x2
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1181 02b5 07       		.byte	0x7
  1182 02b6 1901     		.2byte	0x119
  1183 02b8 89020000 		.4byte	0x289
-ARM GAS  /tmp/ccgqsdpa.s 			page 22
+ARM GAS  /tmp/ccrpYEB4.s 			page 22
 
 
  1184 02bc 02       		.byte	0x2
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1238 031a 2001     		.2byte	0x120
  1239 031c 89020000 		.4byte	0x289
  1240 0320 02       		.byte	0x2
-ARM GAS  /tmp/ccgqsdpa.s 			page 23
+ARM GAS  /tmp/ccrpYEB4.s 			page 23
 
 
  1241 0321 23       		.byte	0x23
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1295 0383 24030000 		.4byte	0x324
  1296 0387 02       		.byte	0x2
  1297 0388 23       		.byte	0x23
-ARM GAS  /tmp/ccgqsdpa.s 			page 24
+ARM GAS  /tmp/ccrpYEB4.s 			page 24
 
 
  1298 0389 0C       		.uleb128 0xc
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1352 03e9 E8040000 		.4byte	.LASF59
  1353 03ed 09       		.byte	0x9
  1354 03ee 2A       		.byte	0x2a
-ARM GAS  /tmp/ccgqsdpa.s 			page 25
+ARM GAS  /tmp/ccrpYEB4.s 			page 25
 
 
  1355 03ef F7030000 		.4byte	0x3f7
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1409 045b 70000000 		.4byte	0x70
  1410 045f 11       		.uleb128 0x11
  1411 0460 18       		.byte	0x18
-ARM GAS  /tmp/ccgqsdpa.s 			page 26
+ARM GAS  /tmp/ccrpYEB4.s 			page 26
 
 
  1412 0461 0A       		.byte	0xa
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1466 04c7 0A       		.byte	0xa
  1467 04c8 B902     		.2byte	0x2b9
  1468 04ca 5F040000 		.4byte	0x45f
-ARM GAS  /tmp/ccgqsdpa.s 			page 27
+ARM GAS  /tmp/ccrpYEB4.s 			page 27
 
 
  1469 04ce 11       		.uleb128 0x11
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1523 0531 445200   		.ascii	"DR\000"
  1524 0534 0A       		.byte	0xa
  1525 0535 EB04     		.2byte	0x4eb
-ARM GAS  /tmp/ccgqsdpa.s 			page 28
+ARM GAS  /tmp/ccrpYEB4.s 			page 28
 
 
  1526 0537 55040000 		.4byte	0x455
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1580 059d 0A       		.byte	0xa
  1581 059e F204     		.2byte	0x4f2
  1582 05a0 5E000000 		.4byte	0x5e
-ARM GAS  /tmp/ccgqsdpa.s 			page 29
+ARM GAS  /tmp/ccrpYEB4.s 			page 29
 
 
  1583 05a4 02       		.byte	0x2
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1637 0606 06       		.uleb128 0x6
  1638 0607 80040000 		.4byte	.LASF85
  1639 060b 0B       		.byte	0xb
-ARM GAS  /tmp/ccgqsdpa.s 			page 30
+ARM GAS  /tmp/ccrpYEB4.s 			page 30
 
 
  1640 060c DC       		.byte	0xdc
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1694 066c 06       		.uleb128 0x6
  1695 066d D0020000 		.4byte	.LASF90
  1696 0671 0C       		.byte	0xc
-ARM GAS  /tmp/ccgqsdpa.s 			page 31
+ARM GAS  /tmp/ccrpYEB4.s 			page 31
 
 
  1697 0672 98       		.byte	0x98
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1751 06ce 91       		.byte	0x91
  1752 06cf 47030000 		.4byte	0x347
  1753 06d3 02       		.byte	0x2
-ARM GAS  /tmp/ccgqsdpa.s 			page 32
+ARM GAS  /tmp/ccrpYEB4.s 			page 32
 
 
  1754 06d4 23       		.byte	0x23
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1808 0731 9B010000 		.4byte	.LASF99
  1809 0735 0C       		.byte	0xc
  1810 0736 9E       		.byte	0x9e
-ARM GAS  /tmp/ccgqsdpa.s 			page 33
+ARM GAS  /tmp/ccrpYEB4.s 			page 33
 
 
  1811 0737 96060000 		.4byte	0x696
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1865 07a6 12       		.uleb128 0x12
  1866 07a7 D6040000 		.4byte	.LASF109
  1867 07ab 0E       		.byte	0xe
-ARM GAS  /tmp/ccgqsdpa.s 			page 34
+ARM GAS  /tmp/ccrpYEB4.s 			page 34
 
 
  1868 07ac 4601     		.2byte	0x146
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1922 0810 1C030000 		.4byte	.LASF115
  1923 0814 0E       		.byte	0xe
  1924 0815 6E01     		.2byte	0x16e
-ARM GAS  /tmp/ccgqsdpa.s 			page 35
+ARM GAS  /tmp/ccrpYEB4.s 			page 35
 
 
  1925 0817 82000000 		.4byte	0x82
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  1979 087f 3801     		.2byte	0x138
  1980 0881 5E000000 		.4byte	0x5e
  1981 0885 02       		.byte	0x2
-ARM GAS  /tmp/ccgqsdpa.s 			page 36
+ARM GAS  /tmp/ccrpYEB4.s 			page 36
 
 
  1982 0886 23       		.byte	0x23
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2036 08f3 01       		.byte	0x1
  2037 08f4 49       		.byte	0x49
  2038 08f5 3D080000 		.4byte	0x83d
-ARM GAS  /tmp/ccgqsdpa.s 			page 37
+ARM GAS  /tmp/ccrpYEB4.s 			page 37
 
 
  2039 08f9 00000000 		.4byte	.LLST0
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2093 0971 746D7000 		.ascii	"tmp\000"
  2094 0975 01       		.byte	0x1
  2095 0976 6E       		.byte	0x6e
-ARM GAS  /tmp/ccgqsdpa.s 			page 38
+ARM GAS  /tmp/ccrpYEB4.s 			page 38
 
 
  2096 0977 82000000 		.4byte	0x82
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2150 09f5 FC100000 		.4byte	0x10fc
  2151 09f9 1D       		.uleb128 0x1d
  2152 09fa 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 39
+ARM GAS  /tmp/ccrpYEB4.s 			page 39
 
 
  2153 09fb 50       		.byte	0x50
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2207 0a73 50       		.byte	0x50
  2208 0a74 00       		.byte	0
  2209 0a75 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 40
+ARM GAS  /tmp/ccrpYEB4.s 			page 40
 
 
  2210 0a76 1E       		.uleb128 0x1e
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2264 0af1 01       		.byte	0x1
  2265 0af2 B6       		.byte	0xb6
  2266 0af3 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 41
+ARM GAS  /tmp/ccrpYEB4.s 			page 41
 
 
  2267 0af4 00000000 		.4byte	.LFB124
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2321 0b70 01       		.uleb128 0x1
  2322 0b71 50       		.byte	0x50
  2323 0b72 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 42
+ARM GAS  /tmp/ccrpYEB4.s 			page 42
 
 
  2324 0b73 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2378 0bf8 DA       		.byte	0xda
  2379 0bf9 82000000 		.4byte	0x82
  2380 0bfd 37030000 		.4byte	.LLST29
-ARM GAS  /tmp/ccgqsdpa.s 			page 43
+ARM GAS  /tmp/ccrpYEB4.s 			page 43
 
 
  2381 0c01 00       		.byte	0
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2435 0c58 23       		.uleb128 0x23
  2436 0c59 6E00     		.ascii	"n\000"
  2437 0c5b 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 44
+ARM GAS  /tmp/ccrpYEB4.s 			page 44
 
 
  2438 0c5c EC       		.byte	0xec
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2492 0cc8 00       		.byte	0
  2493 0cc9 25       		.uleb128 0x25
  2494 0cca 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 45
+ARM GAS  /tmp/ccrpYEB4.s 			page 45
 
 
  2495 0ccb 21010000 		.4byte	.LASF133
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2549 0d56 03       		.byte	0x3
  2550 0d57 F3       		.byte	0xf3
  2551 0d58 01       		.uleb128 0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 46
+ARM GAS  /tmp/ccrpYEB4.s 			page 46
 
 
  2552 0d59 52       		.byte	0x52
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2606 0dca 746D7000 		.ascii	"tmp\000"
  2607 0dce 01       		.byte	0x1
  2608 0dcf 2901     		.2byte	0x129
-ARM GAS  /tmp/ccgqsdpa.s 			page 47
+ARM GAS  /tmp/ccrpYEB4.s 			page 47
 
 
  2609 0dd1 82000000 		.4byte	0x82
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2663 0e3e 26       		.uleb128 0x26
  2664 0e3f 16020000 		.4byte	.LASF130
  2665 0e43 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 48
+ARM GAS  /tmp/ccrpYEB4.s 			page 48
 
 
  2666 0e44 3F01     		.2byte	0x13f
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2720 0eba 01       		.uleb128 0x1
  2721 0ebb 51       		.byte	0x51
  2722 0ebc 1D       		.uleb128 0x1d
-ARM GAS  /tmp/ccgqsdpa.s 			page 49
+ARM GAS  /tmp/ccrpYEB4.s 			page 49
 
 
  2723 0ebd 01       		.byte	0x1
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2777 0f35 00       		.byte	0
  2778 0f36 21       		.uleb128 0x21
  2779 0f37 1E000000 		.4byte	.LBB29
-ARM GAS  /tmp/ccgqsdpa.s 			page 50
+ARM GAS  /tmp/ccrpYEB4.s 			page 50
 
 
  2780 0f3b 2C000000 		.4byte	.LBE29
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2834 0f9d 39100000 		.4byte	0x1039
  2835 0fa1 26       		.uleb128 0x26
  2836 0fa2 C6050000 		.4byte	.LASF124
-ARM GAS  /tmp/ccgqsdpa.s 			page 51
+ARM GAS  /tmp/ccrpYEB4.s 			page 51
 
 
  2837 0fa6 01       		.byte	0x1
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2891 1021 51       		.byte	0x51
  2892 1022 1D       		.uleb128 0x1d
  2893 1023 01       		.byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 52
+ARM GAS  /tmp/ccrpYEB4.s 			page 52
 
 
  2894 1024 50       		.byte	0x50
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  2948 1081 01       		.byte	0x1
  2949 1082 00000000 		.4byte	.LFB133
  2950 1086 04000000 		.4byte	.LFE133
-ARM GAS  /tmp/ccgqsdpa.s 			page 53
+ARM GAS  /tmp/ccrpYEB4.s 			page 53
 
 
  2951 108a 02       		.byte	0x2
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3005 10f1 01       		.byte	0x1
  3006 10f2 FC100000 		.4byte	0x10fc
  3007 10f6 18       		.uleb128 0x18
-ARM GAS  /tmp/ccgqsdpa.s 			page 54
+ARM GAS  /tmp/ccrpYEB4.s 			page 54
 
 
  3008 10f7 3D080000 		.4byte	0x83d
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3062 115f 01       		.byte	0x1
  3063 1160 79110000 		.4byte	0x1179
  3064 1164 18       		.uleb128 0x18
-ARM GAS  /tmp/ccgqsdpa.s 			page 55
+ARM GAS  /tmp/ccrpYEB4.s 			page 55
 
 
  3065 1165 3D080000 		.4byte	0x83d
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3119 11d3 01       		.byte	0x1
  3120 11d4 01       		.byte	0x1
  3121 11d5 DF110000 		.4byte	0x11df
-ARM GAS  /tmp/ccgqsdpa.s 			page 56
+ARM GAS  /tmp/ccrpYEB4.s 			page 56
 
 
  3122 11d9 18       		.uleb128 0x18
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3176 0028 13       		.uleb128 0x13
  3177 0029 00       		.byte	0
  3178 002a 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 57
+ARM GAS  /tmp/ccrpYEB4.s 			page 57
 
 
  3179 002b 04       		.uleb128 0x4
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3233 0061 00       		.byte	0
  3234 0062 00       		.byte	0
  3235 0063 08       		.uleb128 0x8
-ARM GAS  /tmp/ccgqsdpa.s 			page 58
+ARM GAS  /tmp/ccrpYEB4.s 			page 58
 
 
  3236 0064 13       		.uleb128 0x13
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3290 009a 38       		.uleb128 0x38
  3291 009b 0A       		.uleb128 0xa
  3292 009c 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 59
+ARM GAS  /tmp/ccrpYEB4.s 			page 59
 
 
  3293 009d 00       		.byte	0
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3347 00d3 12       		.uleb128 0x12
  3348 00d4 0D       		.uleb128 0xd
  3349 00d5 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 60
+ARM GAS  /tmp/ccrpYEB4.s 			page 60
 
 
  3350 00d6 03       		.uleb128 0x3
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3404 010c 03       		.uleb128 0x3
  3405 010d 0E       		.uleb128 0xe
  3406 010e 1C       		.uleb128 0x1c
-ARM GAS  /tmp/ccgqsdpa.s 			page 61
+ARM GAS  /tmp/ccrpYEB4.s 			page 61
 
 
  3407 010f 0D       		.uleb128 0xd
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3461 0149 00       		.byte	0
  3462 014a 1B       		.uleb128 0x1b
  3463 014b 05       		.uleb128 0x5
-ARM GAS  /tmp/ccgqsdpa.s 			page 62
+ARM GAS  /tmp/ccrpYEB4.s 			page 62
 
 
  3464 014c 00       		.byte	0
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3518 0189 01       		.uleb128 0x1
  3519 018a 13       		.uleb128 0x13
  3520 018b 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 63
+ARM GAS  /tmp/ccrpYEB4.s 			page 63
 
 
  3521 018c 00       		.byte	0
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3575 01c4 49       		.uleb128 0x49
  3576 01c5 13       		.uleb128 0x13
  3577 01c6 02       		.uleb128 0x2
-ARM GAS  /tmp/ccgqsdpa.s 			page 64
+ARM GAS  /tmp/ccrpYEB4.s 			page 64
 
 
  3578 01c7 06       		.uleb128 0x6
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3632 01fe 0B       		.uleb128 0xb
  3633 01ff 3B       		.uleb128 0x3b
  3634 0200 05       		.uleb128 0x5
-ARM GAS  /tmp/ccgqsdpa.s 			page 65
+ARM GAS  /tmp/ccrpYEB4.s 			page 65
 
 
  3635 0201 49       		.uleb128 0x49
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3689 023a 13       		.uleb128 0x13
  3690 023b 00       		.byte	0
  3691 023c 00       		.byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 66
+ARM GAS  /tmp/ccrpYEB4.s 			page 66
 
 
  3692 023d 2B       		.uleb128 0x2b
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3746 0273 3F       		.uleb128 0x3f
  3747 0274 0C       		.uleb128 0xc
  3748 0275 03       		.uleb128 0x3
-ARM GAS  /tmp/ccgqsdpa.s 			page 67
+ARM GAS  /tmp/ccrpYEB4.s 			page 67
 
 
  3749 0276 0E       		.uleb128 0xe
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3803              	.LLST0:
  3804 0000 00000000 		.4byte	.LVL1
  3805 0004 0C000000 		.4byte	.LVL2
-ARM GAS  /tmp/ccgqsdpa.s 			page 68
+ARM GAS  /tmp/ccrpYEB4.s 			page 68
 
 
  3806 0008 0100     		.2byte	0x1
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3860 0089 00000000 		.4byte	0
  3861              	.LLST4:
  3862 008d 0A000000 		.4byte	.LVL6
-ARM GAS  /tmp/ccgqsdpa.s 			page 69
+ARM GAS  /tmp/ccrpYEB4.s 			page 69
 
 
  3863 0091 0F000000 		.4byte	.LVL7-1
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3917 0121 7D       		.byte	0x7d
  3918 0122 00       		.sleb128 0
  3919 0123 02000000 		.4byte	.LCFI2
-ARM GAS  /tmp/ccgqsdpa.s 			page 70
+ARM GAS  /tmp/ccrpYEB4.s 			page 70
 
 
  3920 0127 14000000 		.4byte	.LFE122
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  3974 01b1 0400     		.2byte	0x4
  3975 01b3 F3       		.byte	0xf3
  3976 01b4 01       		.uleb128 0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 71
+ARM GAS  /tmp/ccrpYEB4.s 			page 71
 
 
  3977 01b5 50       		.byte	0x50
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4031 023c 01       		.uleb128 0x1
  4032 023d 51       		.byte	0x51
  4033 023e 9F       		.byte	0x9f
-ARM GAS  /tmp/ccgqsdpa.s 			page 72
+ARM GAS  /tmp/ccrpYEB4.s 			page 72
 
 
  4034 023f 00000000 		.4byte	0
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4088              	.LLST26:
  4089 02cc 00000000 		.4byte	.LVL35
  4090 02d0 15000000 		.4byte	.LVL40-1
-ARM GAS  /tmp/ccgqsdpa.s 			page 73
+ARM GAS  /tmp/ccrpYEB4.s 			page 73
 
 
  4091 02d4 0100     		.2byte	0x1
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4145 035a 1A000000 		.4byte	.LFE126
  4146 035e 0200     		.2byte	0x2
  4147 0360 7D       		.byte	0x7d
-ARM GAS  /tmp/ccgqsdpa.s 			page 74
+ARM GAS  /tmp/ccrpYEB4.s 			page 74
 
 
  4148 0361 08       		.sleb128 8
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4202 03e8 00000000 		.4byte	0
  4203 03ec 00000000 		.4byte	0
  4204              	.LLST36:
-ARM GAS  /tmp/ccgqsdpa.s 			page 75
+ARM GAS  /tmp/ccrpYEB4.s 			page 75
 
 
  4205 03f0 00000000 		.4byte	.LFB127
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4259 0478 0100     		.2byte	0x1
  4260 047a 53       		.byte	0x53
  4261 047b 00000000 		.4byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 76
+ARM GAS  /tmp/ccrpYEB4.s 			page 76
 
 
  4262 047f 00000000 		.4byte	0
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4316 0508 24000000 		.4byte	.LVL64
  4317 050c 2C000000 		.4byte	.LFE128
  4318 0510 0100     		.2byte	0x1
-ARM GAS  /tmp/ccgqsdpa.s 			page 77
+ARM GAS  /tmp/ccrpYEB4.s 			page 77
 
 
  4319 0512 53       		.byte	0x53
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4373 0597 00000000 		.4byte	0
  4374              	.LLST51:
  4375 059b 00000000 		.4byte	.LVL65
-ARM GAS  /tmp/ccgqsdpa.s 			page 78
+ARM GAS  /tmp/ccrpYEB4.s 			page 78
 
 
  4376 059f 08000000 		.4byte	.LVL66
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4430 062b 0100     		.2byte	0x1
  4431 062d 54       		.byte	0x54
  4432 062e 00000000 		.4byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 79
+ARM GAS  /tmp/ccrpYEB4.s 			page 79
 
 
  4433 0632 00000000 		.4byte	0
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4487 06b6 00000000 		.4byte	0
  4488 06ba 00000000 		.4byte	0
  4489              	.LLST61:
-ARM GAS  /tmp/ccgqsdpa.s 			page 80
+ARM GAS  /tmp/ccrpYEB4.s 			page 80
 
 
  4490 06be 00000000 		.4byte	.LVL82
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4544 0748 02000000 		.4byte	.LVL91
  4545 074c 0100     		.2byte	0x1
  4546 074e 50       		.byte	0x50
-ARM GAS  /tmp/ccgqsdpa.s 			page 81
+ARM GAS  /tmp/ccrpYEB4.s 			page 81
 
 
  4547 074f 02000000 		.4byte	.LVL91
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4601 0054 1A000000 		.4byte	.LFE126-.LFB126
  4602 0058 00000000 		.4byte	.LFB127
  4603 005c 1A000000 		.4byte	.LFE127-.LFB127
-ARM GAS  /tmp/ccgqsdpa.s 			page 82
+ARM GAS  /tmp/ccrpYEB4.s 			page 82
 
 
  4604 0060 00000000 		.4byte	.LFB128
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4658 0098 06000000 		.4byte	.LBB31
  4659 009c 0A000000 		.4byte	.LBE31
  4660 00a0 00000000 		.4byte	0
-ARM GAS  /tmp/ccgqsdpa.s 			page 83
+ARM GAS  /tmp/ccrpYEB4.s 			page 83
 
 
  4661 00a4 00000000 		.4byte	0
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4707              	.LASF92:
  4708 0019 4F545950 		.ascii	"OTYPER\000"
  4708      455200
-ARM GAS  /tmp/ccgqsdpa.s 			page 84
+ARM GAS  /tmp/ccrpYEB4.s 			page 84
 
 
  4709              	.LASF104:
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4739              	.LASF119:
  4740 00a8 73737061 		.ascii	"sspad\000"
  4740      6400
-ARM GAS  /tmp/ccgqsdpa.s 			page 85
+ARM GAS  /tmp/ccrpYEB4.s 			page 85
 
 
  4741              	.LASF156:
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4768      65786368 
  4768      616E6765 
  4768      00
-ARM GAS  /tmp/ccgqsdpa.s 			page 86
+ARM GAS  /tmp/ccrpYEB4.s 			page 86
 
 
  4769              	.LASF33:
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4798      00
  4799              	.LASF87:
  4800 01cf 73656C66 		.ascii	"selfindex\000"
-ARM GAS  /tmp/ccgqsdpa.s 			page 87
+ARM GAS  /tmp/ccrpYEB4.s 			page 87
 
 
  4800      696E6465 
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4826      65642069 
  4826      6E7400
  4827              	.LASF20:
-ARM GAS  /tmp/ccgqsdpa.s 			page 88
+ARM GAS  /tmp/ccrpYEB4.s 			page 88
 
 
  4828 0266 6D73675F 		.ascii	"msg_t\000"
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4856      7300
  4857              	.LASF152:
  4858 02f7 63684D74 		.ascii	"chMtxLock\000"
-ARM GAS  /tmp/ccgqsdpa.s 			page 89
+ARM GAS  /tmp/ccrpYEB4.s 			page 89
 
 
  4858      784C6F63 
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4888 037d 705F7072 		.ascii	"p_prev\000"
  4888      657600
  4889              	.LASF78:
-ARM GAS  /tmp/ccgqsdpa.s 			page 90
+ARM GAS  /tmp/ccrpYEB4.s 			page 90
 
 
  4890 0384 52455345 		.ascii	"RESERVED6\000"
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4917              	.LASF63:
  4918 0413 65776D61 		.ascii	"ewmask\000"
  4918      736B00
-ARM GAS  /tmp/ccgqsdpa.s 			page 91
+ARM GAS  /tmp/ccrpYEB4.s 			page 91
 
 
  4919              	.LASF24:
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4947      00
  4948              	.LASF105:
  4949 04c9 5350495F 		.ascii	"SPI_COMPLETE\000"
-ARM GAS  /tmp/ccgqsdpa.s 			page 92
+ARM GAS  /tmp/ccrpYEB4.s 			page 92
 
 
  4949      434F4D50 
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  4975      00
  4976              	.LASF126:
  4977 055e 73706953 		.ascii	"spiSelect\000"
-ARM GAS  /tmp/ccgqsdpa.s 			page 93
+ARM GAS  /tmp/ccrpYEB4.s 			page 93
 
 
  4977      656C6563 
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  5006              	.LASF38:
  5007 05eb 705F6D73 		.ascii	"p_msg\000"
  5007      6700
-ARM GAS  /tmp/ccgqsdpa.s 			page 94
+ARM GAS  /tmp/ccrpYEB4.s 			page 94
 
 
  5008              	.LASF58:
@@ -5592,51 +5592,51 @@ ARM GAS  /tmp/ccgqsdpa.s 			page 1
  5013      6974696E 
  5013      6700
  5014              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccgqsdpa.s 			page 95
+ARM GAS  /tmp/ccrpYEB4.s 			page 95
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-     /tmp/ccgqsdpa.s:19     .text.spiInit:00000000 $t
-     /tmp/ccgqsdpa.s:25     .text.spiInit:00000000 spiInit
-     /tmp/ccgqsdpa.s:41     .text.spiObjectInit:00000000 $t
-     /tmp/ccgqsdpa.s:47     .text.spiObjectInit:00000000 spiObjectInit
-     /tmp/ccgqsdpa.s:75     .text.spiStart:00000000 $t
-     /tmp/ccgqsdpa.s:81     .text.spiStart:00000000 spiStart
-     /tmp/ccgqsdpa.s:131    .text.spiStop:00000000 $t
-     /tmp/ccgqsdpa.s:137    .text.spiStop:00000000 spiStop
-     /tmp/ccgqsdpa.s:185    .text.spiSelect:00000000 $t
-     /tmp/ccgqsdpa.s:191    .text.spiSelect:00000000 spiSelect
-     /tmp/ccgqsdpa.s:231    .text.spiUnselect:00000000 $t
-     /tmp/ccgqsdpa.s:237    .text.spiUnselect:00000000 spiUnselect
-     /tmp/ccgqsdpa.s:277    .text.spiStartIgnore:00000000 $t
-     /tmp/ccgqsdpa.s:283    .text.spiStartIgnore:00000000 spiStartIgnore
-     /tmp/ccgqsdpa.s:326    .text.spiStartExchange:00000000 $t
-     /tmp/ccgqsdpa.s:332    .text.spiStartExchange:00000000 spiStartExchange
-     /tmp/ccgqsdpa.s:382    .text.spiStartSend:00000000 $t
-     /tmp/ccgqsdpa.s:388    .text.spiStartSend:00000000 spiStartSend
-     /tmp/ccgqsdpa.s:436    .text.spiStartReceive:00000000 $t
-     /tmp/ccgqsdpa.s:442    .text.spiStartReceive:00000000 spiStartReceive
-     /tmp/ccgqsdpa.s:490    .text.spiIgnore:00000000 $t
-     /tmp/ccgqsdpa.s:496    .text.spiIgnore:00000000 spiIgnore
-     /tmp/ccgqsdpa.s:549    .text.spiIgnore:00000028 $d
-     /tmp/ccgqsdpa.s:555    .text.spiExchange:00000000 $t
-     /tmp/ccgqsdpa.s:561    .text.spiExchange:00000000 spiExchange
-     /tmp/ccgqsdpa.s:616    .text.spiExchange:0000002c $d
-     /tmp/ccgqsdpa.s:622    .text.spiSend:00000000 $t
-     /tmp/ccgqsdpa.s:628    .text.spiSend:00000000 spiSend
-     /tmp/ccgqsdpa.s:681    .text.spiSend:00000028 $d
-     /tmp/ccgqsdpa.s:687    .text.spiReceive:00000000 $t
-     /tmp/ccgqsdpa.s:693    .text.spiReceive:00000000 spiReceive
-     /tmp/ccgqsdpa.s:746    .text.spiReceive:00000028 $d
-     /tmp/ccgqsdpa.s:752    .text.spiAcquireBus:00000000 $t
-     /tmp/ccgqsdpa.s:758    .text.spiAcquireBus:00000000 spiAcquireBus
-     /tmp/ccgqsdpa.s:777    .text.spiReleaseBus:00000000 $t
-     /tmp/ccgqsdpa.s:783    .text.spiReleaseBus:00000000 spiReleaseBus
+     /tmp/ccrpYEB4.s:19     .text.spiInit:00000000 $t
+     /tmp/ccrpYEB4.s:25     .text.spiInit:00000000 spiInit
+     /tmp/ccrpYEB4.s:41     .text.spiObjectInit:00000000 $t
+     /tmp/ccrpYEB4.s:47     .text.spiObjectInit:00000000 spiObjectInit
+     /tmp/ccrpYEB4.s:75     .text.spiStart:00000000 $t
+     /tmp/ccrpYEB4.s:81     .text.spiStart:00000000 spiStart
+     /tmp/ccrpYEB4.s:131    .text.spiStop:00000000 $t
+     /tmp/ccrpYEB4.s:137    .text.spiStop:00000000 spiStop
+     /tmp/ccrpYEB4.s:185    .text.spiSelect:00000000 $t
+     /tmp/ccrpYEB4.s:191    .text.spiSelect:00000000 spiSelect
+     /tmp/ccrpYEB4.s:231    .text.spiUnselect:00000000 $t
+     /tmp/ccrpYEB4.s:237    .text.spiUnselect:00000000 spiUnselect
+     /tmp/ccrpYEB4.s:277    .text.spiStartIgnore:00000000 $t
+     /tmp/ccrpYEB4.s:283    .text.spiStartIgnore:00000000 spiStartIgnore
+     /tmp/ccrpYEB4.s:326    .text.spiStartExchange:00000000 $t
+     /tmp/ccrpYEB4.s:332    .text.spiStartExchange:00000000 spiStartExchange
+     /tmp/ccrpYEB4.s:382    .text.spiStartSend:00000000 $t
+     /tmp/ccrpYEB4.s:388    .text.spiStartSend:00000000 spiStartSend
+     /tmp/ccrpYEB4.s:436    .text.spiStartReceive:00000000 $t
+     /tmp/ccrpYEB4.s:442    .text.spiStartReceive:00000000 spiStartReceive
+     /tmp/ccrpYEB4.s:490    .text.spiIgnore:00000000 $t
+     /tmp/ccrpYEB4.s:496    .text.spiIgnore:00000000 spiIgnore
+     /tmp/ccrpYEB4.s:549    .text.spiIgnore:00000028 $d
+     /tmp/ccrpYEB4.s:555    .text.spiExchange:00000000 $t
+     /tmp/ccrpYEB4.s:561    .text.spiExchange:00000000 spiExchange
+     /tmp/ccrpYEB4.s:616    .text.spiExchange:0000002c $d
+     /tmp/ccrpYEB4.s:622    .text.spiSend:00000000 $t
+     /tmp/ccrpYEB4.s:628    .text.spiSend:00000000 spiSend
+     /tmp/ccrpYEB4.s:681    .text.spiSend:00000028 $d
+     /tmp/ccrpYEB4.s:687    .text.spiReceive:00000000 $t
+     /tmp/ccrpYEB4.s:693    .text.spiReceive:00000000 spiReceive
+     /tmp/ccrpYEB4.s:746    .text.spiReceive:00000028 $d
+     /tmp/ccrpYEB4.s:752    .text.spiAcquireBus:00000000 $t
+     /tmp/ccrpYEB4.s:758    .text.spiAcquireBus:00000000 spiAcquireBus
+     /tmp/ccrpYEB4.s:777    .text.spiReleaseBus:00000000 $t
+     /tmp/ccrpYEB4.s:783    .text.spiReleaseBus:00000000 spiReleaseBus
                      .debug_frame:00000010 $d
-     /tmp/ccgqsdpa.s:554    .text.spiIgnore:0000002c $t
-     /tmp/ccgqsdpa.s:686    .text.spiSend:0000002c $t
-     /tmp/ccgqsdpa.s:751    .text.spiReceive:0000002c $t
+     /tmp/ccrpYEB4.s:554    .text.spiIgnore:0000002c $t
+     /tmp/ccrpYEB4.s:686    .text.spiSend:0000002c $t
+     /tmp/ccrpYEB4.s:751    .text.spiReceive:0000002c $t
 
 UNDEFINED SYMBOLS
 spi_lld_init
@@ -5652,7 +5652,7 @@ spi_lld_receive
 chSchGoSleepS
 rlist
 chMtxLock
-ARM GAS  /tmp/ccgqsdpa.s 			page 96
+ARM GAS  /tmp/ccrpYEB4.s 			page 96
 
 
 chMtxUnlock

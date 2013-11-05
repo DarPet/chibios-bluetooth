@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccamGqOP.s 			page 1
+ARM GAS  /tmp/cccTei8u.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
   55              	.LVL5:
   56              		.loc 1 114 0
   57 001c FFF7FEFF 		bl	sduInit
-ARM GAS  /tmp/ccamGqOP.s 			page 2
+ARM GAS  /tmp/cccTei8u.s 			page 2
 
 
   58              	.LVL6:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  112              	.LVL12:
  113              		.loc 1 172 0 is_stmt 1
  114 001c 7047     		bx	lr
-ARM GAS  /tmp/ccamGqOP.s 			page 3
+ARM GAS  /tmp/cccTei8u.s 			page 3
 
 
  115              	.LVL13:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  168              	.L26:
  169 0016 9842     		cmp	r0, r3
  170 0018 94BF     		ite	ls
-ARM GAS  /tmp/ccamGqOP.s 			page 4
+ARM GAS  /tmp/cccTei8u.s 			page 4
 
 
  171 001a 0023     		movls	r3, #0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  224 0034 01       		.byte	0x1
  225 0035 06       		.byte	0x6
  226 0036 F2000000 		.4byte	.LASF1
-ARM GAS  /tmp/ccamGqOP.s 			page 5
+ARM GAS  /tmp/cccTei8u.s 			page 5
 
 
  227 003a 03       		.uleb128 0x3
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  281 00a3 03       		.uleb128 0x3
  282 00a4 04       		.byte	0x4
  283 00a5 07       		.byte	0x7
-ARM GAS  /tmp/ccamGqOP.s 			page 6
+ARM GAS  /tmp/cccTei8u.s 			page 6
 
 
  284 00a6 31000000 		.4byte	.LASF14
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  338 010c 07       		.uleb128 0x7
  339 010d 4D000000 		.4byte	.LASF21
  340 0111 04       		.byte	0x4
-ARM GAS  /tmp/ccamGqOP.s 			page 7
+ARM GAS  /tmp/cccTei8u.s 			page 7
 
 
  341 0112 0601     		.2byte	0x106
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  395 0179 A9       		.byte	0xa9
  396 017a 61000000 		.4byte	0x61
  397 017e 02       		.byte	0x2
-ARM GAS  /tmp/ccamGqOP.s 			page 8
+ARM GAS  /tmp/cccTei8u.s 			page 8
 
 
  398 017f 23       		.byte	0x23
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  452 01dc BF010000 		.4byte	.LASF34
  453 01e0 06       		.byte	0x6
  454 01e1 BF       		.byte	0xbf
-ARM GAS  /tmp/ccamGqOP.s 			page 9
+ARM GAS  /tmp/cccTei8u.s 			page 9
 
 
  455 01e2 BA010000 		.4byte	0x1ba
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  509 0245 06       		.byte	0x6
  510 0246 D6       		.byte	0xd6
  511 0247 BA010000 		.4byte	0x1ba
-ARM GAS  /tmp/ccamGqOP.s 			page 10
+ARM GAS  /tmp/cccTei8u.s 			page 10
 
 
  512 024b 03       		.byte	0x3
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  566 02c4 10       		.uleb128 0x10
  567 02c5 14000000 		.4byte	.LVL3
  568 02c9 E5030000 		.4byte	0x3e5
-ARM GAS  /tmp/ccamGqOP.s 			page 11
+ARM GAS  /tmp/cccTei8u.s 			page 11
 
 
  569 02cd 10       		.uleb128 0x10
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  623 0348 18       		.uleb128 0x18
  624 0349 51010000 		.4byte	.LASF43
  625 034d 01       		.byte	0x1
-ARM GAS  /tmp/ccamGqOP.s 			page 12
+ARM GAS  /tmp/cccTei8u.s 			page 12
 
 
  626 034e BB       		.byte	0xbb
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  680 03bc A506     		.2byte	0x6a5
  681 03be 01       		.byte	0x1
  682 03bf 01       		.byte	0x1
-ARM GAS  /tmp/ccamGqOP.s 			page 13
+ARM GAS  /tmp/cccTei8u.s 			page 13
 
 
  683 03c0 1F       		.uleb128 0x1f
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  737 0419 01       		.byte	0x1
  738 041a 01       		.byte	0x1
  739 041b 00       		.byte	0
-ARM GAS  /tmp/ccamGqOP.s 			page 14
+ARM GAS  /tmp/cccTei8u.s 			page 14
 
 
  740              		.section	.debug_abbrev,"",%progbits
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  794 0034 00       		.byte	0
  795 0035 00       		.byte	0
  796 0036 05       		.uleb128 0x5
-ARM GAS  /tmp/ccamGqOP.s 			page 15
+ARM GAS  /tmp/cccTei8u.s 			page 15
 
 
  797 0037 35       		.uleb128 0x35
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  851 006d 3B       		.uleb128 0x3b
  852 006e 0B       		.uleb128 0xb
  853 006f 49       		.uleb128 0x49
-ARM GAS  /tmp/ccamGqOP.s 			page 16
+ARM GAS  /tmp/cccTei8u.s 			page 16
 
 
  854 0070 13       		.uleb128 0x13
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  908 00a6 0D       		.uleb128 0xd
  909 00a7 05       		.uleb128 0x5
  910 00a8 00       		.byte	0
-ARM GAS  /tmp/ccamGqOP.s 			page 17
+ARM GAS  /tmp/cccTei8u.s 			page 17
 
 
  911 00a9 03       		.uleb128 0x3
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  965 00e2 13       		.uleb128 0x13
  966 00e3 00       		.byte	0
  967 00e4 00       		.byte	0
-ARM GAS  /tmp/ccamGqOP.s 			page 18
+ARM GAS  /tmp/cccTei8u.s 			page 18
 
 
  968 00e5 11       		.uleb128 0x11
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1022 011f 00       		.byte	0
  1023 0120 16       		.uleb128 0x16
  1024 0121 2E       		.uleb128 0x2e
-ARM GAS  /tmp/ccamGqOP.s 			page 19
+ARM GAS  /tmp/cccTei8u.s 			page 19
 
 
  1025 0122 01       		.byte	0x1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1079 0159 1D       		.uleb128 0x1d
  1080 015a 01       		.byte	0x1
  1081 015b 31       		.uleb128 0x31
-ARM GAS  /tmp/ccamGqOP.s 			page 20
+ARM GAS  /tmp/cccTei8u.s 			page 20
 
 
  1082 015c 13       		.uleb128 0x13
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1136 0192 2E       		.uleb128 0x2e
  1137 0193 00       		.byte	0
  1138 0194 3F       		.uleb128 0x3f
-ARM GAS  /tmp/ccamGqOP.s 			page 21
+ARM GAS  /tmp/cccTei8u.s 			page 21
 
 
  1139 0195 0C       		.uleb128 0xc
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1193 01cb 0E       		.uleb128 0xe
  1194 01cc 3A       		.uleb128 0x3a
  1195 01cd 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccamGqOP.s 			page 22
+ARM GAS  /tmp/cccTei8u.s 			page 22
 
 
  1196 01ce 3B       		.uleb128 0x3b
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1250 0067 F3       		.byte	0xf3
  1251 0068 01       		.uleb128 0x1
  1252 0069 50       		.byte	0x50
-ARM GAS  /tmp/ccamGqOP.s 			page 23
+ARM GAS  /tmp/cccTei8u.s 			page 23
 
 
  1253 006a 9F       		.byte	0x9f
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1305      00000201 
  1305      FB0E0D00 
  1305      01010101 
-ARM GAS  /tmp/ccamGqOP.s 			page 24
+ARM GAS  /tmp/cccTei8u.s 			page 24
 
 
  1306              	.LASF59:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1336              	.LASF44:
  1337 0089 68616C49 		.ascii	"halInit\000"
  1337      6E697400 
-ARM GAS  /tmp/ccamGqOP.s 			page 25
+ARM GAS  /tmp/cccTei8u.s 			page 25
 
 
  1338              	.LASF16:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1367 011e 6F747970 		.ascii	"otyper\000"
  1367      657200
  1368              	.LASF56:
-ARM GAS  /tmp/ccamGqOP.s 			page 26
+ARM GAS  /tmp/cccTei8u.s 			page 26
 
 
  1369 0125 474E5520 		.ascii	"GNU C 4.7.3\000"
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1396      746100
  1397              	.LASF17:
  1398 01db 43504943 		.ascii	"CPICNT\000"
-ARM GAS  /tmp/ccamGqOP.s 			page 27
+ARM GAS  /tmp/cccTei8u.s 			page 27
 
 
  1398      4E5400
@@ -1618,29 +1618,29 @@ ARM GAS  /tmp/ccamGqOP.s 			page 1
  1426      4E5400
  1427              	.LASF46:
  1428 0268 74696D65 		.ascii	"timeout\000"
-ARM GAS  /tmp/ccamGqOP.s 			page 28
+ARM GAS  /tmp/cccTei8u.s 			page 28
 
 
  1428      6F757400 
  1429              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccamGqOP.s 			page 29
+ARM GAS  /tmp/cccTei8u.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 hal.c
-     /tmp/ccamGqOP.s:19     .text.halInit:00000000 $t
-     /tmp/ccamGqOP.s:25     .text.halInit:00000000 halInit
-     /tmp/ccamGqOP.s:67     .text.halInit:00000028 $d
-     /tmp/ccamGqOP.s:72     .text.halIsCounterWithin:00000000 $t
-     /tmp/ccamGqOP.s:78     .text.halIsCounterWithin:00000000 halIsCounterWithin
-     /tmp/ccamGqOP.s:124    .text.halIsCounterWithin:00000024 $d
-     /tmp/ccamGqOP.s:129    .text.halPolledDelay:00000000 $t
-     /tmp/ccamGqOP.s:135    .text.halPolledDelay:00000000 halPolledDelay
-     /tmp/ccamGqOP.s:183    .text.halPolledDelay:00000024 $d
+     /tmp/cccTei8u.s:19     .text.halInit:00000000 $t
+     /tmp/cccTei8u.s:25     .text.halInit:00000000 halInit
+     /tmp/cccTei8u.s:67     .text.halInit:00000028 $d
+     /tmp/cccTei8u.s:72     .text.halIsCounterWithin:00000000 $t
+     /tmp/cccTei8u.s:78     .text.halIsCounterWithin:00000000 halIsCounterWithin
+     /tmp/cccTei8u.s:124    .text.halIsCounterWithin:00000024 $d
+     /tmp/cccTei8u.s:129    .text.halPolledDelay:00000000 $t
+     /tmp/cccTei8u.s:135    .text.halPolledDelay:00000000 halPolledDelay
+     /tmp/cccTei8u.s:183    .text.halPolledDelay:00000024 $d
                      .debug_frame:00000010 $d
-     /tmp/ccamGqOP.s:71     .text.halInit:0000002c $t
-     /tmp/ccamGqOP.s:128    .text.halIsCounterWithin:00000028 $t
-     /tmp/ccamGqOP.s:187    .text.halPolledDelay:00000028 $t
+     /tmp/cccTei8u.s:71     .text.halInit:0000002c $t
+     /tmp/cccTei8u.s:128    .text.halIsCounterWithin:00000028 $t
+     /tmp/cccTei8u.s:187    .text.halPolledDelay:00000028 $t
 
 UNDEFINED SYMBOLS
 hal_lld_init

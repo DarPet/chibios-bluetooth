@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cclh3F3Q.s 			page 1
+ARM GAS  /tmp/cculIp4q.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
   54              		.align	2
   55              		.p2align 4,,15
   56              		.global	chVTSetI
-ARM GAS  /tmp/cclh3F3Q.s 			page 2
+ARM GAS  /tmp/cculIp4q.s 			page 2
 
 
   57              		.thumb
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  111 0026 8160     		str	r1, [r0, #8]
  112              		.loc 1 87 0
  113 0028 02D0     		beq	.L4
-ARM GAS  /tmp/cclh3F3Q.s 			page 3
+ARM GAS  /tmp/cculIp4q.s 			page 3
 
 
  114              		.loc 1 88 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  167 001e 00BF     		.align	2
  168              	.L15:
  169 0020 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/cclh3F3Q.s 			page 4
+ARM GAS  /tmp/cculIp4q.s 			page 4
 
 
  170              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  219 0044 21010000 		.4byte	.LASF3
  220 0048 03       		.uleb128 0x3
  221 0049 02       		.byte	0x2
-ARM GAS  /tmp/cclh3F3Q.s 			page 5
+ARM GAS  /tmp/cculIp4q.s 			page 5
 
 
  222 004a 07       		.byte	0x7
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  276 00b3 04       		.byte	0x4
  277 00b4 56       		.byte	0x56
  278 00b5 B9000000 		.4byte	0xb9
-ARM GAS  /tmp/cclh3F3Q.s 			page 6
+ARM GAS  /tmp/cculIp4q.s 			page 6
 
 
  279 00b9 09       		.uleb128 0x9
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  333 0116 53010000 		.4byte	0x153
  334 011a 0A       		.uleb128 0xa
  335 011b 58010000 		.4byte	.LASF15
-ARM GAS  /tmp/cclh3F3Q.s 			page 7
+ARM GAS  /tmp/cculIp4q.s 			page 7
 
 
  336 011f 04       		.byte	0x4
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  390 017f 0E       		.uleb128 0xe
  391 0180 01       		.byte	0x1
  392 0181 00000000 		.4byte	.LASF25
-ARM GAS  /tmp/cclh3F3Q.s 			page 8
+ARM GAS  /tmp/cculIp4q.s 			page 8
 
 
  393 0185 01       		.byte	0x1
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  447 01f8 0F       		.uleb128 0xf
  448 01f9 76747000 		.ascii	"vtp\000"
  449 01fd 01       		.byte	0x1
-ARM GAS  /tmp/cclh3F3Q.s 			page 9
+ARM GAS  /tmp/cculIp4q.s 			page 9
 
 
  450 01fe 63       		.byte	0x63
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  504 0025 03       		.uleb128 0x3
  505 0026 0E       		.uleb128 0xe
  506 0027 00       		.byte	0
-ARM GAS  /tmp/cclh3F3Q.s 			page 10
+ARM GAS  /tmp/cculIp4q.s 			page 10
 
 
  507 0028 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  561 005e 0B       		.uleb128 0xb
  562 005f 3B       		.uleb128 0x3b
  563 0060 0B       		.uleb128 0xb
-ARM GAS  /tmp/cclh3F3Q.s 			page 11
+ARM GAS  /tmp/cculIp4q.s 			page 11
 
 
  564 0061 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  618 0097 12       		.uleb128 0x12
  619 0098 01       		.uleb128 0x1
  620 0099 40       		.uleb128 0x40
-ARM GAS  /tmp/cclh3F3Q.s 			page 12
+ARM GAS  /tmp/cculIp4q.s 			page 12
 
 
  621 009a 0A       		.uleb128 0xa
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  675 00d2 49       		.uleb128 0x49
  676 00d3 13       		.uleb128 0x13
  677 00d4 02       		.uleb128 0x2
-ARM GAS  /tmp/cclh3F3Q.s 			page 13
+ARM GAS  /tmp/cculIp4q.s 			page 13
 
 
  678 00d5 06       		.uleb128 0x6
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  732 010b 0E       		.uleb128 0xe
  733 010c 3A       		.uleb128 0x3a
  734 010d 0B       		.uleb128 0xb
-ARM GAS  /tmp/cclh3F3Q.s 			page 14
+ARM GAS  /tmp/cculIp4q.s 			page 14
 
 
  735 010e 3B       		.uleb128 0x3b
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  789 002b 14000000 		.4byte	.LVL3
  790 002f 2E000000 		.4byte	.LVL5
  791 0033 0100     		.2byte	0x1
-ARM GAS  /tmp/cclh3F3Q.s 			page 15
+ARM GAS  /tmp/cculIp4q.s 			page 15
 
 
  792 0035 51       		.byte	0x51
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  846 0014 24000000 		.4byte	.LFE9
  847 0018 00000000 		.4byte	0
  848 001c 00000000 		.4byte	0
-ARM GAS  /tmp/cclh3F3Q.s 			page 16
+ARM GAS  /tmp/cculIp4q.s 			page 16
 
 
  849              		.section	.debug_line,"",%progbits
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  872      696E6974 
  872      00
  873              	.LASF0:
-ARM GAS  /tmp/cclh3F3Q.s 			page 17
+ARM GAS  /tmp/cculIp4q.s 			page 17
 
 
  874 00a7 756E7369 		.ascii	"unsigned int\000"
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  902      33325F74 
  902      00
  903              	.LASF5:
-ARM GAS  /tmp/cclh3F3Q.s 			page 18
+ARM GAS  /tmp/cculIp4q.s 			page 18
 
 
  904 013c 6C6F6E67 		.ascii	"long int\000"
@@ -1042,25 +1042,25 @@ ARM GAS  /tmp/cclh3F3Q.s 			page 1
  914 016b 5F426F6F 		.ascii	"_Bool\000"
  914      6C00
  915              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/cclh3F3Q.s 			page 19
+ARM GAS  /tmp/cculIp4q.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 chvt.c
-     /tmp/cclh3F3Q.s:19     .text._vt_init:00000000 $t
-     /tmp/cclh3F3Q.s:25     .text._vt_init:00000000 _vt_init
-     /tmp/cclh3F3Q.s:49     .text._vt_init:00000014 $d
-     /tmp/cclh3F3Q.s:54     .text.chVTSetI:00000000 $t
-     /tmp/cclh3F3Q.s:60     .text.chVTSetI:00000000 chVTSetI
-     /tmp/cclh3F3Q.s:126    .text.chVTSetI:00000034 $d
-     /tmp/cclh3F3Q.s:131    .text.chVTResetI:00000000 $t
-     /tmp/cclh3F3Q.s:137    .text.chVTResetI:00000000 chVTResetI
-     /tmp/cclh3F3Q.s:169    .text.chVTResetI:00000020 $d
-     /tmp/cclh3F3Q.s:179    .bss.vtlist:00000000 vtlist
-     /tmp/cclh3F3Q.s:175    .bss.vtlist:00000000 $d
+     /tmp/cculIp4q.s:19     .text._vt_init:00000000 $t
+     /tmp/cculIp4q.s:25     .text._vt_init:00000000 _vt_init
+     /tmp/cculIp4q.s:49     .text._vt_init:00000014 $d
+     /tmp/cculIp4q.s:54     .text.chVTSetI:00000000 $t
+     /tmp/cculIp4q.s:60     .text.chVTSetI:00000000 chVTSetI
+     /tmp/cculIp4q.s:126    .text.chVTSetI:00000034 $d
+     /tmp/cculIp4q.s:131    .text.chVTResetI:00000000 $t
+     /tmp/cculIp4q.s:137    .text.chVTResetI:00000000 chVTResetI
+     /tmp/cculIp4q.s:169    .text.chVTResetI:00000020 $d
+     /tmp/cculIp4q.s:179    .bss.vtlist:00000000 vtlist
+     /tmp/cculIp4q.s:175    .bss.vtlist:00000000 $d
                      .debug_frame:00000010 $d
-     /tmp/cclh3F3Q.s:53     .text._vt_init:00000018 $t
-     /tmp/cclh3F3Q.s:130    .text.chVTSetI:00000038 $t
-     /tmp/cclh3F3Q.s:174    .text.chVTResetI:00000024 $t
+     /tmp/cculIp4q.s:53     .text._vt_init:00000018 $t
+     /tmp/cculIp4q.s:130    .text.chVTSetI:00000038 $t
+     /tmp/cculIp4q.s:174    .text.chVTResetI:00000024 $t
 
 NO UNDEFINED SYMBOLS

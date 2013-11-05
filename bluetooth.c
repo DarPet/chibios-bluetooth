@@ -1,6 +1,7 @@
 #include "bluetooth.h"
 #include "ch.h"
 #include "hal.h"
+#include <serial_lld.h>
 
 static bluetoothConfig myBluetoothConfig ={
 DEFAULT_BT_BAUD,
@@ -11,11 +12,11 @@ DEFAULT_BT_MODE,
 &SD2
 };
 
-static SerialDriver btAtSerialDriverConfig ={
+static SerialConfig btAtSerialDriverConfig ={
 38400,
 };
 
-static SerialDriver btCommSerialDriverConfig ={
+static SerialConfig btCommSerialDriverConfig ={
 38400,
 };
 

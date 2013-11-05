@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccgczsVd.s 			page 1
+ARM GAS  /tmp/ccutrd2X.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccgczsVd.s 			page 1
   55 003f 0E000000 		.4byte	.LASF4
   56 0043 04       		.uleb128 0x4
   57 0044 EF000000 		.4byte	.LASF14
-ARM GAS  /tmp/ccgczsVd.s 			page 2
+ARM GAS  /tmp/ccutrd2X.s 			page 2
 
 
   58 0048 01       		.byte	0x1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccgczsVd.s 			page 1
  112 000b 00       		.byte	0
  113 000c 00       		.byte	0
  114 000d 02       		.uleb128 0x2
-ARM GAS  /tmp/ccgczsVd.s 			page 3
+ARM GAS  /tmp/ccutrd2X.s 			page 3
 
 
  115 000e 24       		.uleb128 0x24
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccgczsVd.s 			page 1
  169 0044 3C       		.uleb128 0x3c
  170 0045 0C       		.uleb128 0xc
  171 0046 00       		.byte	0
-ARM GAS  /tmp/ccgczsVd.s 			page 4
+ARM GAS  /tmp/ccutrd2X.s 			page 4
 
 
  172 0047 00       		.byte	0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccgczsVd.s 			page 1
  199      6420696E 
  199      7400
  200              	.LASF8:
-ARM GAS  /tmp/ccgczsVd.s 			page 5
+ARM GAS  /tmp/ccutrd2X.s 			page 5
 
 
  201 0093 6C6F6E67 		.ascii	"long long unsigned int\000"
@@ -282,7 +282,7 @@ ARM GAS  /tmp/ccgczsVd.s 			page 1
  219      74797065 
  219      00
  220              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccgczsVd.s 			page 6
+ARM GAS  /tmp/ccutrd2X.s 			page 6
 
 
 DEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccTvBKtk.s 			page 1
+ARM GAS  /tmp/ccPCWn8X.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
   53              		.loc 1 68 0
   54 0000 0248     		ldr	r0, .L3
   55 0002 4FF49871 		mov	r1, #304
-ARM GAS  /tmp/ccTvBKtk.s 			page 2
+ARM GAS  /tmp/ccPCWn8X.s 			page 2
 
 
   56 0006 0022     		movs	r2, #0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  110 0024 0028     		cmp	r0, #0
  111 0026 35D1     		bne	.L5
  112              		.loc 1 78 0
-ARM GAS  /tmp/ccTvBKtk.s 			page 3
+ARM GAS  /tmp/ccPCWn8X.s 			page 3
 
 
  113 0028 013C     		subs	r4, r4, #1
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  167 0078 60B9     		cbnz	r0, .L5
  168              		.loc 1 89 0
  169 007a 013C     		subs	r4, r4, #1
-ARM GAS  /tmp/ccTvBKtk.s 			page 4
+ARM GAS  /tmp/ccPCWn8X.s 			page 4
 
 
  170 007c F3D1     		bne	.L10
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  222              		.align	2
  223              	.LC0:
  224 0000 4D656D6F 		.ascii	"Memory Pools, queue/dequeue\000"
-ARM GAS  /tmp/ccTvBKtk.s 			page 5
+ARM GAS  /tmp/ccPCWn8X.s 			page 5
 
 
  224      72792050 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  275 002c 03       		.uleb128 0x3
  276 002d 00000000 		.4byte	.LASF9
  277 0031 02       		.byte	0x2
-ARM GAS  /tmp/ccTvBKtk.s 			page 6
+ARM GAS  /tmp/ccPCWn8X.s 			page 6
 
 
  278 0032 D5       		.byte	0xd5
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  332 0092 3D010000 		.4byte	.LASF13
  333 0096 04       		.byte	0x4
  334 0097 25       		.byte	0x25
-ARM GAS  /tmp/ccTvBKtk.s 			page 7
+ARM GAS  /tmp/ccPCWn8X.s 			page 7
 
 
  335 0098 9C000000 		.4byte	0x9c
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  389 00fe 91000000 		.4byte	0x91
  390 0102 02       		.byte	0x2
  391 0103 23       		.byte	0x23
-ARM GAS  /tmp/ccTvBKtk.s 			page 8
+ARM GAS  /tmp/ccPCWn8X.s 			page 8
 
 
  392 0104 08       		.uleb128 0x8
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  446 0167 00       		.byte	0
  447 0168 0D       		.uleb128 0xd
  448 0169 01       		.byte	0x1
-ARM GAS  /tmp/ccTvBKtk.s 			page 9
+ARM GAS  /tmp/ccPCWn8X.s 			page 9
 
 
  449 016a 06       		.uleb128 0x6
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  503 01d7 52       		.byte	0x52
  504 01d8 01       		.byte	0x1
  505 01d9 30       		.byte	0x30
-ARM GAS  /tmp/ccTvBKtk.s 			page 10
+ARM GAS  /tmp/ccPCWn8X.s 			page 10
 
 
  506 01da 14       		.uleb128 0x14
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  560 024a 0C040000 		.4byte	0x40c
  561 024e 62020000 		.4byte	0x262
  562 0252 14       		.uleb128 0x14
-ARM GAS  /tmp/ccTvBKtk.s 			page 11
+ARM GAS  /tmp/ccPCWn8X.s 			page 11
 
 
  563 0253 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  617 02b6 1A       		.uleb128 0x1a
  618 02b7 A0000000 		.4byte	.LVL15
  619 02bb E8030000 		.4byte	0x3e8
-ARM GAS  /tmp/ccTvBKtk.s 			page 12
+ARM GAS  /tmp/ccPCWn8X.s 			page 12
 
 
  620 02bf DB020000 		.4byte	0x2db
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  674 0319 02       		.byte	0x2
  675 031a 75       		.byte	0x75
  676 031b 00       		.sleb128 0
-ARM GAS  /tmp/ccTvBKtk.s 			page 13
+ARM GAS  /tmp/ccPCWn8X.s 			page 13
 
 
  677 031c 14       		.uleb128 0x14
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  731 0382 05       		.byte	0x5
  732 0383 03       		.byte	0x3
  733 0384 00000000 		.4byte	mp1
-ARM GAS  /tmp/ccTvBKtk.s 			page 14
+ARM GAS  /tmp/ccPCWn8X.s 			page 14
 
 
  734 0388 1D       		.uleb128 0x1d
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  788 03f6 08       		.uleb128 0x8
  789 03f7 06040000 		.4byte	0x406
  790 03fb 08       		.uleb128 0x8
-ARM GAS  /tmp/ccTvBKtk.s 			page 15
+ARM GAS  /tmp/ccPCWn8X.s 			page 15
 
 
  791 03fc 2C000000 		.4byte	0x2c
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  845 0465 06040000 		.4byte	0x406
  846 0469 08       		.uleb128 0x8
  847 046a 88000000 		.4byte	0x88
-ARM GAS  /tmp/ccTvBKtk.s 			page 16
+ARM GAS  /tmp/ccPCWn8X.s 			page 16
 
 
  848 046e 08       		.uleb128 0x8
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  902 0030 3E       		.uleb128 0x3e
  903 0031 0B       		.uleb128 0xb
  904 0032 03       		.uleb128 0x3
-ARM GAS  /tmp/ccTvBKtk.s 			page 17
+ARM GAS  /tmp/ccPCWn8X.s 			page 17
 
 
  905 0033 0E       		.uleb128 0xe
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  959 0069 00       		.byte	0
  960 006a 03       		.uleb128 0x3
  961 006b 0E       		.uleb128 0xe
-ARM GAS  /tmp/ccTvBKtk.s 			page 18
+ARM GAS  /tmp/ccPCWn8X.s 			page 18
 
 
  962 006c 3A       		.uleb128 0x3a
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1016 00a2 0F       		.uleb128 0xf
  1017 00a3 34       		.uleb128 0x34
  1018 00a4 00       		.byte	0
-ARM GAS  /tmp/ccTvBKtk.s 			page 19
+ARM GAS  /tmp/ccPCWn8X.s 			page 19
 
 
  1019 00a5 03       		.uleb128 0x3
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1073 00dc 0E       		.uleb128 0xe
  1074 00dd 3A       		.uleb128 0x3a
  1075 00de 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccTvBKtk.s 			page 20
+ARM GAS  /tmp/ccPCWn8X.s 			page 20
 
 
  1076 00df 3B       		.uleb128 0x3b
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1130 011d 34       		.uleb128 0x34
  1131 011e 00       		.byte	0
  1132 011f 31       		.uleb128 0x31
-ARM GAS  /tmp/ccTvBKtk.s 			page 21
+ARM GAS  /tmp/ccPCWn8X.s 			page 21
 
 
  1133 0120 13       		.uleb128 0x13
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1187 015a 00       		.byte	0
  1188 015b 00       		.byte	0
  1189 015c 1C       		.uleb128 0x1c
-ARM GAS  /tmp/ccTvBKtk.s 			page 22
+ARM GAS  /tmp/ccPCWn8X.s 			page 22
 
 
  1190 015d 34       		.uleb128 0x34
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1244 0193 49       		.uleb128 0x49
  1245 0194 13       		.uleb128 0x13
  1246 0195 3F       		.uleb128 0x3f
-ARM GAS  /tmp/ccTvBKtk.s 			page 23
+ARM GAS  /tmp/ccPCWn8X.s 			page 23
 
 
  1247 0196 0C       		.uleb128 0xc
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1301 01cc 24       		.uleb128 0x24
  1302 01cd 2E       		.uleb128 0x2e
  1303 01ce 01       		.byte	0x1
-ARM GAS  /tmp/ccTvBKtk.s 			page 24
+ARM GAS  /tmp/ccPCWn8X.s 			page 24
 
 
  1304 01cf 3F       		.uleb128 0x3f
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1358 0004 0200     		.2byte	0x2
  1359 0006 00000000 		.4byte	.Ldebug_info0
  1360 000a 04       		.byte	0x4
-ARM GAS  /tmp/ccTvBKtk.s 			page 25
+ARM GAS  /tmp/ccPCWn8X.s 			page 25
 
 
  1361 000b 00       		.byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1406      65747570 
  1406      00
  1407              	.LASF23:
-ARM GAS  /tmp/ccTvBKtk.s 			page 26
+ARM GAS  /tmp/ccPCWn8X.s 			page 26
 
 
  1408 0020 73657475 		.ascii	"setup\000"
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1432      7200
  1433              	.LASF2:
  1434 00b9 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  /tmp/ccTvBKtk.s 			page 27
+ARM GAS  /tmp/ccPCWn8X.s 			page 27
 
 
  1434      676E6564 
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1458      64657200 
  1459              	.LASF3:
  1460 0156 73686F72 		.ascii	"short int\000"
-ARM GAS  /tmp/ccTvBKtk.s 			page 28
+ARM GAS  /tmp/ccPCWn8X.s 			page 28
 
 
  1460      7420696E 
@@ -1661,28 +1661,28 @@ ARM GAS  /tmp/ccTvBKtk.s 			page 1
  1479      6F6C496E 
  1479      697400
  1480              		.ident	"GCC: (Sourcery CodeBench Lite 2013.05-23) 4.7.3"
-ARM GAS  /tmp/ccTvBKtk.s 			page 29
+ARM GAS  /tmp/ccPCWn8X.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 testpools.c
-     /tmp/ccTvBKtk.s:19     .text.null_provider:00000000 $t
-     /tmp/ccTvBKtk.s:24     .text.null_provider:00000000 null_provider
-     /tmp/ccTvBKtk.s:41     .text.pools1_setup:00000000 $t
-     /tmp/ccTvBKtk.s:46     .text.pools1_setup:00000000 pools1_setup
-     /tmp/ccTvBKtk.s:64     .text.pools1_setup:0000000c $d
-     /tmp/ccTvBKtk.s:69     .text.pools1_execute:00000000 $t
-     /tmp/ccTvBKtk.s:74     .text.pools1_execute:00000000 pools1_execute
-     /tmp/ccTvBKtk.s:211    .text.pools1_execute:000000b8 $d
-     /tmp/ccTvBKtk.s:229    .rodata.patternpools:00000000 patternpools
-     /tmp/ccTvBKtk.s:245    .rodata.testpools1:00000000 testpools1
-     /tmp/ccTvBKtk.s:222    .rodata.str1.4:00000000 $d
-     /tmp/ccTvBKtk.s:226    .rodata.patternpools:00000000 $d
-     /tmp/ccTvBKtk.s:233    .data.mp1:00000000 $d
-     /tmp/ccTvBKtk.s:237    .data.mp1:00000000 mp1
-     /tmp/ccTvBKtk.s:242    .rodata.testpools1:00000000 $d
+     /tmp/ccPCWn8X.s:19     .text.null_provider:00000000 $t
+     /tmp/ccPCWn8X.s:24     .text.null_provider:00000000 null_provider
+     /tmp/ccPCWn8X.s:41     .text.pools1_setup:00000000 $t
+     /tmp/ccPCWn8X.s:46     .text.pools1_setup:00000000 pools1_setup
+     /tmp/ccPCWn8X.s:64     .text.pools1_setup:0000000c $d
+     /tmp/ccPCWn8X.s:69     .text.pools1_execute:00000000 $t
+     /tmp/ccPCWn8X.s:74     .text.pools1_execute:00000000 pools1_execute
+     /tmp/ccPCWn8X.s:211    .text.pools1_execute:000000b8 $d
+     /tmp/ccPCWn8X.s:229    .rodata.patternpools:00000000 patternpools
+     /tmp/ccPCWn8X.s:245    .rodata.testpools1:00000000 testpools1
+     /tmp/ccPCWn8X.s:222    .rodata.str1.4:00000000 $d
+     /tmp/ccPCWn8X.s:226    .rodata.patternpools:00000000 $d
+     /tmp/ccPCWn8X.s:233    .data.mp1:00000000 $d
+     /tmp/ccPCWn8X.s:237    .data.mp1:00000000 mp1
+     /tmp/ccPCWn8X.s:242    .rodata.testpools1:00000000 $d
                      .debug_frame:00000010 $d
-     /tmp/ccTvBKtk.s:221    .text.pools1_execute:000000c4 $t
+     /tmp/ccPCWn8X.s:221    .text.pools1_execute:000000c4 $t
 
 UNDEFINED SYMBOLS
 chPoolInit
