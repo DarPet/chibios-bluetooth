@@ -7,13 +7,19 @@
 #define DEFAULT_BT_BAUD 38400
 #define DEFAULT_BT_PARITY none
 #define DEFAULT_BT_STOP 1
-#define DEFAULT_BT_NAME chibiblue
+#define DEFAULT_BT_NAME "chibiblue"
 #define DEFAULT_BT_MODE slave
 #define MAX_NAME_SIZE 32
 //#define DEFAULT_BT_RESET_PAD GPIOD_PIN2
 //#define DEFAULT_BT_RESET_PORT GPIOD
 //#define DEFAULT_BT_KEY_PAD GPIOD_PIN1
 //#define DEFAULT_BT_KEY_PORT GPIOD
+
+#define DEFAULT_BT_SERIAL_DRIVER 2
+#if DEFAULT_BT_SERIAL_DRIVER == 2
+	#define USE_SD2_BT 1
+#endif
+
 
 typedef enum bt_modes{
     slave = 0,
@@ -38,18 +44,25 @@ typedef struct bluetoothConfig{
     SerialDriver *sdp;
 }bluetoothConfig;
 
-void btReset(bluetoothConfig *btconf);
+typedef enum btCommandMode{
+    atMode = 0,
+    commMode = 1,
+    loopback = 2,
+}btCommandMode;
 
-void btSetMode(bluetoothConfig *btconf);
+void btReset();
 
-void btStart(bluetoothConfig *btconf);
+void btSetCommandModeMode(btCommandMode commandMode);
 
-void btStop(bluetoothConfig *btConf);
+void btStart();
 
-void btPut(bluetoothConfig *btConf);
+void btStop();
 
-char btGet(bluetoothConfig *btConf);
+void btPut();
 
+char btGet();
+
+void btConfigInit();
 
 
 
