@@ -124,13 +124,16 @@ static msg_t BtRead(void *arg) {
 
     while(TRUE)
     {
-        chThdSleepMilliseconds(500);
+        chThdSleepMilliseconds(10);
        // sdRead(&SD2, (uint8_t *)serialBuffer, BUFFER_SIZE);
        // chprintf((BaseSequentialStream *)&SDU1, "Serial: %s", serialBuffer);
        if(palReadPad(GPIOA, GPIOA_BUTTON))
        {
+           btReset();
+           /*
            btAtResetDefaults();
-           btSetCommandMode(commMode);
+           btSetCommandMode(atMode);
+           */
        }
 
     }
