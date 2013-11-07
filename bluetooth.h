@@ -75,7 +75,7 @@ void btAtSetBaud();
 
 void btAtGetName();
 
-void btAtSetName();
+void btAtSetName(const uint8_t *newName, size_t newNameLength);
 
 void btAtResetDefaults();
 

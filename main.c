@@ -131,7 +131,9 @@ static msg_t BtRead(void *arg) {
        {
            btReset();
            btSetCommandMode(atMode);
-           btAtResetDefaults();
+           //btAtResetDefaults();
+           static uint8_t btNewNameForFunctionGive[] = "Farkas";
+           btAtSetName(&btNewNameForFunctionGive[0], 6);
 
 
        }

@@ -12,6 +12,8 @@ DEFAULT_BT_MODE,
 &SD2
 };
 
+static const uint8_t btAtTerminationString[] = "\r\n";
+
 static SerialConfig btAtSerialDriverConfig ={
 9600,
 };
@@ -104,10 +106,19 @@ void btAtSetBaud();
 
 void btAtGetName();
 
-void btAtSetName();
+void btAtSetName(const uint8_t *newName, size_t newNameLength){
+    static const uint8_t btStringRestoreDefaults[] = "AT+NAME=";
+    //Send the commands first part
+    sdWrite(&SD2, &btStringRestoreDefaults[0], 7);
+    //Now add the new name
+    sdWrite(&SD2, newName, newNameLength);
+    //And finally write the termination \r\n
+    sdWrite(&SD2, &btAtTerminationString[0], 2);
+
+};
 
 void btAtResetDefaults(){
     static const uint8_t btStringRestoreDefaults[] = "AT+ORGL\r\n";
 
-    sdWrite(&SD2, &btStringRestoreDefaults, 16);
+    sdWrite(&SD2, &btStringRestoreDefaults[0], 9);
 };
