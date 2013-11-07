@@ -107,7 +107,7 @@ void btAtGetName();
 void btAtSetName();
 
 void btAtResetDefaults(){
-    static const uint8_t btStringRestoreDefaults[] = "AT+NAME=Farkas\r\n";
+    static const uint8_t btStringRestoreDefaults[] = "AT+ORGL\r\n";
 
     sdWrite(&SD2, &btStringRestoreDefaults, 16);
 };
