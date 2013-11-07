@@ -16,11 +16,11 @@ DEFAULT_BT_MODE,
 static const uint8_t btAtTerminationString[] = "\r\n";
 
 static SerialConfig btAtSerialDriverConfig ={
-38400,
+9600,
 };
 
 static SerialConfig btCommSerialDriverConfig ={
-38400,
+9600,
 };
 
 void btReset(){
