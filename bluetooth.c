@@ -128,7 +128,7 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
 
     ////////////////testnamer
     static const uint8_t btStringToTestName[] = "AT+NAME=FaRkAs\r\n";
-    sdWrite(&SD2, &btStringToTestName[0], 16);
+    sdWrite(&SD2, btStringToTestName, 16);
 
 /*
     //Send the commands first part
@@ -143,5 +143,5 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
 void btAtResetDefaults(){
     static const uint8_t btStringRestoreDefaults[] = "AT+ORGL\r\n";
 
-    sdWrite(&SD2, &btStringRestoreDefaults[0], 9);
+    sdWrite(&SD2, btStringRestoreDefaults, 9);
 };
