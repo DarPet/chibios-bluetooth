@@ -130,10 +130,10 @@ static msg_t BtRead(void *arg) {
        if(palReadPad(GPIOA, GPIOA_BUTTON))
        {
            btReset();
-           /*
-           btAtResetDefaults();
            btSetCommandMode(atMode);
-           */
+           btAtResetDefaults();
+
+
        }
 
     }
