@@ -17,15 +17,20 @@ static SerialConfig btAtSerialDriverConfig ={
 };
 
 static SerialConfig btCommSerialDriverConfig ={
-38400,
+9600,
 };
 
 void btReset(){
     // pin must be low for at least 5ms to cause a reset
     // RESET PIN (HC-05 pin 11) is connected to Discovery board GPIOD PIN2 (PD2)
     palClearPad(GPIOD, 2);
-    chThdSleepMilliseconds(10);
+
+    palSetPad(GPIOD, GPIOD_LED3);
+    chThdSleepMilliseconds(500);
+
     palSetPad(GPIOD, 2);
+
+    palClearPad(GPIOD, GPIOD_LED3);
 };
 
 void btSetCommandMode(btCommandMode commandMode){
@@ -37,9 +42,9 @@ void btSetCommandMode(btCommandMode commandMode){
         btStop();
         // supply power to pin 34, then supply power to the bluetooth module (reset)
         palSetPad(GPIOD, 1);
-        chThdSleepMilliseconds(10);
+        chThdSleepMilliseconds(100);
         btReset();
-        chThdSleepMilliseconds(10);
+        chThdSleepMilliseconds(100);
 	//now we must communicate using a 38400 baud rate
     //initialize the serial link of the module
         btStartInAt();
@@ -52,9 +57,9 @@ void btSetCommandMode(btCommandMode commandMode){
         btStop();
         // set pin 34 low, then supply power to the bluetooth module (reset)
         palSetPad(GPIOD, 0);
-        chThdSleepMilliseconds(10);
+        chThdSleepMilliseconds(100);
         btReset();
-        chThdSleepMilliseconds(10);
+        chThdSleepMilliseconds(100);
 	//now we must communicate using the configured baud rate
     //initialize the serial link of the module
         btStart();
@@ -102,5 +107,7 @@ void btAtGetName();
 void btAtSetName();
 
 void btAtResetDefaults(){
-    sdWrite(&SD2, "AT+ORGL\r\n", 9);
+    static const uint8_t btStringRestoreDefaults[] = "AT+ORGL\r\n";
+
+    sdWrite(&SD2, &btStringRestoreDefaults, 9);
 };
