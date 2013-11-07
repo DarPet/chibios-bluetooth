@@ -111,7 +111,7 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
 
     if (newNameLength > MAX_BT_NAME_LENGTH)
         return;
-
+/*
     //static uint8_t btStringRestoreDefaults[] = "AT+NAME=";
 
     static uint8_t btNewNameConcat[7+2+MAX_BT_NAME_LENGTH+1];
@@ -123,6 +123,13 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
     strcat((char *)btNewNameConcat, (char *)btAtTerminationString);
 
     sdWrite(&SD2, &btNewNameConcat[0], 7+2+newNameLength);
+
+    */
+
+    ////////////////testnamer
+    static const uint8_t btStringToTestName[] = "AT+NAME=FaRkAs\r\n";
+    sdWrite(&SD2, &btStringToTestName[0], 16);
+
 /*
     //Send the commands first part
     sdWrite(&SD2, &btStringRestoreDefaults[0], 7);
