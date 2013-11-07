@@ -13,7 +13,7 @@ DEFAULT_BT_MODE,
 };
 
 static SerialConfig btAtSerialDriverConfig ={
-38400,
+9600,
 };
 
 static SerialConfig btCommSerialDriverConfig ={
