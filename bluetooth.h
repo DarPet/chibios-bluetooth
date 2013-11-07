@@ -9,7 +9,7 @@
 #define DEFAULT_BT_STOP 1
 #define DEFAULT_BT_NAME "chibiblue"
 #define DEFAULT_BT_MODE slave
-#define MAX_NAME_SIZE 32
+#define MAX_BT_NAME_LENGTH 32
 //#define DEFAULT_BT_RESET_PAD GPIOD_PIN2
 //#define DEFAULT_BT_RESET_PORT GPIOD
 //#define DEFAULT_BT_KEY_PAD GPIOD_PIN1
@@ -39,7 +39,7 @@ typedef struct bluetoothConfig{
     int baud;
     btparity parity;
     int stop;
-    char name[MAX_NAME_SIZE];
+    char name[MAX_BT_NAME_LENGTH];
     bt_modes mode;
     SerialDriver *sdp;
 }bluetoothConfig;

@@ -2,6 +2,7 @@
 #include "ch.h"
 #include "hal.h"
 #include <serial_lld.h>
+#include "string.h"
 
 static bluetoothConfig myBluetoothConfig ={
 DEFAULT_BT_BAUD,
@@ -107,14 +108,29 @@ void btAtSetBaud();
 void btAtGetName();
 
 void btAtSetName(const uint8_t *newName, size_t newNameLength){
-    static const uint8_t btStringRestoreDefaults[] = "AT+NAME=";
+
+    if (newNameLength > MAX_BT_NAME_LENGTH)
+        return;
+
+    //static uint8_t btStringRestoreDefaults[] = "AT+NAME=";
+
+    static uint8_t btNewNameConcat[7+2+MAX_BT_NAME_LENGTH+1];
+
+    //we won't run out of space
+    memset(btNewNameConcat, '\0', sizeof(btNewNameConcat));
+    strcpy((char *)btNewNameConcat, "AT+NAME");
+    strcat((char *)btNewNameConcat, (char *)newName);
+    strcat((char *)btNewNameConcat, (char *)btAtTerminationString);
+
+    sdWrite(&SD2, &btNewNameConcat[0], 7+2+newNameLength);
+/*
     //Send the commands first part
     sdWrite(&SD2, &btStringRestoreDefaults[0], 7);
     //Now add the new name
     sdWrite(&SD2, newName, newNameLength);
     //And finally write the termination \r\n
     sdWrite(&SD2, &btAtTerminationString[0], 2);
-
+*/
 };
 
 void btAtResetDefaults(){
