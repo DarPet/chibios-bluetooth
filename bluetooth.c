@@ -13,7 +13,7 @@ DEFAULT_BT_MODE,
 &SD2
 };
 
-static const uint8_t btAtTerminationString[] = "\r\n";
+static const uint8_t ATTerminationString[] = "\r\n";
 
 static SerialConfig btAtSerialDriverConfig ={
 38400,
@@ -43,14 +43,15 @@ void btSetCommandMode(btCommandMode commandMode){
     case atMode:
 	// stop current bluetooth communication
         btStop();
-        // supply power to pin 34, then supply power to the bluetooth module (reset)
-        palSetPad(GPIOD, 1);
+        // set the key pin low then reset, then set the key pin high
+        palClearPad(GPIOD, 1);
         chThdSleepMilliseconds(100);
         btReset();
         chThdSleepMilliseconds(100);
-	//now we must communicate using a 38400 baud rate
+        palSetPad(GPIOD, 1);
+	//now we must communicate using the baud rate of the normal communication
     //initialize the serial link of the module
-        btStartInAt();
+        btStart();
 	//when finish, we exit
         break;
     case commMode:
@@ -111,9 +112,9 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
 
     if (newNameLength > MAX_BT_NAME_LENGTH)
         return;
-/*
-    //static uint8_t btStringRestoreDefaults[] = "AT+NAME=";
 
+    static uint8_t ATCommandChangeName[] = "AT+NAME=";
+/*
     static uint8_t btNewNameConcat[7+2+MAX_BT_NAME_LENGTH+1];
 
     //we won't run out of space
@@ -127,17 +128,19 @@ void btAtSetName(const uint8_t *newName, size_t newNameLength){
     */
 
     ////////////////testnamer
-    static const uint8_t btStringToTestName[] = "AT+NAME=FaRkAs\r\n";
+    /*
+    static const uint8_t btStringToTestName[] = "AT+NAME=FARKAS\r\n";
     sdWrite(&SD2, btStringToTestName, 16);
+*/
 
-/*
+
     //Send the commands first part
-    sdWrite(&SD2, &btStringRestoreDefaults[0], 7);
+    sdWrite(&SD2, ATCommandChangeName, 7);
     //Now add the new name
     sdWrite(&SD2, newName, newNameLength);
     //And finally write the termination \r\n
-    sdWrite(&SD2, &btAtTerminationString[0], 2);
-*/
+    sdWrite(&SD2, ATTerminationString, 2);
+
 };
 
 void btAtResetDefaults(){
@@ -145,3 +148,16 @@ void btAtResetDefaults(){
 
     sdWrite(&SD2, btStringRestoreDefaults, 9);
 };
+
+void btSetPin(const uint8_t *newpin, size_t newPinLength)
+{
+    if (newPinLength != 4)
+        return;
+
+    static uint8_t ATcommandChangePin[] = "AT+PIN=";
+    sdWrite(&SD2, ATcommandChangePin, 7);
+    sdWrite(&SD2, newpin, newPinLength);
+    sdWrite(&SD2, ATTerminationString, 2);
+};
+
+void btGetPin();
