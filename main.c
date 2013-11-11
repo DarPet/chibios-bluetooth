@@ -109,8 +109,8 @@ static void cmd_btsetname(BaseSequentialStream *chp, int argc, char *argv[]) {
         return;
     }
  //
-    chprintf(chp, "From bt: %x %i\r\n", (uint8_t *)argv[1], strlen(argv[1]));
-    btAtSetName((uint8_t *)argv[1], strlen(argv[1]));
+    chprintf(chp, "Arguments: %i strlen0 %i strlen1 %i  \r\n", argc, strlen(argv[0]), strlen(argv[1]) );
+    //btAtSetName((uint8_t *)argv[1], strlen(argv[1]));
 
 
 }
