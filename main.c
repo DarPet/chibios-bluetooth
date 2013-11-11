@@ -27,9 +27,9 @@
 
 #include "bluetooth.h"
 
-#define BUFFER_SIZE 32
+#define BUFFER_SIZE 256
 
-char serialBuffer[BUFFER_SIZE];
+static uint8_t serialBuffer[BUFFER_SIZE];
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU1;
@@ -75,7 +75,7 @@ static void cmd_threads(BaseSequentialStream *chp, int argc, char *argv[]) {
     tp = chRegNextThread(tp);
   } while (tp != NULL);
 }
-/*
+
 static void cmd_btsend(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if (argc !=1){
@@ -87,27 +87,41 @@ static void cmd_btsend(BaseSequentialStream *chp, int argc, char *argv[]) {
 
 }
 
-*/
-/*
+
+
 static void cmd_btread(BaseSequentialStream *chp, int argc, char *argv[]) {
 
     if (argc !=0){
         chprintf(chp, "Usage: btread\r\n");
         return;
     }
-    sdReadTimeout(&SD2, (uint8_t *)serialBuffer, BUFFER_SIZE, TIME_IMMEDIATE);
+ //
     chprintf(chp, "From bt: %s\r\n", serialBuffer);
 
 
 }
-*/
+
+
+static void cmd_btsetname(BaseSequentialStream *chp, int argc, char *argv[]) {
+
+    if (argc !=1){
+        chprintf(chp, "Usage: btsetname newname\r\n");
+        return;
+    }
+ //
+    btAtSetName((uint8_t *)argv[1], strlen(argv[1]));
+
+
+}
+
 
 
 static const ShellCommand commands[] = {
   {"mem", cmd_mem},
   {"threads", cmd_threads},
-//  {"btsend", cmd_btsend},
-//  {"btread", cmd_btread},
+  {"btsend", cmd_btsend},
+  {"btsetname", cmd_btsetname},
+  {"btread", cmd_btread},
   {NULL, NULL}
 };
 
@@ -122,11 +136,20 @@ static WORKING_AREA(waBtRead, 128);
 static msg_t BtRead(void *arg) {
     chRegSetThreadName("reader");
 
+
+    memset(serialBuffer, '\0', BUFFER_SIZE);
+    static uint8_t *bufferPtr = serialBuffer;
     while(TRUE)
     {
         chThdSleepMilliseconds(10);
        // sdRead(&SD2, (uint8_t *)serialBuffer, BUFFER_SIZE);
        // chprintf((BaseSequentialStream *)&SDU1, "Serial: %s", serialBuffer);
+
+       //read responses and fillit to buffer
+      /* while()
+       uint8_t sdGetTimeout(&SD2, TIME_IMMEDIATE);*/
+
+
        if(palReadPad(GPIOA, GPIOA_BUTTON))
        {
            btReset();
