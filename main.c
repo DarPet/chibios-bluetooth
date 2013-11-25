@@ -24,12 +24,8 @@
 #include "string.h"
 
 #include "usbcfg.h"
+#include "btmodule.h"
 
-#include "bluetooth.h"
-
-#define BUFFER_SIZE 256
-
-static uint8_t serialBuffer[BUFFER_SIZE];
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU1;
@@ -76,53 +72,12 @@ static void cmd_threads(BaseSequentialStream *chp, int argc, char *argv[]) {
   } while (tp != NULL);
 }
 
-static void cmd_btsend(BaseSequentialStream *chp, int argc, char *argv[]) {
-
-    if (argc !=1){
-        chprintf(chp, "Usage: btsend string\r\n");
-        return;
-    }
-    sdWriteTimeout(&SD2, (uint8_t *)argv[1], strlen(argv[1]), TIME_IMMEDIATE);
-
-
-}
-
-
-
-static void cmd_btread(BaseSequentialStream *chp, int argc, char *argv[]) {
-
-    if (argc !=0){
-        chprintf(chp, "Usage: btread\r\n");
-        return;
-    }
- //
-    chprintf(chp, "From bt: %s\r\n", serialBuffer);
-
-
-}
-
-
-static void cmd_btsetname(BaseSequentialStream *chp, int argc, char *argv[]) {
-
-    if (argc !=1){
-        chprintf(chp, "Usage: btsetname newname\r\n");
-        return;
-    }
- //
-    chprintf(chp, "Arguments: %i strlen0 %i strlen1 %i  \r\n", argc, strlen(argv[0]), strlen(argv[1]) );
-    //btAtSetName((uint8_t *)argv[1], strlen(argv[1]));
-
-
-}
 
 
 
 static const ShellCommand commands[] = {
   {"mem", cmd_mem},
   {"threads", cmd_threads},
-  {"btsend", cmd_btsend},
-  {"btsetname", cmd_btsetname},
-  {"btread", cmd_btread},
   {NULL, NULL}
 };
 
@@ -131,41 +86,32 @@ static const ShellConfig shell_cfg1 = {
   commands
 };
 
+/* =================================================*/
+/* Bluetooth test                                   */
+/*                                                  */
+/*===================================================*/
+static BluetoothDriver myTestBtDriver;
+static SerialConfig myTestSerialConfigAT = { 38400, };
 
 
-static WORKING_AREA(waBtRead, 128);
-static msg_t BtRead(void *arg) {
-    chRegSetThreadName("reader");
+static BluetoothConfig myTestBtConfig = {
+    .btSerialConfig = &myTestSerialConfigAT,
+    .btSerialDriver = &SD2,
+    .btModuleName = "FARkasOK",
+    .commBaudRate = 38400,
+    .atBaudRate = 38400,
+};
 
 
-    memset(serialBuffer, '\0', BUFFER_SIZE);
-    static uint8_t *bufferPtr = serialBuffer;
-    while(TRUE)
-    {
-        chThdSleepMilliseconds(10);
-       // sdRead(&SD2, (uint8_t *)serialBuffer, BUFFER_SIZE);
-       // chprintf((BaseSequentialStream *)&SDU1, "Serial: %s", serialBuffer);
+void startBtTest(void){
 
-       //read responses and fillit to buffer
-      /* while()
-       uint8_t sdGetTimeout(&SD2, TIME_IMMEDIATE);*/
+    btInit(&myTestBtDriver, &myTestBtConfig);
+    btStart(&myTestBtDriver);
+
+};
 
 
-       if(palReadPad(GPIOA, GPIOA_BUTTON))
-       {
-           btReset();
-           btSetCommandMode(atMode);
-           //btAtResetDefaults();
-           static uint8_t btNewNameForFunctionGive[] = "Farkas";
-           btAtSetName(btNewNameForFunctionGive, 6);
 
-
-       }
-
-    }
-
-
-}
 /*===========================================================================*/
 /* Initialization and main thread.                                           */
 /*===========================================================================*/
@@ -207,19 +153,8 @@ int main(void) {
   usbStart(serusbcfg.usbp, &usbcfg);
   usbConnectBus(serusbcfg.usbp);
 
-  /*
-   * Activates the serial driver 2 using the driver default configuration.
-   * PA2(TX) and PA3(RX) are routed to USART2.
-   */
+  startBtTest();
 
-
-    btSetCommandMode(atMode);
-  palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
-  palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
-
-
-    chThdCreateStatic(waBtRead, sizeof(waBtRead),
-                    NORMALPRIO + 10, BtRead, NULL);
 
   /*
    * Normal main() thread activity, in this demo it just performs

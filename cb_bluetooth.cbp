@@ -1282,10 +1282,10 @@
 		</Unit>
 		<Unit filename="../../sources/ChibiOS-RT/test/testthd.h" />
 		<Unit filename="Makefile" />
-		<Unit filename="bluetooth.c">
+		<Unit filename="btmodule.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="bluetooth.h" />
+		<Unit filename="btmodule.h" />
 		<Unit filename="chconf.h" />
 		<Unit filename="halconf.h" />
 		<Unit filename="main.c">

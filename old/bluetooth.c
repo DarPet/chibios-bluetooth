@@ -4,6 +4,11 @@
 #include <serial_lld.h>
 #include "string.h"
 
+
+
+
+
+/*
 static bluetoothConfig myBluetoothConfig ={
 DEFAULT_BT_BAUD,
 DEFAULT_BT_PARITY,
@@ -161,3 +166,4 @@ void btSetPin(const uint8_t *newpin, size_t newPinLength)
 };
 
 void btGetPin();
+*/
