@@ -33,6 +33,7 @@
     void (*btRxChar)(void *instance, uint8_t ch);                                           \
     void (*btSetModeAt)(uint16_t timeout);                                           \
     void (*btSetModeComm)(uint16_t timeout);                                           \
+    void (*btEmptyIncomingSerial)(void *instance);                         \
     void (*btSetDeviceName)(void *instance, uint8_t *newname);
 
 #define _base_bluetooth_device_data                                         \
@@ -76,27 +77,29 @@ typedef struct BluetoothDriver{
 extern "C" {
 #endif
 
-    void btStart(BluetoothDriver *instance);
+    void btStart(void *instance);
 
-    int btSendChar(BluetoothDriver *instance, uint8_t ch);
+    int btSendChar(void *instance, uint8_t ch);
 
-    int btSendBuffer(BluetoothDriver *instance, uint16_t len, uint8_t *buffer);
+    int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer);
 
-    void btStartReceive(BluetoothDriver *instance);
+    void btStartReceive(void *instance);
 
-    void btStopReceive(BluetoothDriver *instance);
+    void btStopReceive(void *instance);
 
-    void btRxChar(BluetoothDriver *instance, uint8_t ch);
+    void btRxChar(void *instance, uint8_t ch);
 
-    void btSetDeviceName(BluetoothDriver *instance, uint8_t *newname);
+    void btSetDeviceName(void *instance, uint8_t *newname);
 
-    void btInit(BluetoothDriver *instance, BluetoothConfig *config);
+    void btInit(void *instance, BluetoothConfig *config);
 
     void btSetModeAt(uint16_t timeout);
 
     void btSetModeComm(uint16_t timeout);
 
-    int btTestAT(BluetoothDriver *instance);
+    int btTestAT(void *instance);
+
+    void btEmptyIncomingSerial(void *instance);
 
 #ifdef __cplusplus
 }

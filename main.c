@@ -91,7 +91,7 @@ static const ShellConfig shell_cfg1 = {
 /*                                                  */
 /*===================================================*/
 static BluetoothDriver myTestBtDriver;
-static SerialConfig myTestSerialConfigAT = { 38400, };
+static SerialConfig myTestSerialConfigAT = { 38400, 0, 0, 0 };
 
 
 static BluetoothConfig myTestBtConfig = {

@@ -40,41 +40,54 @@ const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btSetModeComm=btSetModeComm,
 };
 
-static SerialConfig btDefaultSerialConfigAT = { 38400, };
+static SerialConfig btDefaultSerialConfigAT = { 38400,0,0,0 };
 
 static WORKING_AREA(btThreadWa, 128);
 static msg_t btThread(BluetoothDriver *instance) {
 
-  chRegSetThreadName("btThread");
+    (void)instance;
+    chRegSetThreadName("btThread");
 
-  while (TRUE) {
-    palClearPad(GPIOD, GPIOD_LED3);
-    chThdSleepMilliseconds(500);
-    palSetPad(GPIOD, GPIOD_LED3);
-    chThdSleepMilliseconds(500);
-  }
+    while (TRUE) {
+        palClearPad(GPIOD, GPIOD_LED3);
+        chThdSleepMilliseconds(500);
+        palSetPad(GPIOD, GPIOD_LED3);
+        chThdSleepMilliseconds(500);
+      }
+
+  return (msg_t) 0;
 }
 
-void btInit(BluetoothDriver *instance, BluetoothConfig *config){
+void btInit(void *instance, BluetoothConfig *config){
+
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
     //null pointer check
-    if (!instance || !config)
+    if (!drv || !config)
         return;
 
-    instance->bluetoothConfig = config;
-    instance->serialDriver = (config->btSerialDriver != NULL) ? config->btSerialDriver : BT_DEFAULT_SERIAL_DRIVER_ADDRESS;
-    instance->serialConfig = (config->btSerialConfig != NULL) ? config->btSerialConfig : &btDefaultSerialConfigAT;
-    instance->vmt = &bluetoothDeviceVMT;
+
+
+    drv->bluetoothConfig = config;
+    drv->serialDriver = (config->btSerialDriver != NULL) ? config->btSerialDriver : BT_DEFAULT_SERIAL_DRIVER_ADDRESS;
+    drv->serialConfig = (config->btSerialConfig != NULL) ? config->btSerialConfig : &btDefaultSerialConfigAT;
+    drv->vmt = &bluetoothDeviceVMT;
 
     //create thread, but do not start it yet
-    instance->thread=chThdCreateI(btThreadWa, sizeof(btThreadWa), NORMALPRIO, btThread, instance);
+    drv->thread=chThdCreateI(btThreadWa, sizeof(btThreadWa), NORMALPRIO, btThread, drv);
 
 
 };
 
-void btStart(BluetoothDriver *instance){
+void btStart(void *instance){
 
-    if(!instance || instance->thread)
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    if(!drv)
         return;
+
+
+
 
     //switch to AT mode
     btSetModeAt(5000);
@@ -85,14 +98,14 @@ void btStart(BluetoothDriver *instance){
     */
     palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
     palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
-    sdStart(instance->serialDriver, &btDefaultSerialConfigAT);
+    sdStart(drv->serialDriver, &btDefaultSerialConfigAT);
 
     //test AT mode
 
-    if(btTestAT(instance))
-        chprintf(&SDU1, "\r\nERROR: AT test FAILED.\r\n");
+    if(btTestAT(drv))
+        chprintf((BaseSequentialStream *)&SDU1, "\r\nERROR: AT test FAILED.\r\n");
     else
-        chprintf(&SDU1, "\r\nINFO: AT test SUCCESSFUL.\r\n");
+        chprintf((BaseSequentialStream *)&SDU1, "\r\nINFO: AT test SUCCESSFUL.\r\n");
 
 
     //we should do the predefined module configuration here, eg.: name, communication baud rate, PIN code, etc.
@@ -102,20 +115,22 @@ void btStart(BluetoothDriver *instance){
 
     //here we should switch to communications mode and be ready for connections
 
-    instance->vmt->btSetModeComm(5000);
+    drv->vmt->btSetModeComm(5000);
 
-    chThdResume(instance->thread);
+    chThdResume(drv->thread);
 
 };
 
-int btSendChar(BluetoothDriver *instance, uint8_t ch){
+int btSendChar(void *instance, uint8_t ch){
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    return;
+    return 0;
 };
 
-int btSendBuffer(BluetoothDriver *instance, uint16_t len, uint8_t *buffer){
+int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer){
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    return;
+    return 0;
 };
 
 
@@ -129,27 +144,32 @@ int btSendBuffer(BluetoothDriver *instance, uint16_t len, uint8_t *buffer){
                 1 if there is an error
                 -1 with null pointer
 */
-int btTestAT(BluetoothDriver *instance){
-    if(!instance || !(instance->serialDriver))
+int btTestAT(void *instance){
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    if(!drv || !(drv->serialDriver))
         return -1;
+
+
 
     uint8_t btAtTestString[] = { 'A', 'T', '\r', '\n', '\0' };
     uint8_t dataCounter = 0;
     uint8_t btTestIncomingData[5];
 
-    btEmptyIncomingSerial(instance);
-    sdWrite(instance->serialDriver, (uint8_t *) btAtTestString, 4);
+    btEmptyIncomingSerial(drv);
+    sdWrite(drv->serialDriver, (uint8_t *) btAtTestString, 4);
     chThdSleepMilliseconds(100);
 
     do{
-        btTestIncomingData[dataCounter] = sdGetTimeout(instance->serialDriver, TIME_IMMEDIATE);
+        btTestIncomingData[dataCounter] = sdGetTimeout(drv->serialDriver, TIME_IMMEDIATE);
         dataCounter++;
     }while (dataCounter < 4 && btTestIncomingData[dataCounter-1] != (uint8_t) Q_TIMEOUT);
 
     btTestIncomingData[4] = '\0';
 
     //debug:
-    chprintf(&SDU1, "\r\nDEBUG btTestIncomingData: %s \r\n", (char *) btTestIncomingData);
+    chprintf((BaseSequentialStream *)&SDU1, "\r\nDEBUG btTestIncomingData: %s \r\n", (char *) btTestIncomingData);
 
     if( strcmp((char *) btAtTestString, (char *) btTestIncomingData) == 0)
         return 0;
@@ -158,31 +178,33 @@ int btTestAT(BluetoothDriver *instance){
 };
 
 //start communication
-void btStartReceive(BluetoothDriver *instance){
+void btStartReceive(void *instance){
 
-
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     return;
 };
 
 // stop communication
-void btStopReceive(BluetoothDriver *instance){
+void btStopReceive(void *instance){
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
 
 
     return;
 };
 
-void btRxChar(BluetoothDriver *instance, uint8_t ch){
+void btRxChar(void *instance, uint8_t ch){
 
-
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     return;
 };
 
-void btSetDeviceName(BluetoothDriver *instance, uint8_t *newname){
+void btSetDeviceName(void *instance, uint8_t *newname){
 
-
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     return;
 };
@@ -230,11 +252,16 @@ void btSetModeComm(uint16_t timeout){
 /**
     Function to trash not needed incoming serial data
 */
-void btEmptyIncomingSerial(BluetoothDriver *instance){
-    if(!instance || !(instance->serialDriver))
+void btEmptyIncomingSerial(void *instance){
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    if(!drv || !(drv->serialDriver))
         return;
 
-    while(Q_TIMEOUT != sdGetTimeout(instance->serialDriver, TIME_IMMEDIATE))
+
+
+    while(Q_TIMEOUT != sdGetTimeout(drv->serialDriver, TIME_IMMEDIATE))
         ;
     return;
 
