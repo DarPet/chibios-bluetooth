@@ -67,6 +67,12 @@ void btInit(void *instance, BluetoothConfig *config){
         return;
 
 
+    palSetPadMode(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN, PAL_MODE_OUTPUT_PUSHPULL
+                | PAL_STM32_OSPEED_HIGHEST);
+    palSetPadMode(BT_RESET_PORT, BT_RESET_PIN, PAL_MODE_OUTPUT_PUSHPULL
+                | PAL_STM32_OSPEED_HIGHEST);
+
+
 
     drv->bluetoothConfig = config;
     drv->serialDriver = (config->btSerialDriver != NULL) ? config->btSerialDriver : BT_DEFAULT_SERIAL_DRIVER_ADDRESS;
