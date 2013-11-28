@@ -12,7 +12,7 @@
 #if defined HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
 
-#define BT_MAX_NAME_LENGTH 256
+#define BT_MAX_NAME_LENGTH 128
 #define BT_MAX_COMMAND_SIZE 256
 #define BT_DEFAULT_SERIAL_DRIVER_ADDRESS &SD2
 #define BT_RESET_PIN 5
@@ -28,10 +28,10 @@
     void (*btStartReceive)(void *instance);                                                     \
     void (*btStopReceive)(void *instance);                                                      \
     void (*btRxChar)(void *instance, uint8_t ch);                                           \
-    void (*btSetModeAt)(uint16_t timeout);                                           \
-    void (*btSetModeComm)(uint16_t timeout);                                           \
+    void (*btSetModeAt)(void * instance, uint16_t timeout);                                           \
+    void (*btSetModeComm)(void * instance, uint16_t timeout);                                           \
     void (*btEmptyIncomingSerial)(void *instance);                         \
-    void (*btSetDeviceName)(void *instance, uint8_t *newname);
+    void (*btSetDeviceName)(void *instance, char *newname);
 
 #define _base_bluetooth_device_data                                         \
     /* Name of driver */                                                    \
@@ -45,10 +45,16 @@
     /* Error count */                                                        \
     uint16_t errorCount;                    \
     /* Thread which handles data recieving*/                                        \
+    btModuleWorkMode currentWorkMode;                                                   \
+    /* Thread which handles data recieving*/                                        \
     Thread *sendThread;                                                   \
     /* Thread which handles data sending*/                                        \
     Thread *recieveThread;
 
+typedef enum btModuleWorkMode{
+    atMode,
+    communicationMode,
+}btModuleWorkMode;
 
 struct BluetoothDeviceVMT {
     _bluetooth_device_methods
@@ -76,6 +82,7 @@ typedef struct BluetoothDriver{
 
 
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -92,13 +99,13 @@ extern "C" {
 
     void btRxChar(void *instance, uint8_t ch);
 
-    void btSetDeviceName(void *instance, uint8_t *newname);
+    void btSetDeviceName(void *instance, char *newname);
 
     void btInit(void *instance, BluetoothConfig *config);
 
-    void btSetModeAt(uint16_t timeout);
+    void btSetModeAt(void * instance, uint16_t timeout);
 
-    void btSetModeComm(uint16_t timeout);
+    void btSetModeComm(void * instance, uint16_t timeout);
 
     int btTestAT(void *instance);
 

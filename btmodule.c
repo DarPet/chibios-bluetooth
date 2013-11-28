@@ -23,10 +23,11 @@
 
 extern SerialUSBDriver SDU1;
 
-static uint8_t btATCommandString[BT_MAX_COMMAND_SIZE+2];
+static Mutex btCommandMutex;
 
-// only send the first two characters, the '\0' is for strcmp compatibility
-static uint8_t btATCommandTermination[] = {'\r','\n'};
+static const char btATCommandTermination[] = {'\r','\n'};
+
+static char btATCommandString[ BT_MAX_COMMAND_SIZE + sizeof(btATCommandTermination) + 1 ];
 
 const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btStart=btStart,
@@ -91,6 +92,7 @@ void btInit(void *instance, BluetoothConfig *config){
     if (!drv || !config)
         return;
 
+    chMtxInit(&btCommandMutex);
 
     palSetPadMode(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN, PAL_MODE_OUTPUT_PUSHPULL
                 | PAL_STM32_OSPEED_HIGHEST);
@@ -120,7 +122,7 @@ void btStart(void *instance){
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     //switch to AT mode
-    btSetModeAt(5000);
+    drv->vmt->btSetModeAt(drv, 5000);
     //start the serial driver, then configure the module
 
     /**
@@ -145,7 +147,7 @@ void btStart(void *instance){
 
     //here we should switch to communications mode and be ready for connections
 
-    drv->vmt->btSetModeComm(5000);
+    drv->vmt->btSetModeComm(drv, 5000);
 
     btStartReceive(drv);
 
@@ -163,7 +165,7 @@ int btSendChar(void *instance, uint8_t ch){
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     if ( chOQIsEmptyI(drv->bluetoothConfig->btInputQueue) )
-
+        ;
 
 
 
@@ -245,11 +247,54 @@ void btRxChar(void *instance, uint8_t ch){
     return;
 };
 
-void btSetDeviceName(void *instance, uint8_t *newname){
+void btSetDeviceName(void *instance, char *newname){
+
+    if ( !instance || !newname )
+        return;
+
+
+    int newNameLen = strlen(newname);
+
+
+    if( newNameLen > BT_MAX_NAME_LENGTH )
+        return;
+
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    return;
+
+    if(drv->currentWorkMode != atMode)
+        btSetModeAt(drv, 5000);
+
+
+    char btPrefix[] = "AT+NAME=";
+
+
+
+    chMtxLock(&btCommandMutex);
+
+
+    strncpy( btATCommandString,
+            btPrefix,
+            sizeof(btPrefix)/sizeof(btPrefix[0]) );
+
+    strncpy( btATCommandString + sizeof(btPrefix)/sizeof(btPrefix[0]),
+            newname,
+            newNameLen );
+
+    strncpy( btATCommandString + sizeof(btPrefix)/sizeof(btPrefix[0]) + newNameLen,
+            btATCommandTermination,
+            sizeof(btATCommandTermination) );
+
+
+
+    chnWrite(drv->serialDriver,
+             btATCommandString,
+             sizeof(btPrefix)/sizeof(btPrefix[0]) + newNameLen + sizeof(btATCommandTermination)/sizeof(btATCommandTermination[0]));
+
+
+    chMtxUnlock();
+
 };
 
 
@@ -257,8 +302,12 @@ void btSetDeviceName(void *instance, uint8_t *newname){
     @parameters uint16_t timeout: time to wait between reset port togling (milliseconds)
 */
 
-void btSetModeAt(uint16_t timeout){
+void btSetModeAt(void * instance, uint16_t timeout){
 
+    if(!instance)
+        return;
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
     //reset module (low), pull key high
     chSysLock();
     palClearPad(BT_RESET_PORT, BT_RESET_PIN);
@@ -271,15 +320,19 @@ void btSetModeAt(uint16_t timeout){
     chSysUnlock();
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     //we should be in AT mode, with 38400 baud
-
+    drv->currentWorkMode=atMode;
 };
 
 /**
     @parameters uint16_t timeout: time to wait between reset port togling (milliseconds)
 */
 
-void btSetModeComm(uint16_t timeout){
+void btSetModeComm(void * instance, uint16_t timeout){
 
+    if(!instance)
+        return;
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
     //reset module (low), pull key low
     chSysLock();
     palClearPad(BT_RESET_PORT, BT_RESET_PIN);
@@ -291,6 +344,7 @@ void btSetModeComm(uint16_t timeout){
     chSysUnlock();
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     //we should be in communication mode, with configured baud
+    drv->currentWorkMode=communicationMode;
 };
 
 /**
