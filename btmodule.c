@@ -23,10 +23,10 @@
 
 extern SerialUSBDriver SDU1;
 
-static uint8_t btATCommandString[BT_MAX_COMMAND_SIZE+3];
+static uint8_t btATCommandString[BT_MAX_COMMAND_SIZE+2];
 
 // only send the first two characters, the '\0' is for strcmp compatibility
-static uint8_t btATCommandTermination[] = {'\r','\n', '\0'};
+static uint8_t btATCommandTermination[] = {'\r','\n'};
 
 const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btStart=btStart,
@@ -42,11 +42,36 @@ const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
 
 static SerialConfig btDefaultSerialConfigAT = { 38400,0,0,0 };
 
-static WORKING_AREA(btThreadWa, 128);
-static msg_t btThread(BluetoothDriver *instance) {
+static WORKING_AREA(btSendThreadWa, 128);
+static msg_t btSendThread(void *instance) {
+
+    if (!instance)
+        chThdSleep(TIME_INFINITE);
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    chRegSetThreadName("btSendThread");
+
+    while (TRUE) {
+        if ( chOQIsEmptyI(drv->bluetoothConfig->btInputQueue) ){
+            //queue empty, we have nothing to send
+            chThdSleepMilliseconds(drv->bluetoothConfig->commSleepTimeMs);
+            continue;
+        }
+        else{
+
+
+        }
+      }
+
+  return (msg_t) 0;
+}
+
+static WORKING_AREA(btRecieveThreadWa, 128);
+static msg_t btRecieveThread(void *instance) {
 
     (void)instance;
-    chRegSetThreadName("btThread");
+    chRegSetThreadName("btRecieveThread");
 
     while (TRUE) {
         palClearPad(GPIOD, GPIOD_LED3);
@@ -79,21 +104,20 @@ void btInit(void *instance, BluetoothConfig *config){
     drv->serialConfig = (config->btSerialConfig != NULL) ? config->btSerialConfig : &btDefaultSerialConfigAT;
     drv->vmt = &bluetoothDeviceVMT;
 
-    //create thread, but do not start it yet
-    drv->thread=chThdCreateI(btThreadWa, sizeof(btThreadWa), NORMALPRIO, btThread, drv);
+    //create driverThread, but do not start it yet
+    drv->sendThread=chThdCreateI(btSendThreadWa, sizeof(btSendThreadWa), NORMALPRIO, btSendThread, drv);
+    drv->recieveThread=chThdCreateI(btRecieveThreadWa, sizeof(btRecieveThreadWa), NORMALPRIO, btRecieveThread, drv);
 
 
 };
 
 void btStart(void *instance){
 
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    if(!drv)
+    if(!instance)
         return;
 
-
-
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     //switch to AT mode
     btSetModeAt(5000);
@@ -123,14 +147,27 @@ void btStart(void *instance){
 
     drv->vmt->btSetModeComm(5000);
 
-    chThdResume(drv->thread);
+    btStartReceive(drv);
 
 };
 
+
+/**
+*   Send char through the bluetooth module
+*/
 int btSendChar(void *instance, uint8_t ch){
+
+    if(!instance)
+        return EXIT_FAILURE;
+
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    return 0;
+    if ( chOQIsEmptyI(drv->bluetoothConfig->btInputQueue) )
+
+
+
+
+    return EXIT_SUCCESS;
 };
 
 int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer){
@@ -146,16 +183,15 @@ int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer){
 
     debug: response is printed to console
 
-    @returns    0 if OK
-                1 if there is an error
-                -1 with null pointer
+    @returns    EXIT_SUCCESS if OK
+                EXIT_FAILURE on error
 */
 int btTestAT(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
     if(!drv || !(drv->serialDriver))
-        return -1;
+        return EXIT_FAILURE;
 
 
 
@@ -177,16 +213,17 @@ int btTestAT(void *instance){
     //debug:
     chprintf((BaseSequentialStream *)&SDU1, "\r\nDEBUG btTestIncomingData: %s \r\n", (char *) btTestIncomingData);
 
-    if( strcmp((char *) btAtTestString, (char *) btTestIncomingData) == 0)
-        return 0;
-    else
-        return 1;
+    return (strcmp((char *) "OK\r\n", (char *) btTestIncomingData) == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
+
 };
 
 //start communication
 void btStartReceive(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    chThdResume(drv->sendThread);
+    chThdResume(drv->recieveThread);
 
     return;
 };
@@ -196,7 +233,7 @@ void btStopReceive(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-
+    chThdSleep(TIME_INFINITE);
 
     return;
 };
@@ -230,6 +267,7 @@ void btSetModeAt(uint16_t timeout){
     chThdSleepMilliseconds(timeout);   //wait for reset
     chSysLock();
     palSetPad(BT_RESET_PORT, BT_RESET_PIN);
+    palClearPad(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN);
     chSysUnlock();
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     //we should be in AT mode, with 38400 baud

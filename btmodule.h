@@ -11,9 +11,6 @@
 
 #if defined HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
-#if !defined(BLUETOOTH_BUFFERS_SIZE) || defined(__DOXYGEN__)
-#define BLUETOOTH_BUFFERS_SIZE     256
-#endif
 
 #define BT_MAX_NAME_LENGTH 256
 #define BT_MAX_COMMAND_SIZE 256
@@ -45,12 +42,12 @@
     SerialConfig *serialConfig;                                             \
     /* Bluetooth Config*/                                                      \
     BluetoothConfig *bluetoothConfig;                                             \
-    /* Input buffer.*/                                                        \
-    uint8_t                   ib[BLUETOOTH_BUFFERS_SIZE];                    \
-    /* Output buffer.*/                                                       \
-    uint8_t                   ob[BLUETOOTH_BUFFERS_SIZE];                    \
-    /* Thread which handles driver*/                                        \
-    Thread *thread;
+    /* Error count */                                                        \
+    uint16_t errorCount;                    \
+    /* Thread which handles data recieving*/                                        \
+    Thread *sendThread;                                                   \
+    /* Thread which handles data sending*/                                        \
+    Thread *recieveThread;
 
 
 struct BluetoothDeviceVMT {
@@ -63,6 +60,12 @@ typedef struct BluetoothConfig{
     uint8_t btModuleName[BT_MAX_NAME_LENGTH];
     uint16_t commBaudRate;
     uint16_t atBaudRate;
+    uint16_t commSleepTimeMs;
+    uint16_t sendQueueSize;
+    uint16_t recieveQueueSize;
+    InputQueue *btInputQueue;
+    OutputQueue *btOutputQueue;
+
 } BluetoothConfig;
 
 typedef struct BluetoothDriver{
