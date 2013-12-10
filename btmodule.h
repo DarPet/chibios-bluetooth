@@ -23,11 +23,8 @@
 
 #define _bluetooth_device_methods                                                           \
     void (*btStart)(void *instance);                                      \
-    int (*btSendChar)(void *instance, uint8_t ch);                                              \
-    int (*btSendBuffer)(void *instance, uint16_t len, uint8_t *buffer);                         \
     void (*btStartReceive)(void *instance);                                                     \
     void (*btStopReceive)(void *instance);                                                      \
-    void (*btRxChar)(void *instance, uint8_t ch);                                           \
     void (*btSetModeAt)(void * instance, uint16_t timeout);                                           \
     void (*btSetModeComm)(void * instance, uint16_t timeout);                                           \
     void (*btEmptyIncomingSerial)(void *instance);                         \
@@ -89,15 +86,9 @@ extern "C" {
 
     void btStart(void *instance);
 
-    int btSendChar(void *instance, uint8_t ch);
-
-    int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer);
-
     void btStartReceive(void *instance);
 
     void btStopReceive(void *instance);
-
-    void btRxChar(void *instance, uint8_t ch);
 
     void btSetDeviceName(void *instance, char *newname);
 

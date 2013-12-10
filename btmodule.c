@@ -31,11 +31,8 @@ static char btATCommandString[ BT_MAX_COMMAND_SIZE + sizeof(btATCommandTerminati
 
 const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btStart=btStart,
-    .btSendChar=btSendChar,
-    .btSendBuffer=btSendBuffer,
     .btStartReceive=btStartReceive,
     .btStopReceive=btStopReceive,
-    .btRxChar=btRxChar,
     .btSetDeviceName=btSetDeviceName,
     .btSetModeAt=btSetModeAt,
     .btSetModeComm=btSetModeComm,
@@ -54,15 +51,11 @@ static msg_t btSendThread(void *instance) {
     chRegSetThreadName("btSendThread");
 
     while (TRUE) {
-        if ( chOQIsEmptyI(drv->bluetoothConfig->btInputQueue) ){
-            //queue empty, we have nothing to send
-            chThdSleepMilliseconds(drv->bluetoothConfig->commSleepTimeMs);
-            continue;
-        }
-        else{
+        if ( !chIQIsEmptyI(drv->bluetoothConfig->btInputQueue) ){
 
-
+            chnPutTimeout((BaseChannel *)drv->serialDriver, chIQGetTimeout(drv->bluetoothConfig->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
         }
+        chThdSleepMilliseconds(drv->bluetoothConfig->commSleepTimeMs);
       }
 
   return (msg_t) 0;
@@ -71,15 +64,22 @@ static msg_t btSendThread(void *instance) {
 static WORKING_AREA(btRecieveThreadWa, 128);
 static msg_t btRecieveThread(void *instance) {
 
+    if (!instance)
+        chThdSleep(TIME_INFINITE);
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
     (void)instance;
     chRegSetThreadName("btRecieveThread");
 
     while (TRUE) {
-        palClearPad(GPIOD, GPIOD_LED3);
-        chThdSleepMilliseconds(500);
-        palSetPad(GPIOD, GPIOD_LED3);
-        chThdSleepMilliseconds(500);
-      }
+        if ( !chOQIsFullI(drv->bluetoothConfig->btOutputQueue) ){
+
+            chOQPut(drv->bluetoothConfig->btOutputQueue, chnGetTimeout((BaseChannel *)drv->serialDriver, TIME_INFINITE));
+        }
+        chThdSleepMilliseconds(drv->bluetoothConfig->commSleepTimeMs);
+    }
+
 
   return (msg_t) 0;
 }
@@ -142,7 +142,7 @@ void btStart(void *instance){
 
     //we should do the predefined module configuration here, eg.: name, communication baud rate, PIN code, etc.
 
-
+    drv->vmt->btSetDeviceName(drv, "ESMIS");
 
 
     //here we should switch to communications mode and be ready for connections
@@ -151,31 +151,6 @@ void btStart(void *instance){
 
     btStartReceive(drv);
 
-};
-
-
-/**
-*   Send char through the bluetooth module
-*/
-int btSendChar(void *instance, uint8_t ch){
-
-    if(!instance)
-        return EXIT_FAILURE;
-
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
-
-    if ( chOQIsEmptyI(drv->bluetoothConfig->btInputQueue) )
-        ;
-
-
-
-    return EXIT_SUCCESS;
-};
-
-int btSendBuffer(void *instance, uint16_t len, uint8_t *buffer){
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
-
-    return 0;
 };
 
 
@@ -240,12 +215,7 @@ void btStopReceive(void *instance){
     return;
 };
 
-void btRxChar(void *instance, uint8_t ch){
 
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
-
-    return;
-};
 
 void btSetDeviceName(void *instance, char *newname){
 
@@ -289,7 +259,7 @@ void btSetDeviceName(void *instance, char *newname){
 
 
     chnWrite(drv->serialDriver,
-             btATCommandString,
+             (uint8_t *)btATCommandString,
              sizeof(btPrefix)/sizeof(btPrefix[0]) + newNameLen + sizeof(btATCommandTermination)/sizeof(btATCommandTermination[0]));
 
 
