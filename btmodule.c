@@ -27,13 +27,11 @@ static Mutex btCommandMutex;
 
 static const char btATCommandTermination[] = {'\r','\n'};
 
-static char btATCommandString[ BT_MAX_COMMAND_SIZE + sizeof(btATCommandTermination) + 1 ];
-
 const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btStart=btStart,
     .btStartReceive=btStartReceive,
     .btStopReceive=btStopReceive,
-    .btSetDeviceName=btSetDeviceName,
+    .btSendAtCommand=btSendAtCommand,
     .btSetModeAt=btSetModeAt,
     .btSetModeComm=btSetModeComm,
 };
@@ -121,10 +119,6 @@ void btStart(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
 
-    //switch to AT mode
-    drv->vmt->btSetModeAt(drv, 5000);
-    //start the serial driver, then configure the module
-
     /**
     TODO: Serial driver defines
     */
@@ -132,18 +126,20 @@ void btStart(void *instance){
     palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
     sdStart(drv->serialDriver, &btDefaultSerialConfigAT);
 
-    //test AT mode
+    chThdSleepMilliseconds(5000);
 
-    if(btTestAT(drv))
-        chprintf((BaseSequentialStream *)&SDU1, "\r\nERROR: AT test FAILED.\r\n");
-    else
-        chprintf((BaseSequentialStream *)&SDU1, "\r\nINFO: AT test SUCCESSFUL.\r\n");
+    //switch to AT mode
+    drv->vmt->btSetModeAt(drv, 5000);
+    //start the serial driver, then configure the module
+
 
 
     //we should do the predefined module configuration here, eg.: name, communication baud rate, PIN code, etc.
 
-    drv->vmt->btSetDeviceName(drv, "ESMIS");
+    BT_SET_NAME(drv,"hapci1");
 
+    BT_RESET(drv);
+    BT_SET_PASSKEY(drv, "4321");
 
     //here we should switch to communications mode and be ready for connections
 
@@ -154,45 +150,6 @@ void btStart(void *instance){
 };
 
 
-
-/**
-    Test AT command mode by sending "AT\r\n" , the response should be "OK\r\n"
-
-    debug: response is printed to console
-
-    @returns    EXIT_SUCCESS if OK
-                EXIT_FAILURE on error
-*/
-int btTestAT(void *instance){
-
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
-
-    if(!drv || !(drv->serialDriver))
-        return EXIT_FAILURE;
-
-
-
-    uint8_t btAtTestString[] = { 'A', 'T', '\r', '\n', '\0' };
-    uint8_t dataCounter = 0;
-    uint8_t btTestIncomingData[5];
-
-    btEmptyIncomingSerial(drv);
-    sdWrite(drv->serialDriver, (uint8_t *) btAtTestString, 4);
-    chThdSleepMilliseconds(100);
-
-    do{
-        btTestIncomingData[dataCounter] = sdGetTimeout(drv->serialDriver, TIME_IMMEDIATE);
-        dataCounter++;
-    }while (dataCounter < 4 && btTestIncomingData[dataCounter-1] != (uint8_t) Q_TIMEOUT);
-
-    btTestIncomingData[4] = '\0';
-
-    //debug:
-    chprintf((BaseSequentialStream *)&SDU1, "\r\nDEBUG btTestIncomingData: %s \r\n", (char *) btTestIncomingData);
-
-    return (strcmp((char *) "OK\r\n", (char *) btTestIncomingData) == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
-
-};
 
 //start communication
 void btStartReceive(void *instance){
@@ -217,16 +174,16 @@ void btStopReceive(void *instance){
 
 
 
-void btSetDeviceName(void *instance, char *newname){
+void btSendAtCommand(void *instance, char *command){
 
-    if ( !instance || !newname )
+    if ( !instance || !command )
         return;
 
 
-    int newNameLen = strlen(newname);
+    int commandLen = strlen(command);
 
 
-    if( newNameLen > BT_MAX_NAME_LENGTH )
+    if( commandLen > BT_MAX_COMMAND_SIZE )
         return;
 
 
@@ -237,33 +194,11 @@ void btSetDeviceName(void *instance, char *newname){
         btSetModeAt(drv, 5000);
 
 
-    char btPrefix[] = "AT+NAME=";
-
-
-
-    chMtxLock(&btCommandMutex);
-
-
-    strncpy( btATCommandString,
-            btPrefix,
-            sizeof(btPrefix)/sizeof(btPrefix[0]) );
-
-    strncpy( btATCommandString + sizeof(btPrefix)/sizeof(btPrefix[0]),
-            newname,
-            newNameLen );
-
-    strncpy( btATCommandString + sizeof(btPrefix)/sizeof(btPrefix[0]) + newNameLen,
-            btATCommandTermination,
-            sizeof(btATCommandTermination) );
-
-
-
     chnWrite(drv->serialDriver,
-             (uint8_t *)btATCommandString,
-             sizeof(btPrefix)/sizeof(btPrefix[0]) + newNameLen + sizeof(btATCommandTermination)/sizeof(btATCommandTermination[0]));
+             (uint8_t *)command,
+             commandLen);
 
 
-    chMtxUnlock();
 
 };
 
@@ -280,14 +215,21 @@ void btSetModeAt(void * instance, uint16_t timeout){
     BluetoothDriver *drv = (BluetoothDriver *) instance;
     //reset module (low), pull key high
     chSysLock();
-    palClearPad(BT_RESET_PORT, BT_RESET_PIN);
     palSetPad(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN);
     chSysUnlock();
+
+    chThdSleepMilliseconds(100);
+
+    chSysLock();
+    palClearPad(BT_RESET_PORT, BT_RESET_PIN);
+    chSysUnlock();
+
+
     chThdSleepMilliseconds(timeout);   //wait for reset
     chSysLock();
     palSetPad(BT_RESET_PORT, BT_RESET_PIN);
-    palClearPad(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN);
     chSysUnlock();
+
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     //we should be in AT mode, with 38400 baud
     drv->currentWorkMode=atMode;
@@ -305,8 +247,13 @@ void btSetModeComm(void * instance, uint16_t timeout){
     BluetoothDriver *drv = (BluetoothDriver *) instance;
     //reset module (low), pull key low
     chSysLock();
-    palClearPad(BT_RESET_PORT, BT_RESET_PIN);
     palClearPad(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN);
+    chSysUnlock();
+
+    chThdSleepMilliseconds(100);
+
+    chSysLock();
+    palClearPad(BT_RESET_PORT, BT_RESET_PIN);
     chSysUnlock();
     chThdSleepMilliseconds(timeout);   //wait for reset
     chSysLock();
@@ -316,6 +263,10 @@ void btSetModeComm(void * instance, uint16_t timeout){
     //we should be in communication mode, with configured baud
     drv->currentWorkMode=communicationMode;
 };
+
+
+
+
 
 /**
     Function to trash not needed incoming serial data
