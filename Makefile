@@ -248,3 +248,6 @@ flash: all
 	@read
 	@sleep 2
 	gtkterm -c disc &
+
+doc :
+	doxygen doxyfile

@@ -100,6 +100,9 @@
     /* Thread which handles data sending*/                                        \
     Thread *recieveThread;
 
+/**
+    @brief Bluetooth module work modes
+*/
 typedef enum btModuleWorkMode{
     atMode,
     communicationMode,
@@ -108,6 +111,10 @@ typedef enum btModuleWorkMode{
 struct BluetoothDeviceVMT {
     _bluetooth_device_methods
 };
+
+/**
+    @brief Bluetooth driver configuration structure
+*/
 
 typedef struct BluetoothConfig{
     SerialConfig *btSerialConfig;

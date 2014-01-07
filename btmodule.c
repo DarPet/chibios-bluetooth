@@ -27,6 +27,10 @@ static Mutex btCommandMutex;
 
 static const char btATCommandTermination[] = {'\r','\n'};
 
+/**
+    @brief bluetooth virtual methods table
+*/
+
 const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
     .btStart=btStart,
     .btStartReceive=btStartReceive,
@@ -39,6 +43,12 @@ const struct BluetoothDeviceVMT bluetoothDeviceVMT = {
 static SerialConfig btDefaultSerialConfigAT = { 38400,0,0,0 };
 
 static WORKING_AREA(btSendThreadWa, 128);
+
+
+/**
+    @brief Thread that sends data over bluetooth
+    @param instance : BluetoothDriver pointer
+*/
 static msg_t btSendThread(void *instance) {
 
     if (!instance)
@@ -59,7 +69,12 @@ static msg_t btSendThread(void *instance) {
   return (msg_t) 0;
 }
 
+
 static WORKING_AREA(btRecieveThreadWa, 128);
+/**
+    @brief thread that recieves data over bluetooth
+    @param instance : BluetoothDriver pointer
+*/
 static msg_t btRecieveThread(void *instance) {
 
     if (!instance)
@@ -81,6 +96,13 @@ static msg_t btRecieveThread(void *instance) {
 
   return (msg_t) 0;
 }
+
+/**
+    @brief Initialize the driver creating threads, setting up port pins
+    @param instance : BluetoothDriver pointer
+    @param config : BluetoothConfig pointer
+
+*/
 
 void btInit(void *instance, BluetoothConfig *config){
 
@@ -110,6 +132,11 @@ void btInit(void *instance, BluetoothConfig *config){
 
 
 };
+
+/**
+*   @brief Starts the bluetooth communication, sets up the module
+    @param instance : BluetoothDriver pointer
+*/
 
 void btStart(void *instance){
 
@@ -150,8 +177,10 @@ void btStart(void *instance){
 };
 
 
-
-//start communication
+/**
+    @brief Starts the bluetooth threads
+    @param instance : BluetoothDriver pointer
+*/
 void btStartReceive(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
@@ -162,7 +191,11 @@ void btStartReceive(void *instance){
     return;
 };
 
-// stop communication
+
+/**
+    @brief Should stop the thread
+    @param instance : BluetoothDriver pointer
+*/
 void btStopReceive(void *instance){
 
     BluetoothDriver *drv = (BluetoothDriver *) instance;
@@ -172,6 +205,12 @@ void btStopReceive(void *instance){
     return;
 };
 
+
+
+/** @brief Send an AT command to the bluetooth module
+    @param instance : BluetoothDriver pointer
+    @param command : Macro AT command
+*/
 
 
 void btSendAtCommand(void *instance, char *command){
@@ -203,8 +242,9 @@ void btSendAtCommand(void *instance, char *command){
 };
 
 
-/**
-    @parameters uint16_t timeout: time to wait between reset port togling (milliseconds)
+/** @brief Set the bluetooth module to AT (order-response) mode
+    @param timeout : time to wait between reset port togling (milliseconds)
+    @param instance : BluetoothDriver pointer
 */
 
 void btSetModeAt(void * instance, uint16_t timeout){
@@ -236,7 +276,9 @@ void btSetModeAt(void * instance, uint16_t timeout){
 };
 
 /**
-    @parameters uint16_t timeout: time to wait between reset port togling (milliseconds)
+    @brief Set the bluetooth module to commnication mode
+    @param timeout : time to wait between reset port togling (milliseconds)
+    @param instance : BluetoothDriver pointer
 */
 
 void btSetModeComm(void * instance, uint16_t timeout){
@@ -269,7 +311,8 @@ void btSetModeComm(void * instance, uint16_t timeout){
 
 
 /**
-    Function to trash not needed incoming serial data
+    @brief Empty the serial buffer from incoming garbage or data
+    @param instance : BluetoothDriver pointer
 */
 void btEmptyIncomingSerial(void *instance){
 
@@ -277,7 +320,6 @@ void btEmptyIncomingSerial(void *instance){
 
     if(!drv || !(drv->serialDriver))
         return;
-
 
 
     while(Q_TIMEOUT != sdGetTimeout(drv->serialDriver, TIME_IMMEDIATE))
