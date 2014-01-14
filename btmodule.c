@@ -23,10 +23,6 @@
 
 extern SerialUSBDriver SDU1;
 
-static Mutex btCommandMutex;
-
-static const char btATCommandTermination[] = {'\r','\n'};
-
 /**
     @brief bluetooth virtual methods table
 */
@@ -111,8 +107,6 @@ void btInit(void *instance, BluetoothConfig *config){
     //null pointer check
     if (!drv || !config)
         return;
-
-    chMtxInit(&btCommandMutex);
 
     palSetPadMode(BT_MODE_KEY_PORT, BT_MODE_KEY_PIN, PAL_MODE_OUTPUT_PUSHPULL
                 | PAL_STM32_OSPEED_HIGHEST);
