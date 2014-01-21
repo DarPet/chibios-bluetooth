@@ -1,3 +1,13 @@
+/*!
+ * \file btmodule.c
+ *
+ * \author Peter Darvasi
+ * \date
+ *
+ * Source file for HC-05 bluetooth module for ChibiosRT.
+ */
+
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <sys/queue.h>

@@ -1,6 +1,15 @@
 #ifndef BTMODULE_H_INCLUDED
 #define BTMODULE_H_INCLUDED
 
+/*!
+ * \file btmodule.h
+ *
+ * \author Peter Darvasi
+ * \date 2014
+ *
+ * Header file for HC-05 bluetooth module for ChibiosRT.
+ */
+
 #include <sys/queue.h>
 #include "ch.h"
 #include "hal.h"
