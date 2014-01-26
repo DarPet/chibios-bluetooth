@@ -333,6 +333,33 @@ void btEmptyIncomingSerial(void *instance){
 
 };
 
+/*!
+ * \brief Adds data to the sending queue
+ *
+ * Copy the given (bufferlen sized) buffer to the specified BluetoothDriver input queue to send through the bluetooth device
+ *
+ * \param[in] instance A BluetoothDriver object
+ * \param[in] buffer A pointer to a buffer
+ * \param[in] bufferlength The length of the buffer
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+
+int sendBt(BluetoothDriver *instance, char *buffer, int bufferlength){
+
+    if(!instance || !buffer)
+        return EXIT_FAILURE;
+
+
+    return EXIT_SUCCESS;
+};
+
+
+isFrame(BluetoothDriver *instance);
+
+readBytes(BluetoothDriver *instance, char *buffer, int maxlen);
+
+
+
 
 
 
