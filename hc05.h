@@ -1,0 +1,6 @@
+#ifndef HC05_H_INCLUDED
+#define HC05_H_INCLUDED
+
+
+
+#endif // HC05_H_INCLUDED
