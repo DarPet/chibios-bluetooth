@@ -1,5 +1,13 @@
+/*!
+ * @file bluetooth.c
+ * @brief Source file for bluetooth module in ChibiosRT.
+ *
+ * @addtogroup BLUETOOTH
+ * @{
+ */
+#include "hal.h"
 #include "bluetooth.h"
-
+#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
 /*!
  * \brief Sends a buffer of data through the specified BluetoothDriver
@@ -40,3 +48,6 @@ int btIsFrame(BluetoothDriver *instance);
  */
 
 int btRead(BluetoothDriver *instance, char *buffer, int maxlen);
+
+
+/** @} */
