@@ -21,8 +21,16 @@
 
 int btSend(BluetoothDriver *instance, int command, char *buffer, int bufferlength){
 
+    // Abort on non-existent driver or buffer (when it should exist)
+    if (!instance || !bufferlength && !buffer)
+        return EXIT_FAILURE;
 
 
+    if (!(instance->vmt->sendCommandByte(instance, command)))
+        return EXIT_FAILURE;
+
+    if (!(instance->vmt->sendBuffer(instance, buffer, bufferlength)))
+        return EXIT_FAILURE;
 
     return EXIT_SUCCESS;
 }
@@ -34,7 +42,15 @@ int btSend(BluetoothDriver *instance, int command, char *buffer, int bufferlengt
  * \return 0 if there is no frame, 1 if there is a frame
  */
 
-int btIsFrame(BluetoothDriver *instance);
+int btIsFrame(BluetoothDriver *instance){
+
+
+
+
+
+
+
+}
 
 /*!
  * \brief Reads data from bluetooth module
@@ -49,5 +65,27 @@ int btIsFrame(BluetoothDriver *instance);
 
 int btRead(BluetoothDriver *instance, char *buffer, int maxlen);
 
+
+/*!
+ * \brief Starts the driver
+ *
+ * Get the given bluetooth driver ready for further communication, using the specified config.
+ *
+ * \param[in] instance A BluetoothDriver object
+ * \param[in] config A BluetoothConfig the use
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int btOpen(BluetoothDriver *instance, BluetoothConfig *config);
+
+
+/*!
+ * \brief Stops the driver
+ *
+ * Clean up the communications channel and stop the driver.
+ *
+ * \param[in] instance A BluetoothDriver object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int btClose(BluetoothDriver *instance);
 
 /** @} */

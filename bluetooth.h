@@ -7,6 +7,13 @@
  */
 
 #include "hal.h"
+#include <sys/queue.h>
+
+//bluetooth module driver headers from here
+#include "hc05.h"
+
+
+//bluetooth module driver headers till here
 
 #ifndef BLUETOOTH_H_INCLUDED
 #define BLUETOOTH_H_INCLUDED
@@ -53,6 +60,8 @@
 
 /**
  * @brief Communication standard bit rates.
+ *
+ *  Using these instead of writing the bit rate to a 32 bit int should help with 8 and 16 bit compatibility and portability
  */
 typedef enum {
   b1200 = 0,
@@ -64,6 +73,16 @@ typedef enum {
   b57600 = 6,
   b115200 = 7
 } btbitrate_t;
+
+/**
+ * @brief Available bluetooth modules to use
+ *
+ * The "nomodule" entry is reserved, so there is no 0 in the enum
+ */
+typedef enum {
+  nomodule = 0,     //this should not be used
+  hc05 = 1
+} btmodule_t;
 
 
 typedef struct BluetoothConfig BluetoothConfig;
@@ -83,13 +102,27 @@ struct BluetoothDeviceVMT {
     int (*close)(void *isntance);
 }BluetoothDeviceVMT;
 
+
+
 /**
  * @brief BluetoothDriver configuration struct.
+ *
+ *  This struct contains multiple pointers to different bluetooth module config structs.
+ *  Only one should be non-NULL. The unused ones shuld be set to NULL.
+ *  The usedmodule variable shows which config pointer to use.
+ *
  */
 typedef struct BluetoothConfig{
     char name[BLUETOOTH_MAX_NAME_LENGTH];
-    uint32_t baudrate;
     int pincode[BLUETOOTH_MAX_PINCODE_LENGTH];
+    uint32_t baudrate;
+    btmodule_t usedmodule;
+
+    //config pointers from here
+    hc05config *myhcconfig;
+
+    //config pointers end here
+
 }BluetoothConfig;
 
 /**
@@ -98,6 +131,8 @@ typedef struct BluetoothConfig{
 typedef struct BluetoothDriver{
     const struct BluetoothDeviceVMT *vmt;
     BluetoothConfig config;
+    InputQueue *btInputQueue;
+    OutputQueue *btOutputQueue;
 }BluetoothDriver;
 
 
@@ -112,8 +147,8 @@ extern "C" {
 int btSend(BluetoothDriver *instance, int commandByte, char *buffer, int bufferlength);
 int btIsFrame(BluetoothDriver *instance);
 int btRead(BluetoothDriver *instance, char *buffer, int maxlen);
-int btOpen();
-int btClose();
+int btOpen(BluetoothDriver *instance, BluetoothConfig *config);
+int btClose(BluetoothDriver *instance);
 #ifdef __cplusplus
 }
 #endif
