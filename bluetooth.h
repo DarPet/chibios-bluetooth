@@ -92,14 +92,14 @@ typedef struct BluetoothConfig BluetoothConfig;
  */
 
 struct BluetoothDeviceVMT {
-    int (*sendBuffer)(void *instance, char *buffer, int bufferlength);
-    int (*sendCommandByte)(void *instance, int commandByte);
-    int (*canRecieve)(void *instance);
-    int (*readBuffer)(void *instance, char *buffer, int maxlength);
-    int (*setPinCode)(void *instance, char *pin, int pinlength);
-    int (*setName)(void *instance, char *newname, int namelength);
-    int (*open)(void *instance);
-    int (*close)(void *isntance);
+    int (*sendBuffer)(BluetoothDriver *instance, char *buffer, int bufferlength);
+    int (*sendCommandByte)(BluetoothDriver *instance, int commandByte);
+    int (*canRecieve)(BluetoothDriver *instance);
+    int (*readBuffer)(BluetoothDriver *instance, char *buffer, int maxlength);
+    int (*setPinCode)(BluetoothDriver *instance, char *pin, int pinlength);
+    int (*setName)(BluetoothDriver *instance, char *newname, int namelength);
+    int (*open)(BluetoothDriver *instance, BluetoothConfig *config);
+    int (*close)(BluetoothDriver *instance);
 }BluetoothDeviceVMT;
 
 
@@ -115,11 +115,11 @@ struct BluetoothDeviceVMT {
 typedef struct BluetoothConfig{
     char name[BLUETOOTH_MAX_NAME_LENGTH];
     int pincode[BLUETOOTH_MAX_PINCODE_LENGTH];
-    uint32_t baudrate;
+    btbitrate_t baudrate;
     btmodule_t usedmodule;
 
     //config pointers from here
-    hc05config *myhcconfig;
+    hc05_config *myhcconfig;
 
     //config pointers end here
 
@@ -133,6 +133,7 @@ typedef struct BluetoothDriver{
     BluetoothConfig config;
     InputQueue *btInputQueue;
     OutputQueue *btOutputQueue;
+    int driverIsReady;
 }BluetoothDriver;
 
 
