@@ -109,6 +109,7 @@ struct BluetoothDeviceVMT {
  *
  *  This struct contains multiple pointers to different bluetooth module config structs.
  *  Only one should be non-NULL. The unused ones shuld be set to NULL.
+ *  If the unused pointers are a problem, #ifdef modulname method could be used to remove at coompile time
  *  The usedmodule variable shows which config pointer to use.
  *
  */
@@ -119,7 +120,7 @@ typedef struct BluetoothConfig{
     btmodule_t usedmodule;
 
     //config pointers from here
-    hc05_config *myhcconfig;
+    hc05_config *myhc05config;
 
     //config pointers end here
 

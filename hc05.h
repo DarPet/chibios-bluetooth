@@ -7,6 +7,9 @@
  */
 
 #include "hal.h"
+#include <ch.h>
+#include <chthreads.h>
+#include <chmemcore.h>
 #include "bluetooth.h"
 
 #ifndef HC05_H_INCLUDED
@@ -39,22 +42,41 @@ typedef enum{
 }hc05_state_t;
 
 
+/**
+ * @brief GPIO ports that can be used
+ */
+ typedef enum{
+    gpioa_port = 0,
+    gpiob_port = 1,
+    gpioc_port = 2,
+    gpiod_port = 3,
+    gpioe_port = 4,
+    gpiof_port = 5,
+    gpiog_port = 6,
+    gpioh_port = 7
+}hc05_port_t;
+
 
 /**
  * @brief HC-05 BluetoothDriver configuration struct.
  */
 typedef struct hc05_config{
-    int txport;
+    /* Rx and Tx ports and pins are dependent on the selected serial driver, and on the develpoment board*/
+    hc05_port_t txport;
     int txpin;
-    int rxport;
+    int txalternatefunction;    //number of alternate function of the pin
+    hc05_port_t rxport;
     int rxpin;
-    int rtsport;
+    int rxalternatefunction;    //number of alternate function of the pin
+    hc05_port_t rtsport;
     int rtspin;
-    int ctsport;
+    int rtsalternatefunction;    //number of alternate function of the pin
+    hc05_port_t ctsport;
     int ctspin;
-    int resetport;
+    int ctsalternatefunction;    //number of alternate function of the pin
+    hc05_port_t resetport;
     int resetpin;
-    int keyport;
+    hc05_port_t keyport;
     int keypin;
     hc05_seriald_t serialdriver;
 }hc05_config;

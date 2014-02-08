@@ -7,6 +7,7 @@
  */
 
 #include "hal.h"
+#include "bluetooth.h"
 #include "hc05.h"
 
 #if HAL_USE_HC05 || defined(__DOXYGEN__)
@@ -80,17 +81,46 @@ int hc05setName(BluetoothDriver *instance, char *newname, int namelength);
  * \brief Starts the driver
  *
  *  Read config
- *  Initialize the serial driver
  *  Set the apropriate port/pin settings
  *  Set the name/pin according to the config
  *  Get the packet-pool ready
+ *  Create pool/buffer threads
+ *  Initialize the serial driver
  *  Set the ready flag
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] config A BluetoothConfig the use
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05open(BluetoothDriver *instance, BluetoothConfig *config);
+int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
+
+    if(!instance || !config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    //set up the key and reset pins... using external functions
+    hc05_setkeypin(config);
+    hc05_setresetpin(config);
+    //set up the RX and TX pins
+    hc05_settxpin(config);
+    hc05_setrxpin(config);
+    //set up the RTS and CTS pins
+    hc05_setrtspin(config);
+    hc05_setctspin(config);
+
+    //packet pool
+
+
+    //threads
+
+
+
+    //serial driver
+
+
+    //flag
+
+    return EXIT_SUCCESS;
+}
 
 /*!
  * \brief Stops the driver
@@ -117,6 +147,328 @@ const BluetoothDeviceVMT hc05BtDevVMT = {
     .close = hc05close
 };
 
+/*===========================================================================*/
+/* Internal functions              .                                         */
+/*===========================================================================*/
+
+/*!
+ * \brief Sets up the TX pin of the serial line
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_settxpin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->txport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->txpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->txalternatefunction));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
+
+/*!
+ * \brief Sets up the RX pin of the serial line
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_setrxpin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->rxport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->rxpin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rxalternatefunction));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
+
+/*!
+ * \brief Sets up the RTS pin of the serial line
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_setrtspin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->rtsport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->rtspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->rtsalternatefunction));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
+
+
+/*!
+ * \brief Sets up the CTS pin of the serial line
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_setctspin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->ctsport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->ctspin,
+                          PAL_MODE_ALTERNATE(config->myhc05config->ctsalternatefunction));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
+
+/*!
+ * \brief Sets up the reset pin for the module
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_setresetpin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->resetport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->resetpin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
+
+/*!
+ * \brief Sets up the key pin for the module
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05_setkeypin(BluetoothConfig *config){
+
+    if(!config || !(config->myhc05config))
+        return EXIT_FAILURE;
+
+    switch (config->myhc05config->keyport){
+
+        case gpioa_port:
+            palSetPadMode(GPIOA, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiob_port:
+            palSetPadMode(GPIOB, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioc_port:
+            palSetPadMode(GPIOC, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiod_port:
+            palSetPadMode(GPIOD, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioe_port:
+            palSetPadMode(GPIOE, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiof_port:
+            palSetPadMode(GPIOF, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpiog_port:
+            palSetPadMode(GPIOG, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        case gpioh_port:
+            palSetPadMode(GPIOH, config->myhc05config->keypin,
+                          (PAL_MODE_OUTPUT_PUSHPULL | PAL_STM32_OSPEED_HIGHEST));
+            break;
+        default:
+            return EXIT_FAILURE;
+            break;
+    }
+    return EXIT_SUCCESS;
+}
 
 #endif //HAL_USE_HC05 || defined(__DOXYGEN__)
  /** @} */
