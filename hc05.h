@@ -34,11 +34,11 @@ typedef enum{
  * @brief Possible states of the HC-05 module
  */
 typedef enum{
-    unknown = 0,
-    initializing = 1,
-    ready_communication = 2,
-    ready_at_command = 3,
-    shutting_down = 4
+    st_unknown = 0,
+    st_initializing = 1,
+    st_ready_communication = 2,
+    st_ready_at_command = 3,
+    st_shutting_down = 4
 }hc05_state_t;
 
 
@@ -59,21 +59,26 @@ typedef enum{
 
 /**
  * @brief HC-05 BluetoothDriver configuration struct.
+ *
+ *
+ *  Alternate function values can be negative. Negative number (e.g. -1) means that no alternate function
+ *  should be used, instead we use the pushpull configuration (cts as output, rts as input)
+ *
  */
 typedef struct hc05_config{
     /* Rx and Tx ports and pins are dependent on the selected serial driver, and on the develpoment board*/
     hc05_port_t txport;
     int txpin;
-    int txalternatefunction;    //number of alternate function of the pin
+    int txalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
     hc05_port_t rxport;
     int rxpin;
-    int rxalternatefunction;    //number of alternate function of the pin
+    int rxalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
     hc05_port_t rtsport;
     int rtspin;
-    int rtsalternatefunction;    //number of alternate function of the pin
+    int rtsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
     hc05_port_t ctsport;
     int ctspin;
-    int ctsalternatefunction;    //number of alternate function of the pin
+    int ctsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
     hc05_port_t resetport;
     int resetpin;
     hc05_port_t keyport;
