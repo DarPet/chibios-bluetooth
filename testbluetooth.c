@@ -8,9 +8,14 @@
 
 #include "testbluetooth.h"
 
-#ifdef HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
+
+int main(void){
 
 
+
+return 0;
+}
 
 
 

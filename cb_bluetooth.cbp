@@ -1282,16 +1282,28 @@
 		</Unit>
 		<Unit filename="../../sources/ChibiOS-RT/test/testthd.h" />
 		<Unit filename="Makefile" />
+		<Unit filename="bluetooth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bluetooth.h" />
 		<Unit filename="btmodule.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="btmodule.h" />
 		<Unit filename="chconf.h" />
 		<Unit filename="halconf.h" />
+		<Unit filename="hc05.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hc05.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mcuconf.h" />
+		<Unit filename="testbluetooth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="testbluetooth.h" />
 		<Unit filename="usbcfg.c">
 			<Option compilerVar="CC" />
 		</Unit>

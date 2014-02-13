@@ -115,3 +115,4 @@ int btClose(BluetoothDriver *instance){
 }
 
 /** @} */
+#endif //HAL_USE_BLUETOOTH || defined(__DOXYGEN__)

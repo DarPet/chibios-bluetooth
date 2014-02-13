@@ -156,6 +156,13 @@
 #define HAL_USE_USB                 TRUE
 #endif
 
+/**
+ * @brief   Enables the BLUETOOTH subsystem.
+ */
+#if !defined(HAL_USE_BLUETOOTH) || defined(__DOXYGEN__)
+#define HAL_USE_BLUETOOTH                 TRUE
+#endif
+
 /*===========================================================================*/
 /* ADC driver related settings.                                              */
 /*===========================================================================*/

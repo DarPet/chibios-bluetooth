@@ -17,15 +17,88 @@
 /* Local variables                 .                                         */
 /*===========================================================================*/
 
-/**
- * @brief SerialConfig to be used for communication with HC-05
+/*!
+ * \brief SerialConfig to be used for communication with HC-05
  */
 static SerialConfig hc05SerialConfig = {.sc_speed = 38400};
 
-/**
- * @brief current state of the driver / HC-05
+/*!
+ * \brief current state of the driver / HC-05
  */
 static volatile hc05_state_t hc05CurrentState = st_unknown;
+
+/*===========================================================================*/
+/* Threads                         .                                         */
+/*===========================================================================*/
+
+
+/*!
+ * \brief Working area for hc05 send thread
+ */
+static WORKING_AREA(bthc05SendThreadWa, 128);
+
+
+/*!
+ *   \brief A thread that sends data over hc05 bluetooth module
+ *
+ *      Read the input queue (from the user application) and send everything through the serial interface
+ *
+ *   \param[in] instance A BluetoothDriver object
+*/
+static msg_t bthc05SendThread(void *instance) {
+
+    if (!instance)
+        chThdSleep(TIME_INFINITE);
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    chRegSetThreadName("btSendThread");
+
+    while (TRUE) {
+        if ( !chIQIsEmptyI(drv->config->btInputQueue) ){
+
+            chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->config->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
+        }
+        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+      }
+
+  return (msg_t) 0;
+}
+
+/*!
+ * \brief Working area for hc05 recieve thread
+ */
+static WORKING_AREA(bthc05RecieveThreadWa, 128);
+
+
+/*!
+ *   \brief A thread that recieves data over hc05 bluetooth module
+ *
+ *      Read the serial interface for incoming data and store it in the output queue (that will be read by the application)
+ *
+ *   \param[in] instance A BluetoothDriver object
+*/
+static msg_t bthc05RecieveThread(void *instance) {
+
+    if (!instance)
+        chThdSleep(TIME_INFINITE);
+
+    BluetoothDriver *drv = (BluetoothDriver *) instance;
+
+    chRegSetThreadName("btRecieveThread");
+
+    while (TRUE) {
+        if ( !chOQIsFullI(drv->config->btOutputQueue) ){
+
+            chOQPut(drv->config->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, TIME_INFINITE));
+        }
+        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+    }
+
+
+  return (msg_t) 0;
+}
+
 
 /*===========================================================================*/
 /* VMT functions                   .                                         */
@@ -102,8 +175,8 @@ int hc05setName(BluetoothDriver *instance, char *newname, int namelength);
  *  Read config
  *  Set the apropriate port/pin settings
  *  Set the name/pin according to the config
- *  Get the packet-pool ready
- *  Create pool/buffer threads
+ *  Get the in/out buffers ready
+ *  Create buffer threads
  *  Initialize the serial driver
  *  Set the ready flag
  *
@@ -118,6 +191,8 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
 
     //flag
     hc05CurrentState = st_initializing;
+    // set config location
+    instance->config = config;
     //set up the key and reset pins... using external functions
     hc05_setkeypin(config);
     hc05_setresetpin(config);
@@ -128,12 +203,13 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
     hc05_setrtspin(config);
     hc05_setctspin(config);
 
-    //packet pool
+    //buffers
 //! TODO
 
     //threads
-//! TODO
-
+    //create driverThread, but do not start it yet
+    config->sendThread=chThdCreateI(bthc05SendThreadWa, sizeof(bthc05SendThreadWa), NORMALPRIO, bthc05SendThread, instance);
+    config->recieveThread=chThdCreateI(bthc05RecieveThreadWa, sizeof(bthc05RecieveThreadWa), NORMALPRIO, bthc05RecieveThread, instance);
 
     //serial driver
     hc05_updateserialconfig(config);
@@ -186,6 +262,10 @@ int hc05close(BluetoothDriver *instance){
     return EXIT_SUCCESS;
 }
 
+/*===========================================================================*/
+/* VMT                                                                       */
+/*===========================================================================*/
+
 
 /**
  * @brief HC05 BluetoothDriver virtual methods table.
@@ -202,7 +282,7 @@ const BluetoothDeviceVMT hc05BtDevVMT = {
 };
 
 /*===========================================================================*/
-/* Internal functions              .                                         */
+/* Internal functions                                                        */
 /*===========================================================================*/
 
 /*!

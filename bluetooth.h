@@ -5,18 +5,20 @@
  * @addtogroup BLUETOOTH
  * @{
  */
+#ifndef BLUETOOTH_H_INCLUDED
+#define BLUETOOTH_H_INCLUDED
 
-#include "hal.h"
+#include <hal.h>
 #include <sys/queue.h>
+#include <stdlib.h>
 
 //bluetooth module driver headers from here
-#include "hc05.h"
+#include <hc05.h>
 
 
 //bluetooth module driver headers till here
 
-#ifndef BLUETOOTH_H_INCLUDED
-#define BLUETOOTH_H_INCLUDED
+
 
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
@@ -50,9 +52,29 @@
 #if !defined(BLUETOOTH_MAX_PINCODE_LENGTH) || defined(__DOXYGEN__)
 #define BLUETOOTH_MAX_PINCODE_LENGTH 4
 #endif
+/**
+ * @brief   Input buffer size.
+ * @details Configuration parameter, this is the input buffer size
+ */
+#if !defined(BLUETOOTH_INPUT_BUFFER_LENGTH) || defined(__DOXYGEN__)
+#define BLUETOOTH_INPUT_BUFFER_SIZE 128
+#endif
+/**
+ * @brief   Output buffer size.
+ * @details Configuration parameter, this is the output buffer size
+ */
+#if !defined(BLUETOOTH_OUTPUT_BUFFER_LENGTH) || defined(__DOXYGEN__)
+#define BLUETOOTH_OUTPUT_BUFFER_SIZE 128
+#endif
 
 /** @} */
 
+/*===========================================================================*/
+/* Forward declarations                                                      */
+/*===========================================================================*/
+typedef struct BluetoothConfig BluetoothConfig;
+typedef struct BluetoothDriver BluetoothDriver;
+typedef struct hc05_config hc05_config;
 
 /*===========================================================================*/
 /* Driver data structures and types.                                         */
@@ -85,23 +107,6 @@ typedef enum {
 } btmodule_t;
 
 
-typedef struct BluetoothConfig BluetoothConfig;
-
-/**
- * @brief BluetoothDriver virtual methods table.
- */
-
-struct BluetoothDeviceVMT {
-    int (*sendBuffer)(BluetoothDriver *instance, char *buffer, int bufferlength);
-    int (*sendCommandByte)(BluetoothDriver *instance, int commandByte);
-    int (*canRecieve)(BluetoothDriver *instance);
-    int (*readBuffer)(BluetoothDriver *instance, char *buffer, int maxlength);
-    int (*setPinCode)(BluetoothDriver *instance, char *pin, int pinlength);
-    int (*setName)(BluetoothDriver *instance, char *newname, int namelength);
-    int (*open)(BluetoothDriver *instance, BluetoothConfig *config);
-    int (*close)(BluetoothDriver *instance);
-}BluetoothDeviceVMT;
-
 
 
 /**
@@ -117,6 +122,8 @@ typedef struct BluetoothConfig{
     char name[BLUETOOTH_MAX_NAME_LENGTH];
     int pincode[BLUETOOTH_MAX_PINCODE_LENGTH];
     btbitrate_t baudrate;
+    Thread *sendThread;
+    Thread *recieveThread;
     btmodule_t usedmodule;
 
     //config pointers from here
@@ -131,11 +138,32 @@ typedef struct BluetoothConfig{
  */
 typedef struct BluetoothDriver{
     const struct BluetoothDeviceVMT *vmt;
-    BluetoothConfig config;
+    BluetoothConfig *config;
     InputQueue *btInputQueue;
     OutputQueue *btOutputQueue;
     int driverIsReady;
+    int commSleepTimeMs;
 }BluetoothDriver;
+
+
+/**
+ * @brief BluetoothDriver virtual methods table.
+ */
+
+typedef struct BluetoothDeviceVMT {
+    int (*sendBuffer)(BluetoothDriver *instance, char *buffer, int bufferlength);
+    int (*sendCommandByte)(BluetoothDriver *instance, int commandByte);
+    int (*canRecieve)(BluetoothDriver *instance);
+    int (*readBuffer)(BluetoothDriver *instance, char *buffer, int maxlength);
+    int (*setPinCode)(BluetoothDriver *instance, char *pin, int pinlength);
+    int (*setName)(BluetoothDriver *instance, char *newname, int namelength);
+    int (*open)(BluetoothDriver *instance, BluetoothConfig *config);
+    int (*close)(BluetoothDriver *instance);
+}BluetoothDeviceVMT;
+
+
+
+
 
 
 

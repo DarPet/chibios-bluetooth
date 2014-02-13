@@ -6,14 +6,15 @@
  * @{
  */
 
+#ifndef HC05_H_INCLUDED
+#define HC05_H_INCLUDED
+
 #include "hal.h"
 #include <ch.h>
 #include <chthreads.h>
 #include <chmemcore.h>
 #include "bluetooth.h"
 
-#ifndef HC05_H_INCLUDED
-#define HC05_H_INCLUDED
 
 #if HAL_USE_HC05 || defined(__DOXYGEN__)
 
