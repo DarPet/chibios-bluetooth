@@ -10,6 +10,7 @@
 #include "bluetooth.h"
 #include "hc05.h"
 #include "serial.h"
+#include <string.h>
 
 #if HAL_USE_HC05 || defined(__DOXYGEN__)
 
@@ -26,6 +27,8 @@ static SerialConfig hc05SerialConfig = {.sc_speed = 38400};
  * \brief current state of the driver / HC-05
  */
 static volatile hc05_state_t hc05CurrentState = st_unknown;
+
+static char hc05_at_message[MAX_AT_MESSAGE_LENGTH+4];
 
 /*===========================================================================*/
 /* Threads                         .                                         */
@@ -101,29 +104,59 @@ static msg_t bthc05RecieveThread(void *instance) {
 
 
 /*===========================================================================*/
-/* VMT functions                   .                                         */
+/* VMT functions                                                             */
 /*===========================================================================*/
 
 /*!
  * \brief Sends the given buffer
  *
- *  Writes bufferlength bytes from the buffer to the output queue, if there is enough space in it
+ *  Writes bufferlength bytes from the buffer to the input queue, if there is enough space in it
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] buffer A pointer to a buffer to read from
  * \param[in] bufferlength The number of bytes to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength);
+int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength){
+
+	if ( !instance || !buffer )
+		return EXIT_FAILURE;
+	if ( !bufferlength )
+		return EXIT_SUCCESS;
+	
+	if ( bufferlength <=  (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)))
+	{
+		chOQWriteTimeout(drv->config->btInputQueue, buffer, bufferlength, TIME_INFINITE) == bufferlength
+			? return EXIT_SUCCESS
+			: return EXIT_FAILURE;
+	}
+	else
+		return EXIT_FAILURE;
+
+}
 
 /*!
- * \brief Sends the given command byte
+ * \brief Sends the given command byte by writing it to the input queue
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] commandByte A byte to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendCommandByte(BluetoothDriver *instance, int commandByte);
+int hc05sendCommandByte(BluetoothDriver *instance, int commandByte){
+
+	if ( !instance )
+		return EXIT_FAILURE;
+
+	if ( (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)) > 0)
+	{
+		chOQWriteTimeout(drv->config->btInputQueue, buffer, bufferlength, TIME_INFINITE) == 1
+			? return EXIT_SUCCESS
+			: return EXIT_FAILURE;
+	}
+	else
+		return EXIT_FAILURE;
+}
+
 
 /*!
  * \brief Checks the input queue for incoming data
@@ -131,19 +164,81 @@ int hc05sendCommandByte(BluetoothDriver *instance, int commandByte);
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05canRecieve(BluetoothDriver *instance);
+int hc05canRecieve(BluetoothDriver *instance){
+
+	if ( !instance )
+		return EXIT_FAILURE;
+
+	chOQSpaceI(drv->config->btOutputQueue) > 0
+			? return EXIT_SUCCESS
+			: return EXIT_FAILURE;
+}
 
 /*!
  * \brief Reads from the input queue
  *
- *  Reads maxlength bytes (or less, if there is no more) from the input queue and puts it in the specified buffer
+ *  Reads maxlength bytes (or less, if there is no more) from the output queue and puts it in the specified buffer to be processed by the applicaton
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] buffer A pointer to a buffer to write into
  * \param[in] maxlength The maximum number of bytes to read (size of the buffer)
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength);
+int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength){
+
+	if ( !instance || !buffer )
+		return EXIT_FAILURE;
+	if ( !bufferlength )
+		return EXIT_SUCCESS;
+
+	chIQReadTimeout (drv->config->btOutputQueue, buffer, maxlength, TIME_IMMEDIATE) > 0
+	? return EXIT_SUCCESS
+	: return EXIT_SUCCESS;
+
+}
+
+/*!
+*	\brief Sends an AT command
+*	
+*	\param[in] instance A BluetoothDriver object
+*	\param[in] command AT command to use
+*	\param[in] param parameter to command, can be null
+*	\return EXIT_SUCCESS or EXIT_FAILURE
+*/
+int hc05sendAtCommand(BluetoothDriver *instance, char* command, char* param){
+
+	if ( !instance || !command )
+		return EXIT_FAILURE;
+		
+	if (hc05CurrentState != st_ready_at_command)
+	{
+		hc05CurrentState = st_unknown;
+		//enter AT mode here
+		
+		
+		hc05CurrentState = st_ready_at_command;
+	}
+
+	int commandLength = strlen(command);	
+	int paramLength = strlen(param);
+
+	if ( commandLength + paramLength < MAX_AT_MESSAGE_LENGTH )
+	{
+		strncpy(&hc05_at_message, "\r\n", 2);
+		strncpy(&hc05_at_message + 2, command, commandLength );
+		strncpy(&hc05_at_message + 2 + commandLength, param, paramLength );
+		strncpy(&hc05_at_message + 2 + commandLength + paramLength, "\r\n", 2 );
+		
+		chnWrite((BaseChannel *)drv->config->myhc05config->serialdriver,
+					&hc05_at_message,
+					commandLength + paramLength + 4);
+	}
+	else
+		return EXIT_FAILURE;
+		
+	return EXIT_SUCCESS;
+}
+
 
 /*!
  * \brief Sets the pin/access code for the HC-05 module
@@ -155,7 +250,16 @@ int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength);
  * \param[in] pinlength The length of the new pin
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength);
+int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
+
+	if ( !instance || !pin )
+		return EXIT_FAILURE;
+
+	
+
+
+
+}
 
 /*!
  * \brief Sets the name for the HC-05 module
