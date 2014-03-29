@@ -15,7 +15,6 @@
 #include <chmemcore.h>
 #include "bluetooth.h"
 
-#define MAX_AT_MESSAGE_LENGTH 128
 
 
 #if HAL_USE_HC05 || defined(__DOXYGEN__)

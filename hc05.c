@@ -28,7 +28,6 @@ static SerialConfig hc05SerialConfig = {.sc_speed = 38400};
  */
 static volatile hc05_state_t hc05CurrentState = st_unknown;
 
-static char hc05_at_message[MAX_AT_MESSAGE_LENGTH+4];
 
 /*===========================================================================*/
 /* Threads                         .                                         */
@@ -58,11 +57,16 @@ static msg_t bthc05SendThread(void *instance) {
     chRegSetThreadName("btSendThread");
 
     while (TRUE) {
+
+        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+        //check module state
+        if ( hc05CurrentState != st_ready_communication )
+            continue;
+
         if ( !chIQIsEmptyI(drv->config->btInputQueue) ){
 
             chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->config->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
         }
-        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
       }
 
   return (msg_t) 0;
@@ -91,11 +95,15 @@ static msg_t bthc05RecieveThread(void *instance) {
     chRegSetThreadName("btRecieveThread");
 
     while (TRUE) {
+        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+        //check module state
+        if ( hc05CurrentState != st_ready_communication )
+            continue;
+
         if ( !chOQIsFullI(drv->config->btOutputQueue) ){
 
             chOQPut(drv->config->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, TIME_INFINITE));
         }
-        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
     }
 
 
@@ -123,7 +131,7 @@ int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength){
 		return EXIT_FAILURE;
 	if ( !bufferlength )
 		return EXIT_SUCCESS;
-	
+
 	if ( bufferlength <=  (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)))
 	{
 		chOQWriteTimeout(drv->config->btInputQueue, buffer, bufferlength, TIME_INFINITE) == bufferlength
@@ -149,7 +157,7 @@ int hc05sendCommandByte(BluetoothDriver *instance, int commandByte){
 
 	if ( (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)) > 0)
 	{
-		chOQWriteTimeout(drv->config->btInputQueue, buffer, bufferlength, TIME_INFINITE) == 1
+		chOQWriteTimeout(drv->config->btInputQueue, &commandbyte, 1, TIME_INFINITE) == 1
 			? return EXIT_SUCCESS
 			: return EXIT_FAILURE;
 	}
@@ -199,43 +207,43 @@ int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength){
 
 /*!
 *	\brief Sends an AT command
-*	
+*
 *	\param[in] instance A BluetoothDriver object
-*	\param[in] command AT command to use
-*	\param[in] param parameter to command, can be null
+*	\param[in] command AT command to use. Must be '\0' terminated string
 *	\return EXIT_SUCCESS or EXIT_FAILURE
 */
-int hc05sendAtCommand(BluetoothDriver *instance, char* command, char* param){
+int hc05sendAtCommand(BluetoothDriver *instance, char* command){
 
 	if ( !instance || !command )
 		return EXIT_FAILURE;
-		
+
+    // allocate memory from the heap
+	char *commandBuffer = chHeapAlloc(NULL, strlen(command)+4);
+
+	if(!commandBuffer)
+		return EXIT_FAILURE;
+
 	if (hc05CurrentState != st_ready_at_command)
 	{
 		hc05CurrentState = st_unknown;
-		//enter AT mode here
-		
-		
-		hc05CurrentState = st_ready_at_command;
-	}
+		//enter AT mode here, but wait for threads to detect state change
+		chThdSleepMilliseconds(instance->config->commSleepTimeMs);
+        hc05SetModeAt(instance->config, 100);
 
-	int commandLength = strlen(command);	
-	int paramLength = strlen(param);
-
-	if ( commandLength + paramLength < MAX_AT_MESSAGE_LENGTH )
-	{
-		strncpy(&hc05_at_message, "\r\n", 2);
-		strncpy(&hc05_at_message + 2, command, commandLength );
-		strncpy(&hc05_at_message + 2 + commandLength, param, paramLength );
-		strncpy(&hc05_at_message + 2 + commandLength + paramLength, "\r\n", 2 );
-		
-		chnWrite((BaseChannel *)drv->config->myhc05config->serialdriver,
-					&hc05_at_message,
-					commandLength + paramLength + 4);
 	}
-	else
-		return EXIT_FAILURE;
-		
+	int commandLength = strlen(command);
+
+    strncpy(commandBuffer, "\r\n", 2);
+    strncpy(commandBuffer + 2, command, commandLength );
+    strncpy(commandBuffer + 2 + commandLength, "\r\n", 2 );
+
+    chnWrite((BaseChannel *)drv->config->myhc05config->serialdriver,
+                &hc05_at_message,
+                commandLength + 4);
+    chHeapFree(commandBuffer);
+
+    hc05SetModeComm(instance->config, 100);
+
 	return EXIT_SUCCESS;
 }
 
@@ -255,10 +263,21 @@ int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
 	if ( !instance || !pin )
 		return EXIT_FAILURE;
 
-	
+    char Command[] = "AT+PIN=";
+    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + pinlength + 1);
+    if(!CmdBuf)
+		return EXIT_FAILURE;
 
+    strcpy(CmdBuf, Command);
+    strncpy(CmdBuf, pin, pinlength);
+    //must terminate the string with a \0
+    *(CmdBuf+strlen(Command)+pinlength+1) = '\0';
 
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+        return EXIT_FAILURE;
 
+    chHeapFree(CmdBuf);
+    return EXIT_SUCCESS;
 }
 
 /*!
@@ -271,7 +290,56 @@ int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
  * \param[in] namelength The length of the new name
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05setName(BluetoothDriver *instance, char *newname, int namelength);
+int hc05setName(BluetoothDriver *instance, char *newname, int namelength){
+
+    if ( !instance || !newname )
+		return EXIT_FAILURE;
+
+    char Command[] = "AT+NAME=";
+    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + namelength + 1);
+    if(!CmdBuf)
+		return EXIT_FAILURE;
+
+    strcpy(CmdBuf, Command);
+    strncpy(CmdBuf, newname, namelength);
+    //must terminate the string with a \0
+    *(CmdBuf+strlen(Command)+namelength+1) = '\0';
+
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+
+    chHeapFree(CmdBuf);
+    return EXIT_SUCCESS;
+}
+
+/*!
+ * \brief Default reset for HC-05 module
+ *
+ *  When in AT mode, we can reset the settings of the module.
+ *
+ * \param[in] instance A BluetoothDriver object
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+int hc05resetDefaults(BluetoothDriver *instance){
+
+    if ( !instance || !newname )
+		return EXIT_FAILURE;
+
+    char Command[] = "AT+ORGL";
+    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + 1);
+    if(!CmdBuf)
+		return EXIT_FAILURE;
+
+    strcpy(CmdBuf, Command);
+    *(CmdBuf+strlen(Command)+1) = '\0';
+
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+        return EXIT_FAILURE;
+
+    chHeapFree(CmdBuf);
+    return EXIT_SUCCESS;
+}
+
 
 /*!
  * \brief Starts the driver
@@ -324,8 +392,8 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
 
 
     //set default name, pin, other AT dependent stuff here
-//! TODO
-
+    hc05setName(instance, "Pumukli", strlen("Pumukli"));
+    hc05setPin(instance, "1234", strlen("1234"));
 
 
 
@@ -890,6 +958,129 @@ int hc05_stopserial(BluetoothConfig *config){
     }
     return EXIT_SUCCESS;
 }
+
+/*!
+ * \brief Enters HC05 to AT command mode
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \param[in] timeout Time to wait in milliseconds
+ */
+void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout){
+
+    if(!config)
+        return;
+
+    //reset module (low), pull key high
+    chSysLock();
+    palSetPad((((config->myhc05config->keyport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->keyport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->keyport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->keyport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->keyport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->keyport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->keyport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->keyport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->keypin));
+    chSysUnlock();
+
+    chThdSleepMilliseconds(timeout);
+
+    chSysLock();
+    palClearPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->resetport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->resetport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->resetport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->resetport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->resetpin));
+    chSysUnlock();
+
+
+    chThdSleepMilliseconds(timeout);   //wait for reset
+    chSysLock();
+    palSetPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->resetport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->resetport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->resetport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->resetport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->resetpin));
+    chSysUnlock();
+
+    chThdSleepMilliseconds(timeout);   //wait for module recovery
+    //we should be in AT mode, with 38400 baud
+    hc05CurrentState = st_ready_at_command;
+};
+
+
+/*!
+ * \brief Enters HC05 to communication mode
+ *
+ *
+ * \param[in] config A BluetoothConfig object
+ * \param[in] timeout Time to wait in milliseconds
+ */
+void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout){
+
+    if(!config)
+        return;
+
+    //reset module (low), pull key high
+    chSysLock();
+    palClearPad((((config->myhc05config->keyport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->keyport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->keyport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->keyport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->keyport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->keyport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->keyport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->keyport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->keypin));
+    chSysUnlock();
+
+    chThdSleepMilliseconds(timeout);
+
+    chSysLock();
+    palClearPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->resetport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->resetport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->resetport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->resetport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->resetpin));
+    chSysUnlock();
+
+
+    chThdSleepMilliseconds(timeout);   //wait for reset
+    chSysLock();
+    palSetPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
+              ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
+              ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
+              ((config->myhc05config->resetport) == gpiod_port) ? GPIOD :
+              ((config->myhc05config->resetport) == gpioe_port) ? GPIOE :
+              ((config->myhc05config->resetport) == gpiof_port) ? GPIOF :
+              ((config->myhc05config->resetport) == gpiog_port) ? GPIOG :
+              ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
+              NULL),
+              (config->myhc05config->resetpin));
+    chSysUnlock();
+
+    chThdSleepMilliseconds(timeout);   //wait for module recovery
+    //we should be in AT mode, with 38400 baud
+    hc05CurrentState = st_ready_communication;
+};
 
 #endif //HAL_USE_HC05 || defined(__DOXYGEN__)
  /** @} */
