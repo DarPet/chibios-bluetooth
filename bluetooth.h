@@ -12,13 +12,6 @@
 #include <sys/queue.h>
 #include <stdlib.h>
 
-//bluetooth module driver headers from here
-#include "hc05.h"
-
-
-//bluetooth module driver headers till here
-
-
 
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
@@ -72,8 +65,8 @@
 /*===========================================================================*/
 /* Forward declarations                                                      */
 /*===========================================================================*/
-typedef struct BluetoothConfig BluetoothConfig;
-typedef struct BluetoothDriver BluetoothDriver;
+//typedef struct BluetoothConfig BluetoothConfig;
+//typedef struct BluetoothDriver BluetoothDriver;
 //typedef struct hc05_config hc05_config;
 
 /*===========================================================================*/
@@ -127,7 +120,7 @@ typedef struct BluetoothConfig{
     btmodule_t usedmodule;
 
     //config pointers from here
-    struct hc05_config *myhc05config;
+    void *myhc05config;
 
     //config pointers end here
 
@@ -185,5 +178,6 @@ int btClose(BluetoothDriver *instance);
 #endif
 
 #endif /* HAL_USE_BLUETOOTH */
+
 #endif // BLUETOOTH_H_INCLUDED
 /** @} */

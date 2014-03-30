@@ -24,30 +24,30 @@
  * @brief SerialDrivers that can be used by the HC-05
  */
 
-typedef enum{
+enum hc05_seriald_t{
     sd1 = 0,
     sd2 = 1,
     sd3 = 2,
     sd4 = 4,
     sd5 = 5
-}hc05_seriald_t;
+};
 
 /**
  * @brief Possible states of the HC-05 module
  */
-typedef enum{
+enum hc05_state_t{
     st_unknown = 0,
     st_initializing = 1,
     st_ready_communication = 2,
     st_ready_at_command = 3,
     st_shutting_down = 4
-}hc05_state_t;
+};
 
 
 /**
  * @brief GPIO ports that can be used
  */
- typedef enum{
+ enum hc05_port_t{
     gpioa_port = 0,
     gpiob_port = 1,
     gpioc_port = 2,
@@ -56,7 +56,7 @@ typedef enum{
     gpiof_port = 5,
     gpiog_port = 6,
     gpioh_port = 7
-}hc05_port_t;
+};
 
 
 /**
@@ -67,26 +67,26 @@ typedef enum{
  *  should be used, instead we use the pushpull configuration (cts as output, rts as input)
  *
  */
-typedef struct hc05_config{
-    /* Rx and Tx ports and pins are dependent on the selected serial driver, and on the develpoment board*/
-    hc05_port_t txport;
+ /* Rx and Tx ports and pins are dependent on the selected serial driver, and on the develpoment board*/
+struct hc05_config{
     int txpin;
+    enum hc05_port_t txport;
     int txalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-    hc05_port_t rxport;
+    enum hc05_port_t rxport;
     int rxpin;
     int rxalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-    hc05_port_t rtsport;
-    int rtspin;
-    int rtsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-    hc05_port_t ctsport;
-    int ctspin;
-    int ctsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-    hc05_port_t resetport;
+//    hc05_port_t rtsport;
+//    int rtspin;
+//    int rtsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
+//    hc05_port_t ctsport;
+//    int ctspin;
+//    int ctsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
+    enum hc05_port_t resetport;
     int resetpin;
-    hc05_port_t keyport;
+    enum hc05_port_t keyport;
     int keypin;
-    hc05_seriald_t serialdriver;
-}hc05_config;
+    enum hc05_seriald_t serialdriver;
+};
 
 
 #ifdef __cplusplus

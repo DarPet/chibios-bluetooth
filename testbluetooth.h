@@ -9,8 +9,8 @@
 #ifndef TESTBLUETOOTH_H_INCLUDED
 #define TESTBLUETOOTH_H_INCLUDED
 #include "hal.h"
-#include "hc05.h"
 #include "bluetooth.h"
+#include "hc05.h"
 #include "stdlib.h"
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 

@@ -5,7 +5,6 @@
  * @addtogroup BLUETOOTH
  * @{
  */
-#include "hc05.h"
 #include "testbluetooth.h"
 
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
@@ -23,8 +22,7 @@ int main(void){
     INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
     OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
 
-    struct hc05_config myhc05_config;
-    /*{
+    struct hc05_config myhc05_config = {
         .txport = gpioa_port,
         .txpin = 2,
         .txalternatefunction = 7,
@@ -37,7 +35,7 @@ int main(void){
         .keypin = 4,
         .serialdriver = sd2
         };
-*/
+
 
     static BluetoothConfig myTestBluetoothConfig ={
         .name = "Pumukli",
