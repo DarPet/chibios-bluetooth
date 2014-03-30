@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 //bluetooth module driver headers from here
-#include <hc05.h>
+#include "hc05.h"
 
 
 //bluetooth module driver headers till here
@@ -74,7 +74,7 @@
 /*===========================================================================*/
 typedef struct BluetoothConfig BluetoothConfig;
 typedef struct BluetoothDriver BluetoothDriver;
-typedef struct hc05_config hc05_config;
+//typedef struct hc05_config hc05_config;
 
 /*===========================================================================*/
 /* Driver data structures and types.                                         */
@@ -120,14 +120,14 @@ typedef enum {
  */
 typedef struct BluetoothConfig{
     char name[BLUETOOTH_MAX_NAME_LENGTH+1];
-    int pincode[BLUETOOTH_MAX_PINCODE_LENGTH+1];
+    char pincode[BLUETOOTH_MAX_PINCODE_LENGTH+1];
     btbitrate_t baudrate;
     Thread *sendThread;
     Thread *recieveThread;
     btmodule_t usedmodule;
 
     //config pointers from here
-    hc05_config *myhc05config;
+    struct hc05_config *myhc05config;
 
     //config pointers end here
 

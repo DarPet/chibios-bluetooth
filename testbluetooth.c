@@ -23,7 +23,8 @@ int main(void){
     INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
     OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
 
-    struct hc05_config myhc05_config = {
+    struct hc05_config myhc05_config;
+    /*{
         .txport = gpioa_port,
         .txpin = 2,
         .txalternatefunction = 7,
@@ -36,14 +37,14 @@ int main(void){
         .keypin = 4,
         .serialdriver = sd2
         };
-
+*/
 
     static BluetoothConfig myTestBluetoothConfig ={
         .name = "Pumukli",
-        .pin = "1234",
+        .pincode = "1234",
         .baudrate = b38400,
         .usedmodule = hc05,
-        .myhc05config = &myhc05_config;
+        .myhc05config = &myhc05_config
 
         };
 
@@ -53,7 +54,7 @@ int main(void){
         .btInputQueue = &myBtInputQueue,
         .btOutputQueue = &myBtOutputQueue,
         .driverIsReady = 0,
-        .commSleepTimeMs = 100,
+        .commSleepTimeMs = 100
         };
 
 return 0;
