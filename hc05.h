@@ -96,10 +96,23 @@ extern "C" {
     int hc05sendCommandByte(BluetoothDriver *instance, int commandByte);
     int hc05canRecieve(BluetoothDriver *instance);
     int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength);
+    int hc05sendAtCommand(BluetoothDriver *instance, char* command);
     int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength);
     int hc05setName(BluetoothDriver *instance, char *newname, int namelength);
+    int hc05resetDefaults(BluetoothDriver *instance);
     int hc05open(BluetoothDriver *instance, BluetoothConfig *config);
     int hc05close(BluetoothDriver *instance);
+    int hc05_settxpin(BluetoothConfig *config);
+    int hc05_setrxpin(BluetoothConfig *config);
+    int hc05_setrtspin(BluetoothConfig *config);
+    int hc05_setctspin(BluetoothConfig *config);
+    int hc05_setresetpin(BluetoothConfig *config);
+    int hc05_setkeypin(BluetoothConfig *config);
+    int hc05_updateserialconfig(BluetoothConfig *config);
+    int hc05_startserial(BluetoothConfig *config)
+    int hc05_stopserial(BluetoothConfig *config);
+    void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout);
+    void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout);
 #ifdef __cplusplus
 }
 #endif

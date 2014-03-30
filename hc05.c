@@ -63,9 +63,9 @@ static msg_t bthc05SendThread(void *instance) {
         if ( hc05CurrentState != st_ready_communication )
             continue;
 
-        if ( !chIQIsEmptyI(drv->config->btInputQueue) ){
+        if ( !chIQIsEmptyI(drv->btInputQueue) ){
 
-            chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->config->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
+            chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
         }
       }
 
@@ -100,9 +100,9 @@ static msg_t bthc05RecieveThread(void *instance) {
         if ( hc05CurrentState != st_ready_communication )
             continue;
 
-        if ( !chOQIsFullI(drv->config->btOutputQueue) ){
+        if ( !chOQIsFullI(drv->btOutputQueue) ){
 
-            chOQPut(drv->config->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, TIME_INFINITE));
+            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, TIME_INFINITE));
         }
     }
 
@@ -376,8 +376,10 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
     hc05_setctspin(config);
 
     //buffers
-//! TODO
-
+    chSysLock();
+    chOQResetI(instance->btOutputQueue);
+    chIQResetI(instance->btOutputQueue);
+    chSysUnlock();
     //threads
     //create driverThread, but do not start it yet
     config->sendThread=chThdCreateI(bthc05SendThreadWa, sizeof(bthc05SendThreadWa), NORMALPRIO, bthc05SendThread, instance);
@@ -396,9 +398,12 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
     hc05setPin(instance, "1234", strlen("1234"));
 
 
-
     //return to communication mode
-//! TODO
+    hc05SetModeComm(config, 100);
+    //start threads
+    chThdResume(config->sendThread);
+    chThdResume(config->recieveThread);
+
 
     return EXIT_SUCCESS;
 }
@@ -428,8 +433,10 @@ int hc05close(BluetoothDriver *instance){
     //stop serial driver
     hc05_stopserial(instance->config);
     //empty buffers
-
-    //! TODO
+    chSysLock();
+    chOQResetI(instance->btOutputQueue);
+    chIQResetI(instance->btOutputQueue);
+    chSysUnlock();
 
     return EXIT_SUCCESS;
 }
@@ -450,7 +457,8 @@ const BluetoothDeviceVMT hc05BtDevVMT = {
     .setPinCode = hc05setPinCode,
     .setName = hc05setName,
     .open = hc05open,
-    .close = hc05close
+    .close = hc05close,
+    .resetModuleSettings = hc05resetDefaults
 };
 
 /*===========================================================================*/

@@ -119,8 +119,8 @@ typedef enum {
  *
  */
 typedef struct BluetoothConfig{
-    char name[BLUETOOTH_MAX_NAME_LENGTH];
-    int pincode[BLUETOOTH_MAX_PINCODE_LENGTH];
+    char name[BLUETOOTH_MAX_NAME_LENGTH+1];
+    int pincode[BLUETOOTH_MAX_PINCODE_LENGTH+1];
     btbitrate_t baudrate;
     Thread *sendThread;
     Thread *recieveThread;
@@ -159,6 +159,7 @@ typedef struct BluetoothDeviceVMT {
     int (*setName)(BluetoothDriver *instance, char *newname, int namelength);
     int (*open)(BluetoothDriver *instance, BluetoothConfig *config);
     int (*close)(BluetoothDriver *instance);
+    int (*resetModuleSettings) (BluetoothDriver * instance);
 }BluetoothDeviceVMT;
 
 

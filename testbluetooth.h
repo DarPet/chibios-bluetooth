@@ -11,6 +11,7 @@
 #include "hal.h"
 #include "hc05.h"
 #include "bluetooth.h"
+#include "stdlib.h"
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
 
