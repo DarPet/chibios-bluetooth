@@ -13,16 +13,13 @@ static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
 static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
 
 
-
-
-
 int main(void){
 
 
     INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
     OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
 
-    struct hc05_config myhc05_config = {
+    static struct hc05_config_t myhc05_config = {
         .txport = gpioa_port,
         .txpin = 2,
         .txalternatefunction = 7,
@@ -34,8 +31,7 @@ int main(void){
         .keyport = gpioe_port,
         .keypin = 4,
         .serialdriver = sd2
-        };
-
+    };
 
     static BluetoothConfig myTestBluetoothConfig ={
         .name = "Pumukli",

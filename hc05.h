@@ -17,7 +17,7 @@
 
 
 
-#if HAL_USE_HC05 || defined(__DOXYGEN__)
+#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
 
 
 /**
@@ -68,7 +68,7 @@ enum hc05_state_t{
  *
  */
  /* Rx and Tx ports and pins are dependent on the selected serial driver, and on the develpoment board*/
-struct hc05_config{
+struct hc05_config_t {
     int txpin;
     enum hc05_port_t txport;
     int txalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
@@ -87,7 +87,6 @@ struct hc05_config{
     int keypin;
     enum hc05_seriald_t serialdriver;
 };
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,7 +108,7 @@ extern "C" {
     int hc05_setresetpin(BluetoothConfig *config);
     int hc05_setkeypin(BluetoothConfig *config);
     int hc05_updateserialconfig(BluetoothConfig *config);
-    int hc05_startserial(BluetoothConfig *config)
+    int hc05_startserial(BluetoothConfig *config);
     int hc05_stopserial(BluetoothConfig *config);
     void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout);
     void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout);

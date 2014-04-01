@@ -163,6 +163,14 @@
 #define HAL_USE_BLUETOOTH                 TRUE
 #endif
 
+/**
+ * @brief   Enables the HC05 module for BLUETOOTH subsystem.
+ */
+#if defined(HAL_USE_BLUETOOTH) && !defined(HAL_USE_HC_05_BLUETOOTH) || defined(__DOXYGEN__)
+#define HAL_USE_HC_05_BLUETOOTH                 TRUE
+#endif
+
+
 /*===========================================================================*/
 /* ADC driver related settings.                                              */
 /*===========================================================================*/

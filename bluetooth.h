@@ -65,9 +65,6 @@
 /*===========================================================================*/
 /* Forward declarations                                                      */
 /*===========================================================================*/
-//typedef struct BluetoothConfig BluetoothConfig;
-//typedef struct BluetoothDriver BluetoothDriver;
-//typedef struct hc05_config hc05_config;
 
 /*===========================================================================*/
 /* Driver data structures and types.                                         */
