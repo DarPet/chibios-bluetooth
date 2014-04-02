@@ -12,12 +12,13 @@
 static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
 static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
 
+extern
 
 int main(void){
 
 
-    INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
-    OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
+    static INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
+    static OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
 
     static struct hc05_config_t myhc05_config = {
         .txport = gpioa_port,
