@@ -19,7 +19,7 @@
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
 
-int btSend(BluetoothDriver *instance, int command, char *buffer, int bufferlength){
+int btSend(struct BluetoothDriver *instance, int command, char *buffer, int bufferlength){
 
     // Abort on non-existent driver or buffer (when it should exist)
     if (!instance || (bufferlength && !buffer))
@@ -45,7 +45,7 @@ int btSend(BluetoothDriver *instance, int command, char *buffer, int bufferlengt
  * \return 0 if there is no frame, 1 if there is a frame
  */
 
-int btIsFrame(BluetoothDriver *instance){
+int btIsFrame(struct BluetoothDriver *instance){
 
     if (!instance)
         return 0;
@@ -64,7 +64,7 @@ int btIsFrame(BluetoothDriver *instance){
  * \return EXIT_SUCCESS when we wrote data to the buffer, or EXIT_FAILURE
  */
 
-int btRead(BluetoothDriver *instance, char *buffer, int maxlen){
+int btRead(struct BluetoothDriver *instance, char *buffer, int maxlen){
 
     if (!instance || !buffer || maxlen == 0)
         return EXIT_FAILURE;
@@ -89,7 +89,7 @@ int btRead(BluetoothDriver *instance, char *buffer, int maxlen){
  * \param[in] config A BluetoothConfig the use
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int btOpen(BluetoothDriver *instance, BluetoothConfig *config){
+int btOpen(struct BluetoothDriver *instance, struct BluetoothConfig *config){
 
     if (!instance || !config)
         return EXIT_FAILURE;
@@ -106,7 +106,7 @@ int btOpen(BluetoothDriver *instance, BluetoothConfig *config){
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int btClose(BluetoothDriver *instance){
+int btClose(struct BluetoothDriver *instance){
 
     if (!instance)
         return EXIT_FAILURE;

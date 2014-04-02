@@ -91,27 +91,27 @@ struct hc05_config_t {
 #ifdef __cplusplus
 extern "C" {
 #endif
-    int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength);
-    int hc05sendCommandByte(BluetoothDriver *instance, int commandByte);
-    int hc05canRecieve(BluetoothDriver *instance);
-    int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength);
-    int hc05sendAtCommand(BluetoothDriver *instance, char* command);
-    int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength);
-    int hc05setName(BluetoothDriver *instance, char *newname, int namelength);
-    int hc05resetDefaults(BluetoothDriver *instance);
-    int hc05open(BluetoothDriver *instance, BluetoothConfig *config);
-    int hc05close(BluetoothDriver *instance);
-    int hc05_settxpin(BluetoothConfig *config);
-    int hc05_setrxpin(BluetoothConfig *config);
-    int hc05_setrtspin(BluetoothConfig *config);
-    int hc05_setctspin(BluetoothConfig *config);
-    int hc05_setresetpin(BluetoothConfig *config);
-    int hc05_setkeypin(BluetoothConfig *config);
-    int hc05_updateserialconfig(BluetoothConfig *config);
-    int hc05_startserial(BluetoothConfig *config);
-    int hc05_stopserial(BluetoothConfig *config);
-    void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout);
-    void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout);
+    int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, int bufferlength);
+    int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte);
+    int hc05canRecieve(struct BluetoothDriver *instance);
+    int hc05readBuffer(struct BluetoothDriver *instance, char *buffer, int maxlength);
+    int hc05sendAtCommand(struct BluetoothDriver *instance, char* command);
+    int hc05setPinCode(struct BluetoothDriver *instance, char *pin, int pinlength);
+    int hc05setName(struct BluetoothDriver *instance, char *newname, int namelength);
+    int hc05resetDefaults(struct BluetoothDriver *instance);
+    int hc05open(struct BluetoothDriver *instance, struct BluetoothConfig *config);
+    int hc05close(struct BluetoothDriver *instance);
+    int hc05_settxpin(struct BluetoothConfig *config);
+    int hc05_setrxpin(struct BluetoothConfig *config);
+    int hc05_setrtspin(struct BluetoothConfig *config);
+    int hc05_setctspin(struct BluetoothConfig *config);
+    int hc05_setresetpin(struct BluetoothConfig *config);
+    int hc05_setkeypin(struct BluetoothConfig *config);
+    int hc05_updateserialconfig(struct BluetoothConfig *config);
+    int hc05_startserial(struct BluetoothConfig *config);
+    int hc05_stopserial(struct BluetoothConfig *config);
+    void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout);
+    void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout);
 #ifdef __cplusplus
 }
 #endif

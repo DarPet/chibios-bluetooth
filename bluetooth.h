@@ -75,7 +75,7 @@
  *
  *  Using these instead of writing the bit rate to a 32 bit int should help with 8 and 16 bit compatibility and portability
  */
-typedef enum {
+enum btbitrate_t{
   b1200 = 0,
   b2400 = 1,
   b4800 = 2,
@@ -84,17 +84,17 @@ typedef enum {
   b38400 = 5,
   b57600 = 6,
   b115200 = 7
-} btbitrate_t;
+};
 
 /**
  * @brief Available bluetooth modules to use
  *
  * The "nomodule" entry is reserved, so there is no 0 in the enum
  */
-typedef enum {
+enum btmodule_t{
   nomodule = 0,     //this should not be used
   hc05 = 1
-} btmodule_t;
+};
 
 
 
@@ -108,32 +108,32 @@ typedef enum {
  *  The usedmodule variable shows which config pointer to use.
  *
  */
-typedef struct BluetoothConfig{
+struct BluetoothConfig{
     char name[BLUETOOTH_MAX_NAME_LENGTH+1];
     char pincode[BLUETOOTH_MAX_PINCODE_LENGTH+1];
-    btbitrate_t baudrate;
+    enum btbitrate_t baudrate;
     Thread *sendThread;
     Thread *recieveThread;
-    btmodule_t usedmodule;
+    enum btmodule_t usedmodule;
 
     //config pointers from here
     void *myhc05config;
 
     //config pointers end here
 
-}BluetoothConfig;
+};
 
 /**
  * @brief BluetoothDriver object
  */
-typedef struct BluetoothDriver{
+struct BluetoothDriver{
     const struct BluetoothDeviceVMT *vmt;
-    BluetoothConfig *config;
+    struct BluetoothConfig *config;
     InputQueue *btInputQueue;
     OutputQueue *btOutputQueue;
     int driverIsReady;
     int commSleepTimeMs;
-}BluetoothDriver;
+};
 
 
 /**
@@ -141,15 +141,15 @@ typedef struct BluetoothDriver{
  */
 
 typedef struct BluetoothDeviceVMT {
-    int (*sendBuffer)(BluetoothDriver *instance, char *buffer, int bufferlength);
-    int (*sendCommandByte)(BluetoothDriver *instance, int commandByte);
-    int (*canRecieve)(BluetoothDriver *instance);
-    int (*readBuffer)(BluetoothDriver *instance, char *buffer, int maxlength);
-    int (*setPinCode)(BluetoothDriver *instance, char *pin, int pinlength);
-    int (*setName)(BluetoothDriver *instance, char *newname, int namelength);
-    int (*open)(BluetoothDriver *instance, BluetoothConfig *config);
-    int (*close)(BluetoothDriver *instance);
-    int (*resetModuleSettings) (BluetoothDriver * instance);
+    int (*sendBuffer)(struct BluetoothDriver *instance, char *buffer, int bufferlength);
+    int (*sendCommandByte)(struct BluetoothDriver *instance, int commandByte);
+    int (*canRecieve)(struct BluetoothDriver *instance);
+    int (*readBuffer)(struct BluetoothDriver *instance, char *buffer, int maxlength);
+    int (*setPinCode)(struct BluetoothDriver *instance, char *pin, int pinlength);
+    int (*setName)(struct BluetoothDriver *instance, char *newname, int namelength);
+    int (*open)(struct BluetoothDriver *instance, struct BluetoothConfig *config);
+    int (*close)(struct BluetoothDriver *instance);
+    int (*resetModuleSettings) (struct BluetoothDriver * instance);
 }BluetoothDeviceVMT;
 
 
@@ -165,11 +165,11 @@ typedef struct BluetoothDeviceVMT {
 #ifdef __cplusplus
 extern "C" {
 #endif
-int btSend(BluetoothDriver *instance, int commandByte, char *buffer, int bufferlength);
-int btIsFrame(BluetoothDriver *instance);
-int btRead(BluetoothDriver *instance, char *buffer, int maxlen);
-int btOpen(BluetoothDriver *instance, BluetoothConfig *config);
-int btClose(BluetoothDriver *instance);
+int btSend(struct BluetoothDriver *instance, int commandByte, char *buffer, int bufferlength);
+int btIsFrame(struct BluetoothDriver *instance);
+int btRead(struct BluetoothDriver *instance, char *buffer, int maxlen);
+int btOpen(struct BluetoothDriver *instance, struct BluetoothConfig *config);
+int btClose(struct BluetoothDriver *instance);
 #ifdef __cplusplus
 }
 #endif

@@ -33,7 +33,7 @@ int main(void){
         .serialdriver = sd2
     };
 
-    static BluetoothConfig myTestBluetoothConfig ={
+    static struct BluetoothConfig myTestBluetoothConfig ={
         .name = "Pumukli",
         .pincode = "1234",
         .baudrate = b38400,
@@ -42,7 +42,7 @@ int main(void){
 
         };
 
-    static BluetoothDriver myTestBluetoothDriver ={
+    static struct BluetoothDriver myTestBluetoothDriver ={
         .vmt = &hc05BtDevVMT,
         .config = &myTestBluetoothConfig,
         .btInputQueue = &myBtInputQueue,

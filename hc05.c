@@ -449,7 +449,7 @@ int hc05close(BluetoothDriver *instance){
 /**
  * @brief HC05 BluetoothDriver virtual methods table.
  */
-const BluetoothDeviceVMT hc05BtDevVMT = {
+static const BluetoothDeviceVMT hc05BtDevVMT = {
     .sendBuffer = hc05sendBuffer,
     .sendCommandByte = hc05sendCommandByte,
     .canRecieve = hc05canRecieve,
