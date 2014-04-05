@@ -19,7 +19,6 @@
 
 #if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
 
-extern const BluetoothDeviceVMT hc05BtDevVMT;
 
 /**
  * @brief SerialDrivers that can be used by the HC-05

@@ -12,7 +12,7 @@
 static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
 static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
 
-extern
+extern struct BluetoothDeviceVMT hc05BtDevVMT;
 
 int main(void){
 
@@ -51,6 +51,9 @@ int main(void){
         .driverIsReady = 0,
         .commSleepTimeMs = 100
         };
+
+    btOpen(&myTestBluetoothDriver, &myTestBluetoothConfig);
+
 
 return 0;
 }

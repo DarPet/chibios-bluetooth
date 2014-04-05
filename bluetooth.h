@@ -127,7 +127,7 @@ struct BluetoothConfig{
  * @brief BluetoothDriver object
  */
 struct BluetoothDriver{
-    const struct BluetoothDeviceVMT *vmt;
+    struct BluetoothDeviceVMT *vmt;
     struct BluetoothConfig *config;
     InputQueue *btInputQueue;
     OutputQueue *btOutputQueue;
@@ -140,7 +140,7 @@ struct BluetoothDriver{
  * @brief BluetoothDriver virtual methods table.
  */
 
-typedef struct BluetoothDeviceVMT {
+struct BluetoothDeviceVMT {
     int (*sendBuffer)(struct BluetoothDriver *instance, char *buffer, int bufferlength);
     int (*sendCommandByte)(struct BluetoothDriver *instance, int commandByte);
     int (*canRecieve)(struct BluetoothDriver *instance);
@@ -150,7 +150,7 @@ typedef struct BluetoothDeviceVMT {
     int (*open)(struct BluetoothDriver *instance, struct BluetoothConfig *config);
     int (*close)(struct BluetoothDriver *instance);
     int (*resetModuleSettings) (struct BluetoothDriver * instance);
-}BluetoothDeviceVMT;
+};
 
 
 
