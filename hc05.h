@@ -75,12 +75,12 @@ struct hc05_config_t {
     enum hc05_port_t rxport;
     int rxpin;
     int rxalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-//    hc05_port_t rtsport;
-//    int rtspin;
-//    int rtsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
-//    hc05_port_t ctsport;
-//    int ctspin;
-//    int ctsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
+    enum hc05_port_t rtsport;
+    int rtspin;
+    int rtsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
+    enum hc05_port_t ctsport;
+    int ctspin;
+    int ctsalternatefunction;    //number of alternate function of the pin, if negative --> pushpull is used
     enum hc05_port_t resetport;
     int resetpin;
     enum hc05_port_t keyport;
@@ -91,10 +91,10 @@ struct hc05_config_t {
 #ifdef __cplusplus
 extern "C" {
 #endif
-    int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, int bufferlength);
+    int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int bufferlength);
     int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte);
     int hc05canRecieve(struct BluetoothDriver *instance);
-    int hc05readBuffer(struct BluetoothDriver *instance, char *buffer, int maxlength);
+    int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int maxlength);
     int hc05sendAtCommand(struct BluetoothDriver *instance, char* command);
     int hc05setPinCode(struct BluetoothDriver *instance, char *pin, int pinlength);
     int hc05setName(struct BluetoothDriver *instance, char *newname, int namelength);

@@ -6,13 +6,15 @@
  * @{
  */
 
+#include "ch.h"
 #include "hal.h"
 #include "bluetooth.h"
 #include "hc05.h"
 #include "serial.h"
+#include "mcuconf.h"
 #include <string.h>
 
-#if HAL_USE_HC05 || defined(__DOXYGEN__)
+#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
 
 /*===========================================================================*/
 /* Local variables                 .                                         */
@@ -21,12 +23,12 @@
 /*!
  * \brief SerialConfig to be used for communication with HC-05
  */
-static SerialConfig hc05SerialConfig = {.sc_speed = 38400};
+static SerialConfig hc05SerialConfig = {38400,0,0,0};
 
 /*!
  * \brief current state of the driver / HC-05
  */
-static volatile hc05_state_t hc05CurrentState = st_unknown;
+static volatile enum hc05_state_t hc05CurrentState = st_unknown;
 
 
 /*===========================================================================*/
@@ -52,13 +54,13 @@ static msg_t bthc05SendThread(void *instance) {
     if (!instance)
         chThdSleep(TIME_INFINITE);
 
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
+    struct BluetoothDriver *drv = (struct BluetoothDriver *) instance;
 
     chRegSetThreadName("btSendThread");
 
     while (TRUE) {
 
-        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+        chThdSleepMilliseconds(drv->commSleepTimeMs);
         //check module state
         if ( hc05CurrentState != st_ready_communication )
             continue;
@@ -90,12 +92,12 @@ static msg_t bthc05RecieveThread(void *instance) {
     if (!instance)
         chThdSleep(TIME_INFINITE);
 
-    BluetoothDriver *drv = (BluetoothDriver *) instance;
+    struct BluetoothDriver *drv = (struct BluetoothDriver *) instance;
 
     chRegSetThreadName("btRecieveThread");
 
     while (TRUE) {
-        chThdSleepMilliseconds(drv->config->commSleepTimeMs);
+        chThdSleepMilliseconds(drv->commSleepTimeMs);
         //check module state
         if ( hc05CurrentState != st_ready_communication )
             continue;
@@ -125,18 +127,18 @@ static msg_t bthc05RecieveThread(void *instance) {
  * \param[in] bufferlength The number of bytes to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength){
+int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int bufferlength){
 
 	if ( !instance || !buffer )
 		return EXIT_FAILURE;
 	if ( !bufferlength )
 		return EXIT_SUCCESS;
 
-	if ( bufferlength <=  (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)))
+	if ( bufferlength <=  (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)))
 	{
-		chOQWriteTimeout(drv->config->btInputQueue, buffer, bufferlength, TIME_INFINITE) == bufferlength
-			? return EXIT_SUCCESS
-			: return EXIT_FAILURE;
+		return (chOQWriteTimeout(instance->btInputQueue, buffer, bufferlength, TIME_INFINITE) == bufferlength)
+			? EXIT_SUCCESS
+			: EXIT_FAILURE;
 	}
 	else
 		return EXIT_FAILURE;
@@ -150,16 +152,16 @@ int hc05sendBuffer(BluetoothDriver *instance, char *buffer, int bufferlength){
  * \param[in] commandByte A byte to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendCommandByte(BluetoothDriver *instance, int commandByte){
+int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
 
 	if ( !instance )
 		return EXIT_FAILURE;
 
-	if ( (chQSizeI(drv->config->btInputQueue)-chQSpaceI(drv->config->btInputQueue)) > 0)
+	if ( (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)) > 0)
 	{
-		chOQWriteTimeout(drv->config->btInputQueue, &commandbyte, 1, TIME_INFINITE) == 1
-			? return EXIT_SUCCESS
-			: return EXIT_FAILURE;
+		return (chOQWriteTimeout(instance->btInputQueue, &commandByte, 1, TIME_INFINITE) == 1)
+			? EXIT_SUCCESS
+			: EXIT_FAILURE;
 	}
 	else
 		return EXIT_FAILURE;
@@ -172,14 +174,14 @@ int hc05sendCommandByte(BluetoothDriver *instance, int commandByte){
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05canRecieve(BluetoothDriver *instance){
+int hc05canRecieve(struct BluetoothDriver *instance){
 
 	if ( !instance )
 		return EXIT_FAILURE;
 
-	chOQSpaceI(drv->config->btOutputQueue) > 0
-			? return EXIT_SUCCESS
-			: return EXIT_FAILURE;
+	return (chQSpaceI(instance->btOutputQueue) > 0)
+			? EXIT_SUCCESS
+			: EXIT_FAILURE;
 }
 
 /*!
@@ -192,16 +194,16 @@ int hc05canRecieve(BluetoothDriver *instance){
  * \param[in] maxlength The maximum number of bytes to read (size of the buffer)
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength){
+int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int maxlength){
 
 	if ( !instance || !buffer )
 		return EXIT_FAILURE;
-	if ( !bufferlength )
+	if ( !maxlength )
 		return EXIT_SUCCESS;
 
-	chIQReadTimeout (drv->config->btOutputQueue, buffer, maxlength, TIME_IMMEDIATE) > 0
-	? return EXIT_SUCCESS
-	: return EXIT_SUCCESS;
+	return (chIQReadTimeout (instance->btOutputQueue, buffer, maxlength, TIME_IMMEDIATE) > 0)
+	? EXIT_SUCCESS
+	: EXIT_SUCCESS;
 
 }
 
@@ -212,7 +214,7 @@ int hc05readBuffer(BluetoothDriver *instance, char *buffer, int maxlength){
 *	\param[in] command AT command to use. Must be '\0' terminated string
 *	\return EXIT_SUCCESS or EXIT_FAILURE
 */
-int hc05sendAtCommand(BluetoothDriver *instance, char* command){
+int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
 
 	if ( !instance || !command )
 		return EXIT_FAILURE;
@@ -227,7 +229,7 @@ int hc05sendAtCommand(BluetoothDriver *instance, char* command){
 	{
 		hc05CurrentState = st_unknown;
 		//enter AT mode here, but wait for threads to detect state change
-		chThdSleepMilliseconds(instance->config->commSleepTimeMs);
+		chThdSleepMilliseconds(instance->commSleepTimeMs);
         hc05SetModeAt(instance->config, 100);
 
 	}
@@ -237,8 +239,8 @@ int hc05sendAtCommand(BluetoothDriver *instance, char* command){
     strncpy(commandBuffer + 2, command, commandLength );
     strncpy(commandBuffer + 2 + commandLength, "\r\n", 2 );
 
-    chnWrite((BaseChannel *)drv->config->myhc05config->serialdriver,
-                &hc05_at_message,
+    chnWrite((BaseChannel *)instance->config->myhc05config->serialdriver,
+                &commandBuffer,
                 commandLength + 4);
     chHeapFree(commandBuffer);
 
@@ -258,7 +260,7 @@ int hc05sendAtCommand(BluetoothDriver *instance, char* command){
  * \param[in] pinlength The length of the new pin
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
+int hc05setPinCode(struct BluetoothDriver *instance, char *pin, int pinlength){
 
 	if ( !instance || !pin )
 		return EXIT_FAILURE;
@@ -273,7 +275,7 @@ int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
     //must terminate the string with a \0
     *(CmdBuf+strlen(Command)+pinlength+1) = '\0';
 
-    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
 
     chHeapFree(CmdBuf);
@@ -290,7 +292,7 @@ int hc05setPinCode(BluetoothDriver *instance, char *pin, int pinlength){
  * \param[in] namelength The length of the new name
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05setName(BluetoothDriver *instance, char *newname, int namelength){
+int hc05setName(struct BluetoothDriver *instance, char *newname, int namelength){
 
     if ( !instance || !newname )
 		return EXIT_FAILURE;
@@ -305,7 +307,7 @@ int hc05setName(BluetoothDriver *instance, char *newname, int namelength){
     //must terminate the string with a \0
     *(CmdBuf+strlen(Command)+namelength+1) = '\0';
 
-    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
 
     chHeapFree(CmdBuf);
@@ -320,9 +322,9 @@ int hc05setName(BluetoothDriver *instance, char *newname, int namelength){
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05resetDefaults(BluetoothDriver *instance){
+int hc05resetDefaults(struct BluetoothDriver *instance){
 
-    if ( !instance || !newname )
+    if ( !instance )
 		return EXIT_FAILURE;
 
     char Command[] = "AT+ORGL";
@@ -333,7 +335,7 @@ int hc05resetDefaults(BluetoothDriver *instance){
     strcpy(CmdBuf, Command);
     *(CmdBuf+strlen(Command)+1) = '\0';
 
-    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE)
+    if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
 
     chHeapFree(CmdBuf);
@@ -356,7 +358,7 @@ int hc05resetDefaults(BluetoothDriver *instance){
  * \param[in] config A BluetoothConfig the use
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
+int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
 
     if(!instance || !config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -395,7 +397,7 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
 
     //set default name, pin, other AT dependent stuff here
     hc05setName(instance, "Pumukli", strlen("Pumukli"));
-    hc05setPin(instance, "1234", strlen("1234"));
+    hc05setPinCode(instance, "1234", strlen("1234"));
 
 
     //return to communication mode
@@ -422,7 +424,7 @@ int hc05open(BluetoothDriver *instance, BluetoothConfig *config){
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05close(BluetoothDriver *instance){
+int hc05close(struct BluetoothDriver *instance){
 
     if(!instance)
         return EXIT_FAILURE;
@@ -445,11 +447,10 @@ int hc05close(BluetoothDriver *instance){
 /* VMT                                                                       */
 /*===========================================================================*/
 
-
 /**
  * @brief HC05 BluetoothDriver virtual methods table.
  */
-static struct BluetoothDeviceVMT hc05BtDevVMT = {
+struct BluetoothDeviceVMT hc05BtDevVMT = {
     .sendBuffer = hc05sendBuffer,
     .sendCommandByte = hc05sendCommandByte,
     .canRecieve = hc05canRecieve,
@@ -472,7 +473,7 @@ static struct BluetoothDeviceVMT hc05BtDevVMT = {
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_settxpin(BluetoothConfig *config){
+int hc05_settxpin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -541,7 +542,7 @@ int hc05_settxpin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_setrxpin(BluetoothConfig *config){
+int hc05_setrxpin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -610,7 +611,7 @@ int hc05_setrxpin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_setrtspin(BluetoothConfig *config){
+int hc05_setrtspin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -680,7 +681,7 @@ int hc05_setrtspin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_setctspin(BluetoothConfig *config){
+int hc05_setctspin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -749,7 +750,7 @@ int hc05_setctspin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_setresetpin(BluetoothConfig *config){
+int hc05_setresetpin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -802,7 +803,7 @@ int hc05_setresetpin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_setkeypin(BluetoothConfig *config){
+int hc05_setkeypin(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
@@ -855,12 +856,12 @@ int hc05_setkeypin(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_updateserialconfig(BluetoothConfig *config){
+int hc05_updateserialconfig(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
-
-    switch (config->btbaudrate) {
+/*
+    switch (config->baudrate) {
 
         case b1200:
             hc05SerialConfig.sc_speed = 1200;
@@ -890,6 +891,7 @@ int hc05_updateserialconfig(BluetoothConfig *config){
             hc05SerialConfig.sc_speed = BLUETOOTH_DEFAULT_BITRATE;
             break;
     }
+*/
     return EXIT_SUCCESS;
 }
 
@@ -901,28 +903,42 @@ int hc05_updateserialconfig(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_startserial(BluetoothConfig *config){
+int hc05_startserial(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
 
     switch (config->myhc05config->serialdriver) {
 
+#if STM32_SERIAL_USE_USART1 == TRUE
         case sd1:
             sdStart(&SD1, &hc05SerialConfig);
             break;
+#endif
+
+#if STM32_SERIAL_USE_USART2 == TRUE
         case sd2:
             sdStart(&SD2, &hc05SerialConfig);
             break;
+#endif
+
+#if STM32_SERIAL_USE_USART3 == TRUE
         case sd3:
             sdStart(&SD3, &hc05SerialConfig);
             break;
+#endif
+
+#if STM32_SERIAL_USE_UART4 == TRUE
         case sd4:
             sdStart(&SD4, &hc05SerialConfig);
             break;
+#endif
+
+#if STM32_SERIAL_USE_UART5 == TRUE
         case sd5:
             sdStart(&SD5, &hc05SerialConfig);
             break;
+#endif
         default:
             return EXIT_FAILURE;
             break;
@@ -938,28 +954,38 @@ int hc05_startserial(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05_stopserial(BluetoothConfig *config){
+int hc05_stopserial(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
 
     switch (config->myhc05config->serialdriver) {
 
+#if STM32_SERIAL_USE_USART1 == TRUE
         case sd1:
             sdStop(&SD1);
             break;
+#endif
+#if STM32_SERIAL_USE_USART2 == TRUE
         case sd2:
             sdStop(&SD2);
             break;
+#endif
+#if STM32_SERIAL_USE_USART3 == TRUE
         case sd3:
             sdStop(&SD3);
             break;
+#endif
+#if STM32_SERIAL_USE_UART4 == TRUE
         case sd4:
             sdStop(&SD4);
             break;
+#endif
+#if STM32_SERIAL_USE_UART5 == TRUE
         case sd5:
             sdStop(&SD5);
             break;
+#endif
         default:
             return EXIT_FAILURE;
             break;
@@ -974,7 +1000,7 @@ int hc05_stopserial(BluetoothConfig *config){
  * \param[in] config A BluetoothConfig object
  * \param[in] timeout Time to wait in milliseconds
  */
-void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout){
+void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout){
 
     if(!config)
         return;
@@ -1036,7 +1062,7 @@ void hc05SetModeAt(BluetoothConfig *config, uint16_t timeout){
  * \param[in] config A BluetoothConfig object
  * \param[in] timeout Time to wait in milliseconds
  */
-void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout){
+void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
 
     if(!config)
         return;
@@ -1090,5 +1116,5 @@ void hc05SetModeComm(BluetoothConfig *config, uint16_t timeout){
     hc05CurrentState = st_ready_communication;
 };
 
-#endif //HAL_USE_HC05 || defined(__DOXYGEN__)
+#endif //HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
  /** @} */

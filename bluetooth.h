@@ -117,7 +117,7 @@ struct BluetoothConfig{
     enum btmodule_t usedmodule;
 
     //config pointers from here
-    void *myhc05config;
+    struct hc05_config_t *myhc05config;
 
     //config pointers end here
 
