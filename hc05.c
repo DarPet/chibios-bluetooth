@@ -11,6 +11,7 @@
 #include "bluetooth.h"
 #include "hc05.h"
 #include "serial.h"
+#include "serial_lld.h"
 #include "mcuconf.h"
 #include <string.h>
 
@@ -860,38 +861,38 @@ int hc05_updateserialconfig(struct BluetoothConfig *config){
 
     if(!config || !(config->myhc05config))
         return EXIT_FAILURE;
-/*
+
     switch (config->baudrate) {
 
         case b1200:
-            hc05SerialConfig.sc_speed = 1200;
+            hc05SerialConfig.speed = 1200;
             break;
         case b2400:
-            hc05SerialConfig.sc_speed = 2400;
+            hc05SerialConfig.speed = 2400;
             break;
         case b4800:
-            hc05SerialConfig.sc_speed = 4800;
+            hc05SerialConfig.speed = 4800;
             break;
         case b9600:
-            hc05SerialConfig.sc_speed = 9600;
+            hc05SerialConfig.speed = 9600;
             break;
         case b19200:
-            hc05SerialConfig.sc_speed = 19200;
+            hc05SerialConfig.speed = 19200;
             break;
         case b38400:
-            hc05SerialConfig.sc_speed = 38400;
+            hc05SerialConfig.speed = 38400;
             break;
         case b57600:
-            hc05SerialConfig.sc_speed = 57600;
+            hc05SerialConfig.speed = 57600;
             break;
         case b115200:
-            hc05SerialConfig.sc_speed = 115200;
+            hc05SerialConfig.speed = 115200;
             break;
         default:
-            hc05SerialConfig.sc_speed = BLUETOOTH_DEFAULT_BITRATE;
+            hc05SerialConfig.speed = BLUETOOTH_DEFAULT_BITRATE;
             break;
     }
-*/
+
     return EXIT_SUCCESS;
 }
 
