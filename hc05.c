@@ -398,11 +398,13 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
 
     //set default name, pin, other AT dependent stuff here
     hc05setName(instance, "Pumukli", strlen("Pumukli"));
+
     hc05setPinCode(instance, "1234", strlen("1234"));
 
 
     //return to communication mode
     hc05SetModeComm(config, 100);
+
     //start threads
     chThdResume(config->sendThread);
     chThdResume(config->recieveThread);

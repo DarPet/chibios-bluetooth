@@ -6,8 +6,15 @@
  * @{
  */
 #include "testbluetooth.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "ch.h"
+#include "hal.h"
+#include "string.h"
 
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
+
+#define TESTBT_BUFFERLEN 50
 
 static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
 static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
@@ -16,6 +23,8 @@ extern struct BluetoothDeviceVMT hc05BtDevVMT;
 
 int main(void){
 
+    halInit();
+    chSysInit();
 
     static INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
     static OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
@@ -54,8 +63,17 @@ int main(void){
 
     btOpen(&myTestBluetoothDriver, &myTestBluetoothConfig);
 
+    static char myTestBuffer[TESTBT_BUFFERLEN];
+    memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN);
 
-return 0;
+    while(true)
+    {
+        if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
+            btSend(&myTestBluetoothDriver, 1, myTestBuffer, TESTBT_BUFFERLEN);
+    }
+
+
+    return 0;
 }
 
 
