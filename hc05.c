@@ -66,6 +66,8 @@ static msg_t bthc05SendThread(void *instance) {
         if ( hc05CurrentState != st_ready_communication )
             continue;
 
+        //! ST_SHUTTING_DOWN ÁLLAPOTRA LEÁLLNI
+
         if ( !chIQIsEmptyI(drv->btInputQueue) ){
 
             chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
@@ -397,7 +399,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
 
 
     //set default name, pin, other AT dependent stuff here
-    hc05setName(instance, "Pumukli", strlen("Pumukli"));
+    hc05setName(instance, "Wait", strlen("Wait"));
 
     hc05setPinCode(instance, "1234", strlen("1234"));
 
@@ -1070,7 +1072,7 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
     if(!config)
         return;
 
-    //reset module (low), pull key high
+    //reset module (low), pull key low
     chSysLock();
     palClearPad((((config->myhc05config->keyport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->keyport) == gpiob_port) ? GPIOB :
@@ -1115,7 +1117,6 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
     chSysUnlock();
 
     chThdSleepMilliseconds(timeout);   //wait for module recovery
-    //we should be in AT mode, with 38400 baud
     hc05CurrentState = st_ready_communication;
 };
 

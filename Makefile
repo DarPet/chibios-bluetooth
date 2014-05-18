@@ -240,6 +240,10 @@ include $(CHIBIOS)/os/ports/GCC/ARMCMx/rules.mk
 
 Debug:all
 
+Release:all
+
+cleanRelease: clean all
+
 cleanDebug: clean all
 
 flash: all
