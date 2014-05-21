@@ -243,7 +243,7 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
     strncpy(commandBuffer + 2 + commandLength, "\r\n", 2 );
 
     chnWrite((BaseChannel *)instance->config->myhc05config->serialdriver,
-                &commandBuffer,
+                commandBuffer,
                 commandLength + 4);
     chHeapFree(commandBuffer);
 
