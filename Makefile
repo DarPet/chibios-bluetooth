@@ -62,6 +62,7 @@ endif
 
 # Define project name here
 PROJECT = ch_bluetooth
+PROJECTSRC=$(patsubst %.c,%.o,$(wildcard *.c))
 
 # Imported source files and paths
 CHIBIOS = D:\Development\ChibiOS-RT
@@ -91,7 +92,7 @@ CSRC = $(PORTSRC) \
        $(CHIBIOS)/os/various/devices_lib/accel/lis302dl.c \
        $(CHIBIOS)/os/various/shell.c \
        $(CHIBIOS)/os/various/chprintf.c \
-       bluetooth.c hc05.c testbluetooth.c
+       $(PROJECTSRC)
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.

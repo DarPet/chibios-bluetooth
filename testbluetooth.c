@@ -5,16 +5,52 @@
  * @addtogroup BLUETOOTH
  * @{
  */
-#include "testbluetooth.h"
+#include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
+
 #include "ch.h"
 #include "hal.h"
-#include "string.h"
+#include "chprintf.h"
+#include "shell.h"
+
+#include "testbluetooth.h"
+
+#include "usbcfg.h"
+
+
 
 #if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
 
 #define TESTBT_BUFFERLEN 50
+
+
+SerialUSBDriver SDU1;
+
+static const ShellCommand commands[] = {
+ //   {"mem", cmd_mem},
+ //   {"threads", cmd_threads},
+    {NULL,NULL}
+};
+
+#define SHELL_WA_SIZE THD_WA_SIZE(2048)
+
+extern SerialUSBDriver SDU1;
+
+static const ShellConfig shell_cfg1 = {
+    (BaseSequentialStream *) &SDU1,
+    commands
+};
+
+void connectConsole(void) {
+    shellInit();
+    sduObjectInit(&SDU1);
+    sduStart(&SDU1, &serusbcfg);
+    usbDisconnectBus(serusbcfg.usbp);
+    chThdSleepMilliseconds(1000);
+    usbStart(serusbcfg.usbp, &usbcfg);
+    usbConnectBus(serusbcfg.usbp);
+}
 
 static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
 static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
@@ -23,8 +59,12 @@ extern struct BluetoothDeviceVMT hc05BtDevVMT;
 
 int main(void){
 
+    Thread *shelltp=NULL;
+
     halInit();
     chSysInit();
+    connectConsole();
+
 
     static INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
     static OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
@@ -66,10 +106,24 @@ int main(void){
     static char myTestBuffer[TESTBT_BUFFERLEN];
     memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN);
 
-    while(true)
-    {
+
+    while(TRUE) {
+        if (!shelltp) {
+            if(SDU1.config->usbp->state==USB_ACTIVE)
+                shelltp = shellCreate(&shell_cfg1, SHELL_WA_SIZE, NORMALPRIO);
+        }
+        else {
+            if(chThdTerminated(shelltp)) {
+                chThdRelease(shelltp);
+                shelltp=NULL;
+            }
+        }
+
+
         if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
             btSend(&myTestBluetoothDriver, 1, myTestBuffer, TESTBT_BUFFERLEN);
+
+        chThdSleepMilliseconds(500);
     }
 
 
