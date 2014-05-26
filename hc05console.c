@@ -86,7 +86,7 @@ void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
        chprintf(chp, "commandLength: %i\r\n", strlen(argv[0]));
 
        chnWrite((BaseChannel *)&SD2,argv[0],strlen(argv[0]));
-
+        chnWrite((BaseChannel *)&SD2,"\r\n",2);
 
         chprintf(chp, "New name is %s\r\n", argv[0]);
     }
