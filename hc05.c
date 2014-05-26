@@ -8,6 +8,9 @@
 
 #include "ch.h"
 #include "hal.h"
+#include "chprintf.h"
+#include "shell.h"
+#include "chqueues.h"
 #include "bluetooth.h"
 #include "hc05.h"
 #include "serial.h"
@@ -16,6 +19,9 @@
 #include <string.h>
 
 #if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
+
+
+extern SerialUSBDriver SDU1;
 
 /*===========================================================================*/
 /* Local variables                 .                                         */
@@ -101,6 +107,7 @@ static msg_t bthc05RecieveThread(void *instance) {
 
     while (TRUE) {
         chThdSleepMilliseconds(drv->commSleepTimeMs);
+
         //check module state
         if ( hc05CurrentState != st_ready_communication )
             continue;
@@ -233,7 +240,7 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
 		hc05CurrentState = st_unknown;
 		//enter AT mode here, but wait for threads to detect state change
 		chThdSleepMilliseconds(instance->commSleepTimeMs);
-        hc05SetModeAt(instance->config, 100);
+        hc05SetModeAt(instance->config, 200);
 
 	}
 	int commandLength = strlen(command);
@@ -247,7 +254,7 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
                 commandLength + 4);
     chHeapFree(commandBuffer);
 
-    hc05SetModeComm(instance->config, 100);
+    hc05SetModeComm(instance->config, 200);
 
 	return EXIT_SUCCESS;
 }
@@ -381,10 +388,10 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     hc05_setctspin(config);
 
     //buffers
-    chSysLock();
+
     chOQResetI(instance->btOutputQueue);
     chIQResetI(instance->btOutputQueue);
-    chSysUnlock();
+
     //threads
     //create driverThread, but do not start it yet
     config->sendThread=chThdCreateI(bthc05SendThreadWa, sizeof(bthc05SendThreadWa), NORMALPRIO, bthc05SendThread, instance);
@@ -397,7 +404,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     //flag
     hc05CurrentState = st_ready_communication;
 
-
+/*
     //set default name, pin, other AT dependent stuff here
     hc05setName(instance, "Wait", strlen("Wait"));
 
@@ -406,7 +413,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
 
     //return to communication mode
     hc05SetModeComm(config, 100);
-
+*/
     //start threads
     chThdResume(config->sendThread);
     chThdResume(config->recieveThread);
@@ -440,10 +447,10 @@ int hc05close(struct BluetoothDriver *instance){
     //stop serial driver
     hc05_stopserial(instance->config);
     //empty buffers
-    chSysLock();
+
     chOQResetI(instance->btOutputQueue);
     chIQResetI(instance->btOutputQueue);
-    chSysUnlock();
+
 
     return EXIT_SUCCESS;
 }
@@ -1011,7 +1018,7 @@ void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout){
         return;
 
     //reset module (low), pull key high
-    chSysLock();
+
     palSetPad((((config->myhc05config->keyport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->keyport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->keyport) == gpioc_port) ? GPIOC :
@@ -1022,11 +1029,11 @@ void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->keyport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->keypin));
-    chSysUnlock();
+
 
     chThdSleepMilliseconds(timeout);
 
-    chSysLock();
+
     palClearPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
@@ -1037,11 +1044,11 @@ void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->resetpin));
-    chSysUnlock();
+
 
 
     chThdSleepMilliseconds(timeout);   //wait for reset
-    chSysLock();
+
     palSetPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
@@ -1052,7 +1059,7 @@ void hc05SetModeAt(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->resetpin));
-    chSysUnlock();
+
 
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     //we should be in AT mode, with 38400 baud
@@ -1073,7 +1080,6 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
         return;
 
     //reset module (low), pull key low
-    chSysLock();
     palClearPad((((config->myhc05config->keyport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->keyport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->keyport) == gpioc_port) ? GPIOC :
@@ -1084,11 +1090,10 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->keyport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->keypin));
-    chSysUnlock();
 
     chThdSleepMilliseconds(timeout);
 
-    chSysLock();
+
     palClearPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
@@ -1099,11 +1104,10 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->resetpin));
-    chSysUnlock();
 
 
     chThdSleepMilliseconds(timeout);   //wait for reset
-    chSysLock();
+
     palSetPad((((config->myhc05config->resetport) == gpioa_port) ? GPIOA :
               ((config->myhc05config->resetport) == gpiob_port) ? GPIOB :
               ((config->myhc05config->resetport) == gpioc_port) ? GPIOC :
@@ -1114,7 +1118,7 @@ void hc05SetModeComm(struct BluetoothConfig *config, uint16_t timeout){
               ((config->myhc05config->resetport) == gpioh_port) ? GPIOH :
               NULL),
               (config->myhc05config->resetpin));
-    chSysUnlock();
+
 
     chThdSleepMilliseconds(timeout);   //wait for module recovery
     hc05CurrentState = st_ready_communication;

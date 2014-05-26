@@ -1292,6 +1292,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="hc05.h" />
+		<Unit filename="hc05console.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="hc05console.h" />
 		<Unit filename="mcuconf.h" />
 		<Unit filename="testbluetooth.c">
 			<Option compilerVar="CC" />

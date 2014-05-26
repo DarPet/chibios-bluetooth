@@ -92,7 +92,7 @@ CSRC = $(PORTSRC) \
        $(CHIBIOS)/os/various/devices_lib/accel/lis302dl.c \
        $(CHIBIOS)/os/various/shell.c \
        $(CHIBIOS)/os/various/chprintf.c \
-       $(PROJECTSRC)
+       usbcfg.c bluetooth.c hc05.c hc05console.c testbluetooth.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
