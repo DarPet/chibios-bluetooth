@@ -77,7 +77,7 @@ static msg_t bthc05SendThread(void *instance) {
 
         if ( !chIQIsEmptyI(drv->btInputQueue) ){
 
-            chnPutTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
+            chnPutTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
         }
       }
 
@@ -115,7 +115,7 @@ static msg_t bthc05RecieveThread(void *instance) {
 
         if ( !chOQIsFullI(drv->btOutputQueue) ){
 
-            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->serialdriver, TIME_INFINITE));
+            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, TIME_INFINITE));
         }
     }
 
@@ -250,7 +250,7 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
     strncpy(commandBuffer + 2, command, commandLength );
     strncpy(commandBuffer + 2 + commandLength, "\r\n", 2 );
 
-    chnWrite((BaseChannel *)instance->config->myhc05config->serialdriver,
+    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer,
                 commandBuffer,
                 commandLength + 4);
     chHeapFree(commandBuffer);

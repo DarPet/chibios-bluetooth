@@ -92,6 +92,29 @@ void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
     }
 }
 
+/*! \brief set the new NAME with mode change
+*
+*/
+void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
+{
+ //   (void)argv;
+
+    if( argc != 1)
+    {
+        chprintf(chp, "Usage: btsendat string \r\n");
+    }
+    else
+    {
+        chprintf(chp, "Sending command: %s\r\n", argv[0]);
+
+        chprintf(chp, "commandLength: %i\r\n", strlen(argv[0]));
+
+        hc05sendAtCommand(BluetoothDriverForConsole, argv[0]);
+
+        chprintf(chp, "Command sent: %s\r\n", argv[0]);
+    }
+}
+
 
 
 /*! \brief send buffer of data

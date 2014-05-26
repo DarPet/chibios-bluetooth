@@ -36,7 +36,7 @@ extern "C" {
     void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[]);
-
+    void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[]);
 
 
 #ifdef __cplusplus

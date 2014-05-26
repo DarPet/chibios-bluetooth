@@ -75,6 +75,7 @@ static const ShellCommand commands[] = {
     {"modecomm", cmd_hc05SetModeComm},
     {"btsetname", cmd_hc05SetNameIMC},
     {"btsendbuff", cmd_hc05SendBuffer},
+    {"btsendat", cmd_hc05SendATCommand},
     {NULL,NULL}
 };
 
@@ -169,12 +170,12 @@ int main(void){
             }
         }
 
-/*
+
         if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
         {
             btSend(&myTestBluetoothDriver, 1, myTestBuffer, TESTBT_BUFFERLEN);
         }
-*/
+
 
         chThdSleepMilliseconds(500);
     }
