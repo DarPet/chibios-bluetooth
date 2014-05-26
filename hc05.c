@@ -32,6 +32,7 @@ extern SerialUSBDriver SDU1;
  */
 static SerialConfig hc05SerialConfig = {38400,0,0,0};
 
+
 /*!
  * \brief current state of the driver / HC-05
  */
@@ -924,30 +925,35 @@ int hc05_startserial(struct BluetoothConfig *config){
 
 #if STM32_SERIAL_USE_USART1 == TRUE
         case sd1:
+            config->myhc05config->hc05serialpointer = &SD1;
             sdStart(&SD1, &hc05SerialConfig);
             break;
 #endif
 
 #if STM32_SERIAL_USE_USART2 == TRUE
         case sd2:
+            config->myhc05config->hc05serialpointer = &SD2;
             sdStart(&SD2, &hc05SerialConfig);
             break;
 #endif
 
 #if STM32_SERIAL_USE_USART3 == TRUE
         case sd3:
+            config->myhc05config->hc05serialpointer = &SD3;
             sdStart(&SD3, &hc05SerialConfig);
             break;
 #endif
 
 #if STM32_SERIAL_USE_UART4 == TRUE
         case sd4:
+            config->myhc05config->hc05serialpointer = &SD4;
             sdStart(&SD4, &hc05SerialConfig);
             break;
 #endif
 
 #if STM32_SERIAL_USE_UART5 == TRUE
         case sd5:
+            config->myhc05config->hc05serialpointer = &SD5;
             sdStart(&SD5, &hc05SerialConfig);
             break;
 #endif

@@ -86,6 +86,7 @@ struct hc05_config_t {
     enum hc05_port_t keyport;
     int keypin;
     enum hc05_seriald_t serialdriver;
+    SerialDriver *hc05serialpointer;
 };
 
 #ifdef __cplusplus
