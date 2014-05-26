@@ -35,6 +35,7 @@ void cmd_mem(BaseSequentialStream *chp, int argc, char *argv[]) {
   (void)argv;
   if (argc > 0) {
     chprintf(chp, "Usage: mem\r\n");
+    chprintf(chp, "Strlen argv0: %i", strlen(argv[0]));
     return;
   }
   n = chHeapStatus(NULL, &size);
@@ -155,6 +156,7 @@ int main(void){
     memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN);
 
 
+
     while(TRUE) {
         if (!shelltp) {
             if(SDU1.config->usbp->state==USB_ACTIVE)
@@ -167,12 +169,12 @@ int main(void){
             }
         }
 
-
+/*
         if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
         {
             btSend(&myTestBluetoothDriver, 1, myTestBuffer, TESTBT_BUFFERLEN);
         }
-
+*/
 
         chThdSleepMilliseconds(500);
     }

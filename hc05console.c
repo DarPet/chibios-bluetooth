@@ -81,16 +81,14 @@ void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
     }
     else
     {
-       // chprintf(chp, "Setting new NAME: %u\r\n", (uint32_t)argv[0]);
+       chprintf(chp, "Setting new NAME: %s\r\n", argv[0]);
 
-       // chprintf(chp, "commandLength: %u", strlen((uint32_t)argv[0]));
+       chprintf(chp, "commandLength: %i\r\n", strlen(argv[0]));
 
-        chnWrite((BaseChannel *)BluetoothDriverForConsole->config->myhc05config->serialdriver,
-                argv[0],
-                9);
+       chnWrite((BaseChannel *)&SD2,argv[0],strlen(argv[0]));
 
 
-        //chprintf(chp, "New name is %s\r\n", argv[0]);
+        chprintf(chp, "New name is %s\r\n", argv[0]);
     }
 }
 
