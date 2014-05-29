@@ -18,6 +18,7 @@
 #include "mcuconf.h"
 #include <string.h>
 
+
 #if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
 
 
@@ -230,30 +231,22 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
 	if ( !instance || !command )
 		return EXIT_FAILURE;
 
-    // allocate memory from the heap
-	char *commandBuffer = chHeapAlloc(NULL, strlen(command)+4);
-
-	if(!commandBuffer)
-		return EXIT_FAILURE;
 
 	if (hc05CurrentState != st_ready_at_command)
 	{
 		hc05CurrentState = st_unknown;
 		//enter AT mode here, but wait for threads to detect state change
-		chThdSleepMilliseconds(instance->commSleepTimeMs);
+
         hc05SetModeAt(instance->config, 200);
-
+        //chThdSleepMilliseconds(instance->commSleepTimeMs);
+        chThdSleepMilliseconds(500);
 	}
-	int commandLength = strlen(command);
 
-    strncpy(commandBuffer, "\r\n", 2);
-    strncpy(commandBuffer + 2, command, commandLength );
-    strncpy(commandBuffer + 2 + commandLength, "\r\n", 2 );
 
-    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer,
-                commandBuffer,
-                commandLength + 4);
-    chHeapFree(commandBuffer);
+    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer, command, strlen(command));
+    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer,"\r\n",2);
+
+    chThdSleepMilliseconds(1000);
 
     hc05SetModeComm(instance->config, 200);
 
@@ -309,12 +302,18 @@ int hc05setName(struct BluetoothDriver *instance, char *newname, int namelength)
 		return EXIT_FAILURE;
 
     char Command[] = "AT+NAME=";
-    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + namelength + 1);
+    int cmdLen = strlen(Command);
+    int bufLen = cmdLen + namelength + 1;
+
+    char *CmdBuf = chHeapAlloc(NULL, bufLen);
+
     if(!CmdBuf)
 		return EXIT_FAILURE;
+    else
+        memset(CmdBuf, '\0', bufLen);
 
     strcpy(CmdBuf, Command);
-    strncpy(CmdBuf, newname, namelength);
+    strncpy(CmdBuf+strlen(Command), newname, namelength);
     //must terminate the string with a \0
     *(CmdBuf+strlen(Command)+namelength+1) = '\0';
 

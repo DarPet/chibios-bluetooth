@@ -83,16 +83,13 @@ void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
     {
         chprintf(chp, "Setting new NAME: %s\r\n", argv[0]);
 
-        chprintf(chp, "commandLength: %i\r\n", strlen(argv[0]));
-
-        chnWrite((BaseChannel *)BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,argv[0],strlen(argv[0]));
-        chnWrite((BaseChannel *)BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
+        hc05setName(BluetoothDriverForConsole, argv[0], strlen(argv[0]));
 
         chprintf(chp, "New name is %s\r\n", argv[0]);
     }
 }
 
-/*! \brief set the new NAME with mode change
+/*! \brief send AT command directly with this command
 *
 */
 void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
