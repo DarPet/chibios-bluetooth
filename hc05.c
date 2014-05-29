@@ -270,14 +270,20 @@ int hc05setPinCode(struct BluetoothDriver *instance, char *pin, int pinlength){
 		return EXIT_FAILURE;
 
     char Command[] = "AT+PIN=";
-    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + pinlength + 1);
+    int cmdLen = strlen(Command);
+    int bufLen = cmdLen + pinlength + 1;
+
+    char *CmdBuf = chHeapAlloc(NULL, bufLen);
+
     if(!CmdBuf)
 		return EXIT_FAILURE;
+    else
+        memset(CmdBuf, '\0', bufLen);
 
     strcpy(CmdBuf, Command);
-    strncpy(CmdBuf, pin, pinlength);
+    strncpy(CmdBuf+cmdLen, pin, pinlength);
     //must terminate the string with a \0
-    *(CmdBuf+strlen(Command)+pinlength+1) = '\0';
+    *(CmdBuf+bufLen-1) = '\0';
 
     if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
@@ -313,9 +319,9 @@ int hc05setName(struct BluetoothDriver *instance, char *newname, int namelength)
         memset(CmdBuf, '\0', bufLen);
 
     strcpy(CmdBuf, Command);
-    strncpy(CmdBuf+strlen(Command), newname, namelength);
+    strncpy(CmdBuf+cmdLen, newname, namelength);
     //must terminate the string with a \0
-    *(CmdBuf+strlen(Command)+namelength+1) = '\0';
+    *(CmdBuf+bufLen-1) = '\0';
 
     if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
