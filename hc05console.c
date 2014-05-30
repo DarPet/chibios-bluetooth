@@ -122,8 +122,8 @@ void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
     //(void)argv;
 
     chprintf(chp, "Sending data buffer\r\n");
-    //hc05sendBuffer(BluetoothDriverForConsole,argv[1], 4);
-    chnPutTimeout(&SD2, 'a', TIME_IMMEDIATE);
+    chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, argv[0], strlen(argv[0]));
+    chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
     chprintf(chp, "Switched to communication mode\r\n");
 }
 

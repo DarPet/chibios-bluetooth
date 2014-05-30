@@ -116,7 +116,10 @@ static msg_t bthc05RecieveThread(void *instance) {
 
         if ( !chOQIsFullI(drv->btOutputQueue) ){
 
-            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, TIME_INFINITE));
+            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, TIME_IMMEDIATE));
+
+            if (!chOQIsEmptyI(drv->btOutputQueue))
+                chprintf(&SDU1, "!");
         }
     }
 
