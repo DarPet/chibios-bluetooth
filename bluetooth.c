@@ -13,29 +13,38 @@
  * \brief Sends a buffer of data through the specified BluetoothDriver
  *
  * \param[in] instance A BluetoothDriver object
- * \param[in] command Any command for the recieving side
  * \param[in] buffer A pointer to a buffer
  * \param[in] bufferlength The length of the buffer
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
 
-int btSend(struct BluetoothDriver *instance, int command, char *buffer, int bufferlength){
+int btSend(struct BluetoothDriver *instance, char *buffer, int bufferlength){
 
     // Abort on non-existent driver or buffer (when it should exist)
     if (!instance || (bufferlength && !buffer))
-        return EXIT_FAILURE;
-
-    if (!(instance->vmt->sendCommandByte(instance, command)))
         return EXIT_FAILURE;
 
     //only command is sent
     if(!bufferlength)
         return EXIT_SUCCESS;
 
-    if (!(instance->vmt->sendBuffer(instance, buffer, bufferlength)))
+    return instance->vmt->sendBuffer(instance, buffer, bufferlength);
+}
+
+/*!
+ * \brief Sends a byte through the specified BluetoothDriver
+ *
+ * \param[in] instance A BluetoothDriver object
+ * \param[in] mybyte the byte to send
+ * \return EXIT_SUCCESS or EXIT_FAILURE
+ */
+
+int btSendByte(struct BluetoothDriver *instance, int mybyte){
+
+    if (!instance)
         return EXIT_FAILURE;
 
-    return EXIT_SUCCESS;
+    return instance->vmt->sendByte(instance, mybyte);
 }
 
 /*!
@@ -71,12 +80,9 @@ int btRead(struct BluetoothDriver *instance, char *buffer, int maxlen){
 
     //we have incoming data ready to be served
     if (instance->vmt->canRecieve(instance))
-    {
-        instance->vmt->readBuffer(instance, buffer, maxlen);
-        return EXIT_SUCCESS;
-    }
-    else
-        return EXIT_FAILURE;
+        return instance->vmt->readBuffer(instance, buffer, maxlen);;
+
+    return EXIT_FAILURE;
 }
 
 

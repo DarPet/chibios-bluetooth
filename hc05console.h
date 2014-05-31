@@ -29,14 +29,13 @@ extern "C" {
 #endif
     void cmd_hc05SetModeAT(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05SetModeComm(BaseSequentialStream *chp, int argc, char *argv[]);
-    void cmd_hc05GetIQSize(BaseSequentialStream *chp, int argc, char *argv[]);
-    void cmd_hc05GetOQSize(BaseSequentialStream *chp, int argc, char *argv[]);
-    void cmd_hc05SetPinIMC(BaseSequentialStream *chp, int argc, char *argv[]);
-    void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[]);
+    void cmd_hc05SetPin(BaseSequentialStream *chp, int argc, char *argv[]);
+    void cmd_hc05SetName(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[]);
     void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[]);
-
+    void cmd_hc05SetName(BaseSequentialStream *chp, int argc, char *argv[]);
+    void cmd_hc05resetDefaults(BaseSequentialStream *chp, int argc, char *argv[]);
 
 #ifdef __cplusplus
 }

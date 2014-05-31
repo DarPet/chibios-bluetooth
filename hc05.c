@@ -41,91 +41,6 @@ static volatile enum hc05_state_t hc05CurrentState = st_unknown;
 
 
 /*===========================================================================*/
-/* Threads                         .                                         */
-/*===========================================================================*/
-
-
-/*!
- * \brief Working area for hc05 send thread
- */
-static WORKING_AREA(bthc05SendThreadWa, 128);
-
-
-/*!
- *   \brief A thread that sends data over hc05 bluetooth module
- *
- *      Read the input queue (from the user application) and send everything through the serial interface
- *
- *   \param[in] instance A BluetoothDriver object
-*/
-static msg_t bthc05SendThread(void *instance) {
-
-    if (!instance)
-        chThdSleep(TIME_INFINITE);
-
-    struct BluetoothDriver *drv = (struct BluetoothDriver *) instance;
-
-    chRegSetThreadName("btSendThread");
-
-    while (TRUE) {
-
-        chThdSleepMilliseconds(drv->commSleepTimeMs);
-        //check module state
-        if ( hc05CurrentState != st_ready_communication )
-            continue;
-
-        if ( !chIQIsEmptyI(drv->btInputQueue) || 1){
-
-            chprintf(&SDU1, "?");
-            sdPutTimeout(drv->config->myhc05config->hc05serialpointer, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_IMMEDIATE);
-        }
-      }
-
-  return (msg_t) 0;
-}
-
-/*!
- * \brief Working area for hc05 recieve thread
- */
-static WORKING_AREA(bthc05RecieveThreadWa, 128);
-
-
-/*!
- *   \brief A thread that recieves data over hc05 bluetooth module
- *
- *      Read the serial interface for incoming data and store it in the output queue (that will be read by the application)
- *
- *   \param[in] instance A BluetoothDriver object
-*/
-static msg_t bthc05RecieveThread(void *instance) {
-
-    if (!instance)
-        chThdSleep(TIME_INFINITE);
-
-    struct BluetoothDriver *drv = (struct BluetoothDriver *) instance;
-
-    chRegSetThreadName("btRecieveThread");
-
-    while (TRUE) {
-        chThdSleepMilliseconds(drv->commSleepTimeMs);
-
-        //check module state
-        if ( hc05CurrentState != st_ready_communication )
-            continue;
-
-        if (!chOQIsEmptyI(drv->btOutputQueue) || 1)
-        {
-            chprintf(&SDU1, "!");
-            chOQPutTimeout(drv->btOutputQueue, sdGetTimeout(drv->config->myhc05config->hc05serialpointer, TIME_IMMEDIATE),TIME_IMMEDIATE);
-        }
-    }
-
-
-  return (msg_t) 0;
-}
-
-
-/*===========================================================================*/
 /* VMT functions                                                             */
 /*===========================================================================*/
 
@@ -145,18 +60,6 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int 
 		return EXIT_FAILURE;
 	if ( !bufferlength )
 		return EXIT_SUCCESS;
-/*
-	if ( bufferlength <=  (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)))
-	{
-		return (chOQWriteTimeout(instance->btInputQueue, buffer, bufferlength, TIME_IMMEDIATE) == bufferlength)
-			? EXIT_SUCCESS
-			: EXIT_FAILURE;
-	}
-	else
-		return EXIT_FAILURE;
-
-
-*/
 
     return sdWriteTimeout(instance->config->myhc05config->hc05serialpointer, buffer, bufferlength, TIME_IMMEDIATE) > 0
             ? EXIT_SUCCESS
@@ -168,26 +71,15 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int 
  * \brief Sends the given command byte by writing it to the input queue
  *
  * \param[in] instance A BluetoothDriver object
- * \param[in] commandByte A byte to send
+ * \param[in] mybyte A byte to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
+int hc05sendByte(struct BluetoothDriver *instance, int mybyte){
 
 	if ( !instance )
 		return EXIT_FAILURE;
 
-    /*
-	if ( (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)) > 0)
-	{
-		return (chOQPutTimeout(instance->btInputQueue, commandByte, TIME_IMMEDIATE) == 1)
-			? EXIT_SUCCESS
-			: EXIT_FAILURE;
-	}
-	else
-		return EXIT_FAILURE;
-    */
-
-    return sdPut(instance->config->myhc05config->hc05serialpointer, commandByte);
+    return sdPut(instance->config->myhc05config->hc05serialpointer, mybyte);
 }
 
 
@@ -201,12 +93,6 @@ int hc05canRecieve(struct BluetoothDriver *instance){
 
 	if ( !instance )
 		return EXIT_FAILURE;
-
-    /*
-	return (chQSpaceI(instance->btOutputQueue) > 0)
-			? EXIT_SUCCESS
-			: EXIT_FAILURE;
-			*/
 
 	return sdGetWouldBlock(instance->config->myhc05config->hc05serialpointer) == 0 ? 1 : 0;
 
@@ -228,13 +114,6 @@ int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int 
 		return EXIT_FAILURE;
 	if ( !maxlength )
 		return EXIT_SUCCESS;
-
-    /*
-	return (chIQReadTimeout (instance->btOutputQueue, buffer, maxlength, TIME_IMMEDIATE) > 0)
-	? EXIT_SUCCESS
-	: EXIT_SUCCESS;
-
-	*/
 
 	return sdReadTimeout(instance->config->myhc05config->hc05serialpointer, buffer, maxlength, TIME_IMMEDIATE) > 0
             ? EXIT_SUCCESS
@@ -367,12 +246,19 @@ int hc05resetDefaults(struct BluetoothDriver *instance){
 		return EXIT_FAILURE;
 
     char Command[] = "AT+ORGL";
-    char *CmdBuf = chHeapAlloc(NULL, strlen(Command) + 1);
+    int cmdLen = strlen(Command);
+    int bufLen = cmdLen + 1;
+
+    char *CmdBuf = chHeapAlloc(NULL, bufLen);
+
     if(!CmdBuf)
 		return EXIT_FAILURE;
+    else
+        memset(CmdBuf, '\0', bufLen);
 
     strcpy(CmdBuf, Command);
-    *(CmdBuf+strlen(Command)+1) = '\0';
+    //must terminate the string with a \0
+    *(CmdBuf+bufLen-1) = '\0';
 
     if ( (hc05sendAtCommand(instance, CmdBuf) == EXIT_FAILURE))
         return EXIT_FAILURE;
@@ -388,8 +274,6 @@ int hc05resetDefaults(struct BluetoothDriver *instance){
  *  Read config
  *  Set the apropriate port/pin settings
  *  Set the name/pin according to the config
- *  Get the in/out buffers ready
- *  Create buffer threads
  *  Initialize the serial driver
  *  Set the ready flag
  *
@@ -412,21 +296,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     //set up the RX and TX pins
     hc05_settxpin(config);
     hc05_setrxpin(config);
-    //set up the RTS and CTS pins
-/*
-    hc05_setrtspin(config);
-    hc05_setctspin(config);
-*/
-    //buffers
-/*
-    chOQResetI(instance->btOutputQueue);
-    chIQResetI(instance->btInputQueue);
 
-    //threads
-    //create driverThread, but do not start it yet
-    config->sendThread=chThdCreateI(bthc05SendThreadWa, sizeof(bthc05SendThreadWa), NORMALPRIO, bthc05SendThread, instance);
-    config->recieveThread=chThdCreateI(bthc05RecieveThreadWa, sizeof(bthc05RecieveThreadWa), NORMALPRIO, bthc05RecieveThread, instance);
-*/
     //serial driver
     hc05_updateserialconfig(config);
     hc05_startserial(config);
@@ -434,20 +304,8 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     //flag
     hc05CurrentState = st_ready_communication;
 
-/*
-    //set default name, pin, other AT dependent stuff here
-    hc05setName(instance, "Wait", strlen("Wait"));
-
-    hc05setPinCode(instance, "1234", strlen("1234"));
-*/
-
     //return to communication mode
     hc05SetModeComm(config, 200);
-/*
-    //start threads
-    chThdResume(config->sendThread);
-    chThdResume(config->recieveThread);
-*/
 
     return EXIT_SUCCESS;
 }
@@ -456,12 +314,6 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
  * \brief Stops the driver
  *
  * Clean up the communications channel and stop the driver.
- *
- *  Stop threads (set stop flag)
- *  Stop serial
- *  Empty buffers
- *
- *
  *
  * \param[in] instance A BluetoothDriver object
  * \return EXIT_SUCCESS or EXIT_FAILURE
@@ -476,11 +328,6 @@ int hc05close(struct BluetoothDriver *instance){
     chThdSleepMilliseconds(100);
     //stop serial driver
     hc05_stopserial(instance->config);
-    //empty buffers
-
-    chOQResetI(instance->btOutputQueue);
-    chIQResetI(instance->btOutputQueue);
-
 
     return EXIT_SUCCESS;
 }
@@ -494,7 +341,7 @@ int hc05close(struct BluetoothDriver *instance){
  */
 struct BluetoothDeviceVMT hc05BtDevVMT = {
     .sendBuffer = hc05sendBuffer,
-    .sendCommandByte = hc05sendCommandByte,
+    .sendByte = hc05sendByte,
     .canRecieve = hc05canRecieve,
     .readBuffer = hc05readBuffer,
     .setPinCode = hc05setPinCode,

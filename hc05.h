@@ -93,7 +93,7 @@ struct hc05_config_t {
 extern "C" {
 #endif
     int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int bufferlength);
-    int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte);
+    int hc05sendByte(struct BluetoothDriver *instance, int mybyte);
     int hc05canRecieve(struct BluetoothDriver *instance);
     int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int maxlength);
     int hc05sendAtCommand(struct BluetoothDriver *instance, char* command);

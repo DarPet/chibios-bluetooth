@@ -73,10 +73,15 @@ static const ShellCommand commands[] = {
     {"threads", cmd_threads},
     {"modeat", cmd_hc05SetModeAT},
     {"modecomm", cmd_hc05SetModeComm},
-    {"btsetname", cmd_hc05SetNameIMC},
-    {"btsendbuff", cmd_hc05SendBuffer},
+    {"btsetname", cmd_hc05SetName},
+    {"btsend", cmd_hc05SendBuffer},
     {"btsendat", cmd_hc05SendATCommand},
     {"btread", cmd_hc05GetBuffer},
+    {"btresetdefaults", cmd_hc05resetDefaults},
+    {"btsetpin", cmd_hc05SetPin},
+
+
+
     {NULL,NULL}
 };
 
@@ -131,7 +136,7 @@ int main(void){
     };
 
     static struct BluetoothConfig myTestBluetoothConfig ={
-        .name = "Pumukli",
+        .name = "Modul",
         .pincode = "1234",
         .baudrate = b38400,
         .usedmodule = hc05,
@@ -175,8 +180,8 @@ int main(void){
         if (btCanRecieve(&myTestBluetoothDriver))
         {
             memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN+1);
-            hc05readBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
-            hc05sendBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
+            btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
+            btSend(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
         }
 
 

@@ -52,33 +52,33 @@ void cmd_hc05SetModeComm(BaseSequentialStream *chp, int argc, char *argv[])
 }
 
 
-/*! \brief get the number of byte in the input queue
+/*! \brief set the new PIN code
 *
 */
-void cmd_hc05GetIQSize(BaseSequentialStream *chp, int argc, char *argv[]);
-
-
-/*! \brief get the number of bytes in the output queue
-*
-*/
-void cmd_hc05GetOQSize(BaseSequentialStream *chp, int argc, char *argv[]);
-
-
-/*! \brief set the new PIN code with mode change
-*
-*/
-int cmd_hc05SetPinIMC(BaseSequentialStream *chp, int argc, char *argv[]);
-
-/*! \brief set the new NAME with mode change
-*
-*/
-void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
+void cmd_hc05SetPin(BaseSequentialStream *chp, int argc, char *argv[])
 {
- //   (void)argv;
-
     if( argc != 1)
     {
-        chprintf(chp, "Usage: btsetnamen string \r\n");
+        chprintf(chp, "Usage: btsetpin string \r\n");
+    }
+    else
+    {
+        chprintf(chp, "Setting new PIN: %s\r\n", argv[0]);
+
+        hc05setPinCode(BluetoothDriverForConsole, argv[0], strlen(argv[0]));
+
+        chprintf(chp, "New PIN is %s\r\n", argv[0]);
+    }
+}
+
+/*! \brief set the new NAME
+*
+*/
+void cmd_hc05SetName(BaseSequentialStream *chp, int argc, char *argv[])
+{
+    if( argc != 1)
+    {
+        chprintf(chp, "Usage: btsetname string \r\n");
     }
     else
     {
@@ -90,12 +90,33 @@ void cmd_hc05SetNameIMC(BaseSequentialStream *chp, int argc, char *argv[])
     }
 }
 
+/*! \brief reset HC05 settings to factory defaults
+*
+*/
+void cmd_hc05resetDefaults(BaseSequentialStream *chp, int argc, char *argv[])
+{
+    if( argc != 0)
+    {
+        chprintf(chp, "Usage: btresetdefaults");
+    }
+    else
+    {
+        chprintf(chp, "Resetting to module defaults...\r\n");
+
+        hc05resetDefaults(BluetoothDriverForConsole);
+
+        chprintf(chp, "Module settings has been reset.\r\n", argv[0]);
+    }
+}
+
+
+
+
 /*! \brief send AT command directly with this command
 *
 */
 void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
 {
- //   (void)argv;
 
     if( argc != 1)
     {
@@ -120,12 +141,10 @@ void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
 */
 void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 {
-    //(void)argv;
-
     chprintf(chp, "Sending data buffer\r\n");
     chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, argv[0], strlen(argv[0]));
     chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
-    chprintf(chp, "Switched to communication mode\r\n");
+    chprintf(chp, "Buffer sent\r\n");
 }
 
 /*! \brief get buffer of data
@@ -136,9 +155,13 @@ void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[])
     chprintf(chp, "Getting data buffer\r\n");
     memset(buffer,'\0', 40);
 
-    sdReadTimeout(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, buffer, 32, TIME_IMMEDIATE);
-    //chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
-    chprintf(chp, "Buffer: %s\r\n", buffer);
+    if (hc05canRecieve(BluetoothDriverForConsole))
+    {
+        sdReadTimeout(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, buffer, 32, TIME_IMMEDIATE);
+        chprintf(chp, "Buffer: %s\r\n", buffer);
+        return;
+    }
+    return;
 }
 
 
