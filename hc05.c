@@ -74,11 +74,10 @@ static msg_t bthc05SendThread(void *instance) {
         if ( hc05CurrentState != st_ready_communication )
             continue;
 
-        //! ST_SHUTTING_DOWN ÁLLAPOTRA LEÁLLNI
+        if ( !chIQIsEmptyI(drv->btInputQueue) || 1){
 
-        if ( !chIQIsEmptyI(drv->btInputQueue) ){
-
-            chnPutTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_INFINITE);
+            chprintf(&SDU1, "?");
+            sdPutTimeout(drv->config->myhc05config->hc05serialpointer, chIQGetTimeout(drv->btInputQueue, TIME_IMMEDIATE), TIME_IMMEDIATE);
         }
       }
 
@@ -114,12 +113,10 @@ static msg_t bthc05RecieveThread(void *instance) {
         if ( hc05CurrentState != st_ready_communication )
             continue;
 
-        if ( !chOQIsFullI(drv->btOutputQueue) ){
-
-            chOQPut(drv->btOutputQueue, chnGetTimeout((BaseChannel *)drv->config->myhc05config->hc05serialpointer, TIME_IMMEDIATE));
-
-            if (!chOQIsEmptyI(drv->btOutputQueue))
-                chprintf(&SDU1, "!");
+        if (!chOQIsEmptyI(drv->btOutputQueue) || 1)
+        {
+            chprintf(&SDU1, "!");
+            chOQPutTimeout(drv->btOutputQueue, sdGetTimeout(drv->config->myhc05config->hc05serialpointer, TIME_IMMEDIATE),TIME_IMMEDIATE);
         }
     }
 
@@ -151,7 +148,7 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int 
 
 	if ( bufferlength <=  (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)))
 	{
-		return (chOQWriteTimeout(instance->btInputQueue, buffer, bufferlength, TIME_INFINITE) == bufferlength)
+		return (chOQWriteTimeout(instance->btInputQueue, buffer, bufferlength, TIME_IMMEDIATE) == bufferlength)
 			? EXIT_SUCCESS
 			: EXIT_FAILURE;
 	}
@@ -174,7 +171,7 @@ int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
 
 	if ( (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)) > 0)
 	{
-		return (chOQWriteTimeout(instance->btInputQueue, &commandByte, 1, TIME_INFINITE) == 1)
+		return (chOQPutTimeout(instance->btInputQueue, commandByte, TIME_IMMEDIATE) == 1)
 			? EXIT_SUCCESS
 			: EXIT_FAILURE;
 	}
@@ -246,8 +243,8 @@ int hc05sendAtCommand(struct BluetoothDriver *instance, char* command){
 	}
 
 
-    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer, command, strlen(command));
-    chnWrite((BaseChannel *)instance->config->myhc05config->hc05serialpointer,"\r\n",2);
+    sdWrite(instance->config->myhc05config->hc05serialpointer, command, strlen(command));
+    sdWrite(instance->config->myhc05config->hc05serialpointer,"\r\n",2);
 
     chThdSleepMilliseconds(1000);
 
@@ -393,13 +390,14 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     hc05_settxpin(config);
     hc05_setrxpin(config);
     //set up the RTS and CTS pins
+/*
     hc05_setrtspin(config);
     hc05_setctspin(config);
-
+*/
     //buffers
 
     chOQResetI(instance->btOutputQueue);
-    chIQResetI(instance->btOutputQueue);
+    chIQResetI(instance->btInputQueue);
 
     //threads
     //create driverThread, but do not start it yet
@@ -418,11 +416,11 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     hc05setName(instance, "Wait", strlen("Wait"));
 
     hc05setPinCode(instance, "1234", strlen("1234"));
-
+*/
 
     //return to communication mode
-    hc05SetModeComm(config, 100);
-*/
+    hc05SetModeComm(config, 200);
+
     //start threads
     chThdResume(config->sendThread);
     chThdResume(config->recieveThread);

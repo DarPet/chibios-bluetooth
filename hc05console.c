@@ -23,6 +23,7 @@
 
 extern SerialUSBDriver SDU1;
 extern struct BluetoothDriver* BluetoothDriverForConsole;
+char buffer[64];
 
 /*! \brief set HC 05 to AT mode
 *
@@ -130,7 +131,15 @@ void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 /*! \brief get buffer of data
 *
 */
-void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[]);
+void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[])
+{
+    chprintf(chp, "Getting data buffer\r\n");
+    memset(buffer,'\0', 40);
+
+    sdReadTimeout(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, buffer, 32, TIME_IMMEDIATE);
+    //chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
+    chprintf(chp, "Buffer: %s\r\n", buffer);
+}
 
 
 #endif //HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)

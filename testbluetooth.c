@@ -76,6 +76,7 @@ static const ShellCommand commands[] = {
     {"btsetname", cmd_hc05SetNameIMC},
     {"btsendbuff", cmd_hc05SendBuffer},
     {"btsendat", cmd_hc05SendATCommand},
+    {"btread", cmd_hc05GetBuffer},
     {NULL,NULL}
 };
 
@@ -173,7 +174,7 @@ int main(void){
 
         if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
         {
-            btSend(&myTestBluetoothDriver, 1, myTestBuffer, TESTBT_BUFFERLEN);
+            btSend(&myTestBluetoothDriver, 87, myTestBuffer, TESTBT_BUFFERLEN);
         }
 
 
