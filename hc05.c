@@ -145,7 +145,7 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int 
 		return EXIT_FAILURE;
 	if ( !bufferlength )
 		return EXIT_SUCCESS;
-
+/*
 	if ( bufferlength <=  (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)))
 	{
 		return (chOQWriteTimeout(instance->btInputQueue, buffer, bufferlength, TIME_IMMEDIATE) == bufferlength)
@@ -154,6 +154,13 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int 
 	}
 	else
 		return EXIT_FAILURE;
+
+
+*/
+
+    return sdWriteTimeout(instance->config->myhc05config->hc05serialpointer, buffer, bufferlength, TIME_IMMEDIATE) > 0
+            ? EXIT_SUCCESS
+            : EXIT_FAILURE;
 
 }
 
@@ -169,6 +176,7 @@ int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
 	if ( !instance )
 		return EXIT_FAILURE;
 
+    /*
 	if ( (chQSizeI(instance->btInputQueue)-chQSpaceI(instance->btInputQueue)) > 0)
 	{
 		return (chOQPutTimeout(instance->btInputQueue, commandByte, TIME_IMMEDIATE) == 1)
@@ -177,6 +185,9 @@ int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
 	}
 	else
 		return EXIT_FAILURE;
+    */
+
+    return sdPut(instance->config->myhc05config->hc05serialpointer, commandByte);
 }
 
 
@@ -191,9 +202,14 @@ int hc05canRecieve(struct BluetoothDriver *instance){
 	if ( !instance )
 		return EXIT_FAILURE;
 
+    /*
 	return (chQSpaceI(instance->btOutputQueue) > 0)
 			? EXIT_SUCCESS
 			: EXIT_FAILURE;
+			*/
+
+	return sdGetWouldBlock(instance->config->myhc05config->hc05serialpointer);
+
 }
 
 /*!
@@ -213,9 +229,16 @@ int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int 
 	if ( !maxlength )
 		return EXIT_SUCCESS;
 
+    /*
 	return (chIQReadTimeout (instance->btOutputQueue, buffer, maxlength, TIME_IMMEDIATE) > 0)
 	? EXIT_SUCCESS
 	: EXIT_SUCCESS;
+
+	*/
+
+	return sdReadTimeout(instance->config->myhc05config->hc05serialpointer, buffer, maxlength, TIME_IMMEDIATE) > 0
+            ? EXIT_SUCCESS
+            : EXIT_FAILURE;
 
 }
 
@@ -395,7 +418,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     hc05_setctspin(config);
 */
     //buffers
-
+/*
     chOQResetI(instance->btOutputQueue);
     chIQResetI(instance->btInputQueue);
 
@@ -403,7 +426,7 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
     //create driverThread, but do not start it yet
     config->sendThread=chThdCreateI(bthc05SendThreadWa, sizeof(bthc05SendThreadWa), NORMALPRIO, bthc05SendThread, instance);
     config->recieveThread=chThdCreateI(bthc05RecieveThreadWa, sizeof(bthc05RecieveThreadWa), NORMALPRIO, bthc05RecieveThread, instance);
-
+*/
     //serial driver
     hc05_updateserialconfig(config);
     hc05_startserial(config);
@@ -420,11 +443,11 @@ int hc05open(struct BluetoothDriver *instance, struct  BluetoothConfig *config){
 
     //return to communication mode
     hc05SetModeComm(config, 200);
-
+/*
     //start threads
     chThdResume(config->sendThread);
     chThdResume(config->recieveThread);
-
+*/
 
     return EXIT_SUCCESS;
 }

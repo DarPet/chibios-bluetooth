@@ -154,8 +154,8 @@ int main(void){
 
     btOpen(&myTestBluetoothDriver, &myTestBluetoothConfig);
 
-    static char myTestBuffer[TESTBT_BUFFERLEN];
-    memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN);
+    static char myTestBuffer[TESTBT_BUFFERLEN+1];
+    memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN+1);
 
 
 
@@ -172,9 +172,9 @@ int main(void){
         }
 
 
-        if (btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
+        if (hc05readBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
         {
-            btSend(&myTestBluetoothDriver, 87, myTestBuffer, TESTBT_BUFFERLEN);
+            hc05sendBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
         }
 
 
