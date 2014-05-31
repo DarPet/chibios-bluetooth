@@ -166,7 +166,7 @@ struct BluetoothDeviceVMT {
 extern "C" {
 #endif
 int btSend(struct BluetoothDriver *instance, int commandByte, char *buffer, int bufferlength);
-int btIsFrame(struct BluetoothDriver *instance);
+int btCanRecieve(struct BluetoothDriver *instance);
 int btRead(struct BluetoothDriver *instance, char *buffer, int maxlen);
 int btOpen(struct BluetoothDriver *instance, struct BluetoothConfig *config);
 int btClose(struct BluetoothDriver *instance);

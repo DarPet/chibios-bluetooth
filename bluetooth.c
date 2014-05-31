@@ -45,7 +45,7 @@ int btSend(struct BluetoothDriver *instance, int command, char *buffer, int buff
  * \return 0 if there is no frame, 1 if there is a frame
  */
 
-int btIsFrame(struct BluetoothDriver *instance){
+int btCanRecieve(struct BluetoothDriver *instance){
 
     if (!instance)
         return 0;

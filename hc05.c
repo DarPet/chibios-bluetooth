@@ -195,7 +195,7 @@ int hc05sendCommandByte(struct BluetoothDriver *instance, int commandByte){
  * \brief Checks the input queue for incoming data
  *
  * \param[in] instance A BluetoothDriver object
- * \return EXIT_SUCCESS or EXIT_FAILURE
+ * \return 1 if there is data, 0 if there isn't
  */
 int hc05canRecieve(struct BluetoothDriver *instance){
 
@@ -208,7 +208,7 @@ int hc05canRecieve(struct BluetoothDriver *instance){
 			: EXIT_FAILURE;
 			*/
 
-	return sdGetWouldBlock(instance->config->myhc05config->hc05serialpointer);
+	return sdGetWouldBlock(instance->config->myhc05config->hc05serialpointer) == 0 ? 1 : 0;
 
 }
 

@@ -172,8 +172,10 @@ int main(void){
         }
 
 
-        if (hc05readBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN))
+        if (btCanRecieve(&myTestBluetoothDriver))
         {
+            memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN+1);
+            hc05readBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
             hc05sendBuffer(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
         }
 
