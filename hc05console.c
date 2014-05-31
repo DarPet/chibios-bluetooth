@@ -18,7 +18,7 @@
 #include "mcuconf.h"
 #include <string.h>
 
-#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__) || 1
 
 
 extern SerialUSBDriver SDU1;
@@ -141,6 +141,7 @@ void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
 /*! \brief send buffer of data
 *
 */
+
 void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)argc;

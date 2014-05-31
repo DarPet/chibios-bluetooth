@@ -19,7 +19,7 @@
 #include <shell.h>
 
 
-#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__) || 1
 
 
 

@@ -21,7 +21,7 @@
 
 
 
-#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__) || 1
 
 #define TESTBT_BUFFERLEN 50
 

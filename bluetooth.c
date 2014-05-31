@@ -7,7 +7,7 @@
  */
 #include "hal.h"
 #include "bluetooth.h"
-#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_BLUETOOTH || defined(__DOXYGEN__) || 1
 
 /*!
  * \brief Sends a buffer of data through the specified BluetoothDriver
@@ -65,7 +65,6 @@ int btCanRecieve(struct BluetoothDriver *instance){
 /*!
  * \brief Reads data from bluetooth module
  *
- * Copy the given (bufferlen sized) buffer to the specified BluetoothDriver input queue to send through the bluetooth device
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] buffer A pointer to a buffer

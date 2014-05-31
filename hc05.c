@@ -19,7 +19,7 @@
 #include <string.h>
 
 
-#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__)
+#if HAL_USE_HC_05_BLUETOOTH || defined(__DOXYGEN__) || 1
 
 
 extern SerialUSBDriver SDU1;
@@ -47,8 +47,6 @@ static volatile enum hc05_state_t hc05CurrentState = st_unknown;
 /*!
  * \brief Sends the given buffer
  *
- *  Writes bufferlength bytes from the buffer to the input queue, if there is enough space in it
- *
  * \param[in] instance A BluetoothDriver object
  * \param[in] buffer A pointer to a buffer to read from
  * \param[in] bufferlength The number of bytes to send
@@ -68,7 +66,7 @@ int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, int bufferlen
 }
 
 /*!
- * \brief Sends the given command byte by writing it to the input queue
+ * \brief Sends the given byte
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] mybyte A byte to send
@@ -84,7 +82,7 @@ int hc05sendByte(struct BluetoothDriver *instance, int mybyte){
 
 
 /*!
- * \brief Checks the input queue for incoming data
+ * \brief Checks if there is incoming data
  *
  * \param[in] instance A BluetoothDriver object
  * \return 1 if there is data, 0 if there isn't
@@ -99,9 +97,7 @@ int hc05canRecieve(struct BluetoothDriver *instance){
 }
 
 /*!
- * \brief Reads from the input queue
- *
- *  Reads maxlength bytes (or less, if there is no more) from the output queue and puts it in the specified buffer to be processed by the applicaton
+ * \brief Reads from the bluetooth module into the buffer
  *
  * \param[in] instance A BluetoothDriver object
  * \param[in] buffer A pointer to a buffer to write into
