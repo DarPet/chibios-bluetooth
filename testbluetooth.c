@@ -104,9 +104,6 @@ void connectConsole(void) {
     usbConnectBus(serusbcfg.usbp);
 }
 
-static char myBtInBuffer[BLUETOOTH_INPUT_BUFFER_SIZE+1];
-static char myBtOutBuffer[BLUETOOTH_OUTPUT_BUFFER_SIZE+1];
-
 extern struct BluetoothDeviceVMT hc05BtDevVMT;
 
 int main(void){
@@ -116,10 +113,6 @@ int main(void){
     halInit();
     chSysInit();
     connectConsole();
-
-
-    static INPUTQUEUE_DECL (myBtInputQueue, myBtInBuffer, BLUETOOTH_INPUT_BUFFER_SIZE, NULL, NULL);
-    static OUTPUTQUEUE_DECL (myBtOutputQueue, myBtOutBuffer, BLUETOOTH_OUTPUT_BUFFER_SIZE, NULL, NULL);
 
     static struct hc05_config_t myhc05_config = {
         .txport = gpioa_port,
@@ -147,8 +140,6 @@ int main(void){
     static struct BluetoothDriver myTestBluetoothDriver ={
         .vmt = &hc05BtDevVMT,
         .config = &myTestBluetoothConfig,
-        .btInputQueue = &myBtInputQueue,
-        .btOutputQueue = &myBtOutputQueue,
         .driverIsReady = 0,
         .commSleepTimeMs = 100
         };
@@ -182,6 +173,12 @@ int main(void){
             memset(&myTestBuffer, '\0' , TESTBT_BUFFERLEN+1);
             btRead(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
             btSend(&myTestBluetoothDriver, myTestBuffer, TESTBT_BUFFERLEN);
+
+            if (!strcmp("orangeon\r\n",myTestBuffer))
+                palSetPad(GPIOD, GPIOD_LED3);
+
+            if (!strcmp("orangeoff\r\n",myTestBuffer))
+                palClearPad(GPIOD, GPIOD_LED3);
         }
 
 

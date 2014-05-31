@@ -31,6 +31,7 @@ char buffer[64];
 void cmd_hc05SetModeAT(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)argv;
+    (void)argc;
 
     chprintf(chp, "Switching to AT mode\r\n");
     hc05SetModeAt(BluetoothDriverForConsole->config,200);
@@ -45,6 +46,7 @@ void cmd_hc05SetModeAT(BaseSequentialStream *chp, int argc, char *argv[])
 void cmd_hc05SetModeComm(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)argv;
+    (void)argc;
 
     chprintf(chp, "Switching to communication mode\r\n");
     hc05SetModeComm(BluetoothDriverForConsole->config,200);
@@ -141,6 +143,8 @@ void cmd_hc05SendATCommand(BaseSequentialStream *chp, int argc, char *argv[])
 */
 void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 {
+    (void)argc;
+
     chprintf(chp, "Sending data buffer\r\n");
     chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer, argv[0], strlen(argv[0]));
     chnWrite(BluetoothDriverForConsole->config->myhc05config->hc05serialpointer,"\r\n",2);
@@ -152,6 +156,9 @@ void cmd_hc05SendBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 */
 void cmd_hc05GetBuffer(BaseSequentialStream *chp, int argc, char *argv[])
 {
+    (void)argc;
+    (void)argv;
+
     chprintf(chp, "Getting data buffer\r\n");
     memset(buffer,'\0', 40);
 

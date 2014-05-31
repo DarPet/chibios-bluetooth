@@ -54,7 +54,7 @@ static volatile enum hc05_state_t hc05CurrentState = st_unknown;
  * \param[in] bufferlength The number of bytes to send
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, unsigned int bufferlength){
+int hc05sendBuffer(struct BluetoothDriver *instance, char *buffer, int bufferlength){
 
 	if ( !instance || !buffer )
 		return EXIT_FAILURE;
@@ -108,7 +108,7 @@ int hc05canRecieve(struct BluetoothDriver *instance){
  * \param[in] maxlength The maximum number of bytes to read (size of the buffer)
  * \return EXIT_SUCCESS or EXIT_FAILURE
  */
-int hc05readBuffer(struct BluetoothDriver *instance, unsigned char *buffer, int maxlength){
+int hc05readBuffer(struct BluetoothDriver *instance, char *buffer, int maxlength){
 
 	if ( !instance || !buffer )
 		return EXIT_FAILURE;
